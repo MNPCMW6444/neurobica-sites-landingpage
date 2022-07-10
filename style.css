@@ -31,7 +31,11 @@ body {
 }
 
 /* ----------------------common------------------ */
-
+.Papa{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
 .maxsize {
   max-width: 1200px;
 }
