@@ -92,7 +92,7 @@ export default function Mobile(props: Props) {
                   disableRipple
                   sx={{
                     color: orange[300],
-                    fontSize: "1.5rem",
+                    fontSize: "5vw",
                     "&:hover": {
                       backgroundColor: orange[100],
                       cursor: "unset",

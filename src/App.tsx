@@ -88,7 +88,7 @@ function App() {
         </AppBar>
       )}
       <div ref={homeRef}>
-        <Box sx={{ paddingTop: "80px" }}>
+        <Box>
           <Grid
             container
             direction="column"
