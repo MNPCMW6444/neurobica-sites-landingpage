@@ -32,13 +32,16 @@ function App() {
   });
 
   const whyRef = useRef(null);
-  const scrollToWhy = () => (whyRef.current as any).scrollIntoView();
+  const scrollToWhy = () =>
+    (whyRef.current as any).scrollIntoView({ behavior: "smooth" });
 
   const featuresRef = useRef(null);
-  const scrollToFeatores = () => (featuresRef.current as any).scrollIntoView();
+  const scrollToFeatores = () =>
+    (featuresRef.current as any).scrollIntoView({ behavior: "smooth" });
 
   const pricingRef = useRef(null);
-  const scrollToPricing = () => (pricingRef.current as any).scrollIntoView();
+  const scrollToPricing = () =>
+    (pricingRef.current as any).scrollIntoView({ behavior: "smooth" });
 
   const actions = {
     why: scrollToWhy,
@@ -46,10 +49,16 @@ function App() {
     pricing: scrollToPricing,
   };
 
+  const actionsM = {
+    why: () => setTimeout(() => scrollToWhy(), 500),
+    features: () => setTimeout(() => scrollToFeatores(), 500),
+    pricing: () => setTimeout(() => scrollToPricing(), 500),
+  };
+
   return (
     <Box sx={allSx}>
       {ismobile ? (
-        <Mobile actions={actions} />
+        <Mobile actions={actionsM} />
       ) : (
         <AppBar
           position="fixed"
@@ -88,7 +97,9 @@ function App() {
             <Register />
           </Grid>
           <Grid item>
-            <Michael /* ref={whyRef} */ />
+            <div ref={whyRef}>
+              <Michael />
+            </div>
           </Grid>
         </Grid>
       </Box>
