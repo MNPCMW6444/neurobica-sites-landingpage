@@ -1,4 +1,5 @@
 import Button from "@mui/material/Button";
+import blue from "@mui/material/colors/blue";
 import orange from "@mui/material/colors/orange";
 import Grid from "@mui/material/Grid";
 
@@ -25,6 +26,16 @@ export default function Nav({ dir, actions }: NavProps) {
       alignItems="center"
       columnSpacing={2}
     >
+      {dir === "column" && (
+        <Grid item>
+          <Button
+            onClick={actions.home}
+            sx={{ ...menuButton, color: blue[700] }}
+          >
+            Sign Up
+          </Button>
+        </Grid>
+      )}
       <Grid item>
         <Button onClick={actions.why} sx={menuButton}>
           Why Neurobica?

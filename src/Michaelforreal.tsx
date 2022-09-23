@@ -11,9 +11,8 @@ import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 import Button from "@mui/material/Button";
 import { Fragment, useState } from "react";
-import TextField from "@mui/material/TextField";
 
-export default function Michaelforreal() {
+export default function Michaelforreal({ home }: any) {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: any) => {
@@ -41,7 +40,7 @@ export default function Michaelforreal() {
             </IconButton>
           </Tooltip>
         ) : (
-          <Button>SIGNUP</Button>
+          <Button onClick={home}>SIGNUP</Button>
         )}
       </Box>
       <Menu

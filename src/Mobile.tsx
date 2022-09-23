@@ -91,7 +91,7 @@ export default function Mobile(props: Props) {
                 <Button
                   disableRipple
                   sx={{
-                    color: orange[200],
+                    color: orange[300],
                     fontSize: "1.5rem",
                     "&:hover": {
                       backgroundColor: orange[100],
@@ -107,7 +107,7 @@ export default function Mobile(props: Props) {
                 </Button>
               </Grid>
               <Grid item>
-                <Michaelforreal />
+                <Michaelforreal home={props.actions.home} />
               </Grid>
             </Grid>
           </Toolbar>
