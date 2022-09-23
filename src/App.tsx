@@ -8,6 +8,11 @@ import Michaelforreal from "./Michaelforreal";
 import Mobile from "./Mobile";
 import Nav from "./Nav";
 
+const allSx = {
+  width: "100px",
+  height: "100px",
+};
+
 const topbar = {
   backgroundColor: orange[100],
   width: "100vw",
@@ -30,7 +35,7 @@ function App() {
   });
 
   return (
-    <Box>
+    <Box sx={allSx}>
       {ismobile ? (
         <Mobile />
       ) : (
@@ -59,6 +64,9 @@ function App() {
           justifyContent="flex-start"
           alignItems="center"
           spacing={1}
+          height="100vh"
+          width="100vw"
+          wrap="nowrap"
         >
           <Grid item>
             <Typography variant="h1" component="h1">
