@@ -9,19 +9,19 @@ import TableContainer from '@mui/material/TableContainer';
 export default function Michael() {
   return (
     <TableContainer component={Paper}>
-      <Table aria-label="simple table" sx={{ alignItems: "center", alignContent: "center", justifyContent: "center" }}>
-        <TableHead>
+      <Table aria-label="simple table" sx={{ alignItems: "center", justifyContent: "center" }}>
+        <TableHead >
           <TableRow>
             <TableCell></TableCell>
-            <TableCell>With Neurobica</TableCell>
-            <TableCell>Other Solutions</TableCell>
+            <TableCell align="center" >With Neurobica</TableCell>
+            <TableCell align="center">Other Solutions</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           <TableRow>
             <TableCell>Price</TableCell>
-            <TableCell>9.99$ a mounth/99.99$ a year + 150$ for </TableCell>
-            <TableCell></TableCell>
+            <TableCell>9.99$ a mounth/99.99$ a year + 150$ for headband </TableCell>
+            <TableCell>2,000$-6,000$ for 30 sessions</TableCell>
           </TableRow>
           <TableRow>
             <TableCell>Value</TableCell>
@@ -40,7 +40,7 @@ export default function Michael() {
             <TableCell>asd</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell></TableCell>
+            <TableCell>Social</TableCell>
             <TableCell>asd</TableCell>
             <TableCell>asd</TableCell>
           </TableRow>
