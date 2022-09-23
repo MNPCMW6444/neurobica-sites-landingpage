@@ -9,20 +9,24 @@ export default function Michael() {
     <Table>
       <TableHead>
         <TableRow>
-          <TableCell>asd</TableCell>
-          <TableCell>asd</TableCell>
+          <TableCell>?</TableCell>
+          <TableCell>With Neurobica</TableCell>
+          <TableCell>Without Neurobica</TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
         <TableRow>
           <TableCell>asd</TableCell>
           <TableCell>asd</TableCell>
+          <TableCell>asd</TableCell>
         </TableRow>
         <TableRow>
           <TableCell>asd</TableCell>
           <TableCell>asd</TableCell>
+          <TableCell>asd</TableCell>
         </TableRow>
         <TableRow>
+          <TableCell>asd</TableCell>
           <TableCell>asd</TableCell>
           <TableCell>asd</TableCell>
         </TableRow>
