@@ -30,37 +30,56 @@ function App() {
   });
 
   return (
-    <div style={{ overflowY: "scroll" }}>
-      <p>asdas</p>
-      <p>asdas</p>
-      <p>asdas</p> <p>asdas</p>
-      <p>asdas</p>
-      <p>asdas</p> <p>asdas</p>
-      <p>asdas</p>
-      <p>asdas</p> <p>asdas</p>
-      <p>asdas</p>
-      <p>asdas</p> <p>asdas</p>
-      <p>asdas</p>
-      <p>asdas</p> <p>asdas</p> <p>asdas</p>
-      <p>asdas</p>
-      <p>asdas</p> <p>asdas</p>
-      <p>asdas</p> <p>asdas</p>
-      <p>asdas</p> <p>asdas</p>
-      <p>asdas</p>
-      <p>asdas</p> <p>asdas</p>
-      <p>asdas</p>
-      <p>asdas</p> <p>asdas</p>
-      <p>asdas</p>
-      <p>asdas</p> <p>asdas</p> <p>asdas</p>
-      <p>asdas</p>
-      <p>asdas</p> <p>asdas</p>
-      <p>asdas</p>
-      <p>asdas</p> <p>asdas</p>
-      <p>asdas</p>
-      <p>asdas</p> <p>asdas</p>
-      <p>asdas</p>
-      <p>asdas</p>
-    </div>
+    <Box>
+      {ismobile ? (
+        <Mobile />
+      ) : (
+        <AppBar position="fixed" sx={topbar}>
+          <Grid
+            container
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+            wrap="nowrap"
+          >
+            <Grid item>
+              <Box component="img" src={logo} sx={logoSx}></Box>
+            </Grid>
+            <Nav dir="row" />
+            <Grid item>
+              <Michaelforreal />
+            </Grid>
+          </Grid>
+        </AppBar>
+      )}
+      <Box sx={{ paddingTop: "80px" }}>
+        <Grid
+          container
+          direction="column"
+          justifyContent="flex-start"
+          alignItems="center"
+          spacing={1}
+        >
+          <Grid item>
+            <Typography variant="h1" component="h1">
+              Neurobica
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Michael />
+          </Grid>
+          <Grid item>
+            <Michael />
+          </Grid>
+          <Grid item>
+            <Michael />
+          </Grid>
+          <Grid item>
+            <Michael />
+          </Grid>
+        </Grid>
+      </Box>
+    </Box>
   );
 }
 
