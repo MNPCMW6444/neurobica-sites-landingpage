@@ -88,7 +88,21 @@ export default function Mobile(props: Props) {
                 </IconButton>
               </Grid>
               <Grid item>
-                <Button sx={{ color: orange[200], fontSize: "1.5rem" }}>
+                <Button
+                  disableRipple
+                  sx={{
+                    color: orange[200],
+                    fontSize: "1.5rem",
+                    "&:hover": {
+                      backgroundColor: orange[100],
+                      cursor: "unset",
+                    },
+                    "&:active": {
+                      backgroundColor: orange[100],
+                      cursor: "unset",
+                    },
+                  }}
+                >
                   N e u r o b i c a
                 </Button>
               </Grid>
