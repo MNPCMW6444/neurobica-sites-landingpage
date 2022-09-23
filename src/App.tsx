@@ -1,7 +1,7 @@
 import { AppBar, Button, Grid, Toolbar, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import orange from "@mui/material/colors/orange";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import logo from "./logo512.png";
 import Michael from "./Michael";
 import Michaelforreal from "./Michaelforreal";
@@ -31,10 +31,25 @@ function App() {
     window.addEventListener("resize", handleResize);
   });
 
+  const whyRef = useRef(null);
+  const scrollToWhy = () => (whyRef.current as any).scrollIntoView();
+
+  const featuresRef = useRef(null);
+  const scrollToFeatores = () => (featuresRef.current as any).scrollIntoView();
+
+  const pricingRef = useRef(null);
+  const scrollToPricing = () => (pricingRef.current as any).scrollIntoView();
+
+  const actions = {
+    why: whyRef,
+    features: featuresRef,
+    pricing: pricingRef,
+  };
+
   return (
     <Box sx={allSx}>
       {ismobile ? (
-        <Mobile />
+        <Mobile actions={actions} />
       ) : (
         <AppBar
           position="fixed"
@@ -48,9 +63,8 @@ function App() {
               <Grid item>
                 <Box component="img" src={logo} sx={logoSx}></Box>
               </Grid>
-
               <Grid item>
-                <Nav dir="row" />
+                <Nav dir="row" actions={actions} />
               </Grid>
               <Grid item>
                 <Michaelforreal />
@@ -74,7 +88,7 @@ function App() {
             <Register />
           </Grid>
           <Grid item>
-            <Michael />
+            <Michael /* ref={whyRef} */ />
           </Grid>
         </Grid>
       </Box>

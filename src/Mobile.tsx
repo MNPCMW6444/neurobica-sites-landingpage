@@ -22,6 +22,7 @@ interface Props {
    * You won't need it on your project.
    */
   window?: () => Window;
+  actions: any;
 }
 
 const logoSx2 = {
@@ -52,7 +53,7 @@ export default function Mobile(props: Props) {
       <Box component="img" src={logo} sx={logoSx2}></Box>
       <Divider />
       <Box sx={{ paddingTop: "17px" }}></Box>
-      <Nav dir="column" />
+      <Nav dir="column" actions={props.actions} />
     </Box>
   );
 

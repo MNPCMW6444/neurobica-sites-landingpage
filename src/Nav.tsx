@@ -4,6 +4,7 @@ import Grid from "@mui/material/Grid";
 
 interface NavProps {
   dir: "row" | "column";
+  actions: any;
 }
 
 const menuButton = {
@@ -14,7 +15,7 @@ const menuButton = {
   },
 };
 
-export default function Nav({ dir }: NavProps) {
+export default function Nav({ dir, actions }: NavProps) {
   return (
     <Grid
       item
@@ -25,13 +26,19 @@ export default function Nav({ dir }: NavProps) {
       columnSpacing={2}
     >
       <Grid item>
-        <Button sx={menuButton}>Why Neurobica?</Button>
-      </Grid>{" "}
-      <Grid item>
-        <Button sx={menuButton}>Features</Button>
+        <Button onClick={actions.why} sx={menuButton}>
+          Why Neurobica?
+        </Button>
       </Grid>
       <Grid item>
-        <Button sx={menuButton}>Pricing</Button>
+        <Button onClick={actions.features} sx={menuButton}>
+          Features
+        </Button>
+      </Grid>
+      <Grid item>
+        <Button onClick={actions.pricing} sx={menuButton}>
+          Pricing
+        </Button>
       </Grid>
     </Grid>
   );
