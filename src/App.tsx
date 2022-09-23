@@ -7,6 +7,7 @@ import Michael from "./Michael";
 import Michaelforreal from "./Michaelforreal";
 import Mobile from "./Mobile";
 import Nav from "./Nav";
+import Register from "./Register";
 
 const allSx = {
   width: "100px",
@@ -20,7 +21,7 @@ const topbar = {
 };
 
 const logoSx = {
-  paddingLeft: "10px",
+  marginLeft: "10px",
   height: "50px",
   width: "50px",
 };
@@ -69,18 +70,7 @@ function App() {
           wrap="nowrap"
         >
           <Grid item>
-            <Typography variant="h1" component="h1">
-              Neurobica
-            </Typography>
-          </Grid>
-          <Grid item>
-            <Michael />
-          </Grid>
-          <Grid item>
-            <Michael />
-          </Grid>
-          <Grid item>
-            <Michael />
+            <Register />
           </Grid>
           <Grid item>
             <Michael />
