@@ -91,7 +91,7 @@ export default function Mobile(props: Props) {
                 <Button
                   disableRipple
                   sx={{
-                    color: orange[200],
+                    color: orange[300],
                     fontSize: "1.5rem",
                     "&:hover": {
                       backgroundColor: orange[100],
