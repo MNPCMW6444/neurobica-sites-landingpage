@@ -7,6 +7,7 @@ import m3 from "./Screen Shot 2022-09-24 at 0.41.17.png";
 import m4 from "./Screen Shot 2022-09-24 at 0.41.26.png";
 import { Button, Input, InputLabel, Typography } from "@mui/material";
 import orange from "@mui/material/colors/orange";
+import { useEffect, useState } from "react";
 
 const veryNice = {
   fontFamily: "proxima-nova, 'Helvetica Neue', Helvetica, Arial, sans-serif",
@@ -24,44 +25,66 @@ const iconSx = { width: "4vw", height: "4vw" };
 const textSx = { fontSize: "3vw", marginBottom: "0.9vw" };
 
 export default function Register() {
+  const [width, setwidth] = useState(
+    window.innerWidth < 400 ? 400 : window.innerWidth
+  );
+  useEffect(() => {
+    const handleResize = () => {
+      setwidth(window.innerWidth < 400 ? 400 : window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+  });
+
   return (
     <Grid
       container
+      wrap="nowrap"
       direction="column"
-      justify-content="flex-start"
+      justifyContent="center"
       alignItems="center"
       height="100vh"
+      width="100vw"
+      sx={{ marginTop: "60px" }}
+      rowSpacing={6000 / width - 2}
     >
-      <br />
-      <br />
-      <Grid item sx={veryNice}>
-        Everything you for
+      <Grid
+        container
+        wrap="nowrap"
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        rowSpacing={3500 / width - 1}
+      >
+        <Grid item sx={veryNice}>
+          Everything you need for
+        </Grid>
+        <Box
+          component="img"
+          src={under}
+          sx={{ width: "40%", alignSelf: "flex-start", marginLeft: "8vw" }}
+        ></Box>
+        <Grid item sx={veryNice}>
+          Exercising you Brain
+        </Grid>
+        <Box
+          component="img"
+          src={under}
+          sx={{ width: "40%", alignSelf: "flex-start", marginLeft: "10vw" }}
+        ></Box>
+        <Grid item sx={veryNice}>
+          In the one place
+        </Grid>
+        <Box
+          component="img"
+          src={under}
+          sx={{ width: "40%", alignSelf: "flex-end", marginRight: "14vw" }}
+        ></Box>
       </Grid>
-      <Box
-        component="img"
-        src={under}
-        sx={{ width: "60%", alignSelf: "flex-start", paddingLeft: "6vw" }}
-      ></Box>
-      <Grid item sx={veryNice}>
-        Exercising you Brain
-      </Grid>
-      <Box
-        component="img"
-        src={under}
-        sx={{ width: "50%", alignSelf: "flex-start", paddingLeft: "6vw" }}
-      ></Box>
-      <Grid item sx={veryNice}>
-        In the same place
-      </Grid>
-      <Box
-        component="img"
-        src={under}
-        sx={{ width: "60%", alignSelf: "flex-end", paddingRight: "4vw" }}
-      ></Box>
-      <br /> <br />
+
       <Grid
         item
         container
+        wrap="nowrap"
         direction="row"
         justifyContent="center"
         alignItems="center"
@@ -92,21 +115,23 @@ export default function Register() {
           <Typography sx={textSx}>Studying</Typography>
         </Grid>
       </Grid>
-      <br /> <br />
-      <Typography
-        sx={{
-          fontFamily:
-            "proxima-nova, 'Helvetica Neue', Helvetica, Arial, sans-serif",
-          letterSpacing: "-0.06rem",
-          fontSize: "4vw",
-        }}
-      >
-        Ready to become a Super Version of yourself?
-      </Typography>
-      <br /> <br />
+      <Grid item>
+        <Typography
+          sx={{
+            fontFamily:
+              "proxima-nova, 'Helvetica Neue', Helvetica, Arial, sans-serif",
+            letterSpacing: "-0.06rem",
+            fontSize: "4vw",
+          }}
+        >
+          Ready to become a Super Version of yourself?
+        </Typography>
+      </Grid>
+
       <Grid
         item
         container
+        wrap="nowrap"
         direction="row"
         justifyContent="center"
         alignItems="center"
