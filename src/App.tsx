@@ -1,33 +1,25 @@
-import { Grid, Typography } from "@mui/material";
-import Box from "@mui/material/Box";
-import orange from "@mui/material/colors/orange";
-
-const topbar = {
-  position: "static",
-  left: "0px",
-  top: "0px",
-  margin: "0px",
-  width: "100vw",
-  height: "10vh",
-  backgroundColor: orange[100],
-};
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
   return (
-    <Box>
-      <Box sx={topbar}></Box>
-      <Grid
-        container
-        direction="column"
-        justifyContent="flex-start"
-        alignItems="center"
-        spacing={1}
-      >
-        <Typography variant="h1" component="h1">
-          Neurobica
-        </Typography>
-      </Grid>
-    </Box>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.tsx</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
   );
 }
 
