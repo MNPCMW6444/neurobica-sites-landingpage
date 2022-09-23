@@ -11,22 +11,34 @@ import {
 import Box from "@mui/material/Box";
 import orange from "@mui/material/colors/orange";
 
+import logo from "./logo512.png";
+
 const topbar = {
   position: "static",
   left: "0px",
   top: "0px",
   margin: "0px",
   width: "100vw",
-  height: "7vh",
+  height: "50px",
   backgroundColor: orange[100],
 };
 
 const menuButton = {
-  height: "7vh",
+  height: "50px",
   color: orange[900],
   "&:hover": {
     backgroundColor: orange[300],
   },
+};
+
+const logoSx = {
+  paddingLeft: "10px",
+  height: "50px",
+  width: "50px",
+};
+
+const accountSx = {
+  paddingRight: "10px",
 };
 
 function App() {
@@ -40,7 +52,9 @@ function App() {
           alignItems="center"
           wrap="nowrap"
         >
-          <Grid item>logo</Grid>
+          <Grid item>
+            <Box component="img" src={logo} sx={logoSx}></Box>
+          </Grid>
           <Grid
             item
             container
