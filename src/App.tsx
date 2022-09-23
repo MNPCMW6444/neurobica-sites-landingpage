@@ -41,9 +41,9 @@ function App() {
   const scrollToPricing = () => (pricingRef.current as any).scrollIntoView();
 
   const actions = {
-    why: whyRef,
-    features: featuresRef,
-    pricing: pricingRef,
+    why: scrollToWhy,
+    features: scrollToFeatores,
+    pricing: scrollToPricing,
   };
 
   return (
