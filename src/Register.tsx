@@ -30,10 +30,15 @@ export default function Register() {
       direction="column"
       justify-content="flex-start"
       alignItems="center"
-      height="100vh"
+      height="13500vh"
     >
-      <br />
-      <br />
+      {window.innerWidth < 1350 && (
+        <>
+          <br />
+          <br />
+        </>
+      )}
+
       <Grid item sx={veryNice}>
         Everything you for
       </Grid>
@@ -58,7 +63,13 @@ export default function Register() {
         src={under}
         sx={{ width: "60%", alignSelf: "flex-end", paddingRight: "4vw" }}
       ></Box>
-      <br /> <br />
+      {window.innerWidth < 1350 && (
+        <>
+          <br />
+          <br />
+        </>
+      )}
+
       <Grid
         item
         container
@@ -92,7 +103,13 @@ export default function Register() {
           <Typography sx={textSx}>Studying</Typography>
         </Grid>
       </Grid>
-      <br /> <br />
+      {window.innerWidth < 1350 && (
+        <>
+          <br />
+          <br />
+        </>
+      )}
+
       <Typography
         sx={{
           fontFamily:
@@ -103,7 +120,13 @@ export default function Register() {
       >
         Ready to become a Super Version of yourself?
       </Typography>
-      <br /> <br />
+      {window.innerWidth < 1350 && (
+        <>
+          <br />
+          <br />
+        </>
+      )}
+
       <Grid
         item
         container
