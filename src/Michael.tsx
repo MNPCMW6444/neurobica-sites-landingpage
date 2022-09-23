@@ -25,13 +25,14 @@ export default function Michael() {
           </TableRow>
           <TableRow>
             <TableCell>Value</TableCell>
-            <TableCell>asd</TableCell>
-            <TableCell>asd</TableCell>
+            <TableCell>Fully coustomized, Science proved, automated and holistic training platform for all your brain needs.
+              become your own brain trainer  </TableCell>
+            <TableCell>Speciphic, monotonic and depends on your thraphist/trainer abillities</TableCell>
 
           </TableRow>
           <TableRow>
             <TableCell>Time</TableCell>
-            <TableCell>asd</TableCell>
+            <TableCell>20 minutes 3 times a week</TableCell>
             <TableCell>asd</TableCell>
           </TableRow>
           <TableRow>
