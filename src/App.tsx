@@ -1,17 +1,9 @@
-import {
-  Button,
-  Grid,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
-  Typography,
-} from "@mui/material";
+import { Button, Grid, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import orange from "@mui/material/colors/orange";
 
 import logo from "./logo512.png";
+import Michael from "./Michael";
 
 const topbar = {
   position: "static",
@@ -94,28 +86,7 @@ function App() {
             Neurobica
           </Typography>
         </Grid>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>asd</TableCell>
-              <TableCell>asd</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            <TableRow>
-              <TableCell>asd</TableCell>
-              <TableCell>asd</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>asd</TableCell>
-              <TableCell>asd</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>asd</TableCell>
-              <TableCell>asd</TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
+        <Michael />
         <Grid item></Grid>
       </Grid>
     </Box>
