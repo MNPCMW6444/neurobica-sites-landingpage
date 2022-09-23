@@ -34,7 +34,7 @@ const logoSx = {
   position: "fixed",
   top: "0px",
   left: "70px",
-  height: "50px",
+  height: "60px",
   width: "50px",
   zIndex: 104,
 };
@@ -70,10 +70,10 @@ export default function Mobile(props: Props) {
             width: { sm: `calc(100% - ${drawerWidth}px)` },
             ml: { sm: `${drawerWidth}px` },
             backgroundColor: orange[100],
-            height: "50px",
+            height: "60px",
           }}
         >
-          <Toolbar>
+          <Toolbar sx={{ margin: "5px" }}>
             <Grid container justifyContent="space-between" alignItems="center">
               <Grid item>
                 <IconButton
