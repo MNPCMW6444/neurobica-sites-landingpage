@@ -22,6 +22,7 @@ interface Props {
    * You won't need it on your project.
    */
   window?: () => Window;
+  actions: any;
 }
 
 const logoSx2 = {
@@ -34,7 +35,7 @@ const logoSx = {
   position: "fixed",
   top: "0px",
   left: "70px",
-  height: "50px",
+  height: "60px",
   width: "50px",
   zIndex: 104,
 };
@@ -52,7 +53,7 @@ export default function Mobile(props: Props) {
       <Box component="img" src={logo} sx={logoSx2}></Box>
       <Divider />
       <Box sx={{ paddingTop: "17px" }}></Box>
-      <Nav dir="column" />
+      <Nav dir="column" actions={props.actions} />
     </Box>
   );
 
@@ -70,10 +71,10 @@ export default function Mobile(props: Props) {
             width: { sm: `calc(100% - ${drawerWidth}px)` },
             ml: { sm: `${drawerWidth}px` },
             backgroundColor: orange[100],
-            height: "50px",
+            height: "60px",
           }}
         >
-          <Toolbar>
+          <Toolbar sx={{ margin: "5px" }}>
             <Grid container justifyContent="space-between" alignItems="center">
               <Grid item>
                 <IconButton

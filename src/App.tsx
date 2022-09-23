@@ -1,7 +1,7 @@
 import { AppBar, Button, Grid, Toolbar, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import orange from "@mui/material/colors/orange";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import logo from "./logo512.png";
 import Michael from "./Michael";
 import Michaelforreal from "./Michaelforreal";
@@ -14,16 +14,12 @@ const allSx = {
   height: "100px",
 };
 
-const topbar = {
-  backgroundColor: orange[100],
-  width: "100vw",
-  height: "50px",
-};
-
 const logoSx = {
-  marginLeft: "10px",
-  height: "50px",
-  width: "50px",
+  height: "60px",
+  width: "60px",
+  position: "static",
+  top: "0px",
+  left: "0px",
 };
 
 function App() {
@@ -35,27 +31,46 @@ function App() {
     window.addEventListener("resize", handleResize);
   });
 
+  const whyRef = useRef(null);
+  const scrollToWhy = () => (whyRef.current as any).scrollIntoView();
+
+  const featuresRef = useRef(null);
+  const scrollToFeatores = () => (featuresRef.current as any).scrollIntoView();
+
+  const pricingRef = useRef(null);
+  const scrollToPricing = () => (pricingRef.current as any).scrollIntoView();
+
+  const actions = {
+    why: scrollToWhy,
+    features: scrollToFeatores,
+    pricing: scrollToPricing,
+  };
+
   return (
     <Box sx={allSx}>
       {ismobile ? (
-        <Mobile />
+        <Mobile actions={actions} />
       ) : (
-        <AppBar position="fixed" sx={topbar}>
-          <Grid
-            container
-            direction="row"
-            justifyContent="center"
-            alignItems="center"
-            wrap="nowrap"
-          >
-            <Grid item>
-              <Box component="img" src={logo} sx={logoSx}></Box>
+        <AppBar
+          position="fixed"
+          sx={{
+            backgroundColor: orange[100],
+            height: "60px",
+          }}
+        >
+          <Toolbar>
+            <Grid container justifyContent="space-between" alignItems="center">
+              <Grid item>
+                <Box component="img" src={logo} sx={logoSx}></Box>
+              </Grid>
+              <Grid item>
+                <Nav dir="row" actions={actions} />
+              </Grid>
+              <Grid item>
+                <Michaelforreal />
+              </Grid>
             </Grid>
-            <Nav dir="row" />
-            <Grid item>
-              <Michaelforreal />
-            </Grid>
-          </Grid>
+          </Toolbar>
         </AppBar>
       )}
       <Box sx={{ paddingTop: "80px" }}>
@@ -73,7 +88,7 @@ function App() {
             <Register />
           </Grid>
           <Grid item>
-            <Michael />
+            <Michael /* ref={whyRef} */ />
           </Grid>
         </Grid>
       </Box>
