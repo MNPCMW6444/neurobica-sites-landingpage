@@ -25,13 +25,10 @@ export default function Nav({ dir }: NavProps) {
       columnSpacing={2}
     >
       <Grid item>
-        <Button sx={menuButton}>Home</Button>
+        <Button sx={menuButton}>Why Neurobica?</Button>
       </Grid>{" "}
       <Grid item>
-        <Button sx={menuButton}>Products</Button>
-      </Grid>
-      <Grid item>
-        <Button sx={menuButton}>Solutions</Button>
+        <Button sx={menuButton}>Features</Button>
       </Grid>
       <Grid item>
         <Button sx={menuButton}>Pricing</Button>

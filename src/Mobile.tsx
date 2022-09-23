@@ -12,6 +12,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Button from "@mui/material/Button";
 import Michaelforreal from "./Michaelforreal";
 import logo from "./logo512.png";
+import Divider from "@mui/material/Divider";
 
 const drawerWidth = 150;
 
@@ -22,6 +23,12 @@ interface Props {
    */
   window?: () => Window;
 }
+
+const logoSx2 = {
+  marginLeft: "10px",
+  height: "130px",
+  width: "130px",
+};
 
 const logoSx = {
   position: "fixed",
@@ -42,6 +49,9 @@ export default function Mobile(props: Props) {
 
   const drawer = (
     <Box sx={{ backgroundColor: orange[100], height: "100vh" }}>
+      <Box component="img" src={logo} sx={logoSx2}></Box>
+      <Divider />
+      <Box sx={{ paddingTop: "17px" }}></Box>
       <Nav dir="column" />
     </Box>
   );
