@@ -8,7 +8,11 @@ import TableContainer from "@mui/material/TableContainer";
 
 export default function Michael() {
   return (
-    <TableContainer component={Paper} sx={{ height: "100vw" }}>
+    <TableContainer component={Paper} sx={{ height: "100vh" }}>
+      <br />
+      <br />
+      <br />
+      <br />
       <Table
         aria-label="simple table"
         sx={{ alignItems: "center", justifyContent: "center" }}

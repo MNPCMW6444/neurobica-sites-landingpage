@@ -35,6 +35,10 @@ function App() {
   const scrollToWhy = () =>
     (whyRef.current as any).scrollIntoView({ behavior: "smooth" });
 
+  const homeRef = useRef(null);
+  const scrollToHome = () =>
+    (homeRef.current as any).scrollIntoView({ behavior: "smooth" });
+
   const featuresRef = useRef(null);
   const scrollToFeatores = () =>
     (featuresRef.current as any).scrollIntoView({ behavior: "smooth" });
@@ -50,9 +54,10 @@ function App() {
   };
 
   const actionsM = {
-    why: () => setTimeout(() => scrollToWhy(), 500),
-    features: () => setTimeout(() => scrollToFeatores(), 500),
-    pricing: () => setTimeout(() => scrollToPricing(), 500),
+    why: () => setTimeout(() => scrollToWhy(), 0),
+    features: () => setTimeout(() => scrollToFeatores(), 0),
+    pricing: () => setTimeout(() => scrollToPricing(), 0),
+    home: () => setTimeout(() => scrollToHome(), 0),
   };
 
   return (
@@ -76,33 +81,35 @@ function App() {
                 <Nav dir="row" actions={actions} />
               </Grid>
               <Grid item>
-                <Michaelforreal />
+                <Michaelforreal home={scrollToHome} />
               </Grid>
             </Grid>
           </Toolbar>
         </AppBar>
       )}
-      <Box sx={{ paddingTop: "80px" }}>
-        <Grid
-          container
-          direction="column"
-          justifyContent="flex-start"
-          alignItems="center"
-          spacing={1}
-          height="100vh"
-          width="100vw"
-          wrap="nowrap"
-        >
-          <Grid item>
-            <Register />
+      <div ref={homeRef}>
+        <Box sx={{ paddingTop: "80px" }}>
+          <Grid
+            container
+            direction="column"
+            justifyContent="flex-start"
+            alignItems="center"
+            spacing={1}
+            height="100vh"
+            width="100vw"
+            wrap="nowrap"
+          >
+            <Grid item>
+              <Register />
+            </Grid>
+            <Grid item>
+              <div ref={whyRef}>
+                <Michael />
+              </div>
+            </Grid>
           </Grid>
-          <Grid item>
-            <div ref={whyRef}>
-              <Michael />
-            </div>
-          </Grid>
-        </Grid>
-      </Box>
+        </Box>{" "}
+      </div>
     </Box>
   );
 }

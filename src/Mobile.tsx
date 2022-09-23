@@ -107,7 +107,7 @@ export default function Mobile(props: Props) {
                 </Button>
               </Grid>
               <Grid item>
-                <Michaelforreal />
+                <Michaelforreal home={props.actions.home} />
               </Grid>
             </Grid>
           </Toolbar>

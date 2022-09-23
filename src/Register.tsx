@@ -30,7 +30,7 @@ export default function Register() {
       direction="column"
       justify-content="flex-start"
       alignItems="center"
-      height="100vw"
+      height="100vh"
     >
       <br />
       <br />
