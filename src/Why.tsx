@@ -19,9 +19,9 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Micael() {
   return (
-    <Box sx={{ width: '90vw', hight: "50vh" }}>
-      <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-        <Grid item xs={12} md={6}>
+    <Box sx={{ width: '100vw', hight: "50vh", paddingTop: "20vh" }}>
+      <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }} justifyContent="center" alignItems="flex-start" >
+        <Grid item xs={10} lg={8} md={8} sx={{ width: '100vw', hight: "50vh" }}>
           <Item>
             <Typography sx={{ padding: "2vh" }} variant='h3'>Save tousands of $ </Typography>
             <Typography variant='h6'>Train more, pay less</Typography>
@@ -69,16 +69,13 @@ export default function Micael() {
 
           </Item>
         </Grid>
-        <Grid item xs={6} md={6}>
-          <Item>
-            <Typography sx={{ padding: "2vh" }} variant='h3'>No gains no pays</Typography>
+        <Grid item xs={12} md={12} lg={12} height="100vhs" >
+          <Item >
+            <Typography sx={{ padding: "2vh" }} variant='h3'>No gains no pay!</Typography>
             <Typography variant='h6'>If we didn't change your mind - you can! Offering 100% money back guarantee for 30 days!</Typography>
           </Item>
         </Grid>
-        <Grid item xs={6}>
-          <Item>            <Typography sx={{ padding: "2vh" }} variant='h3'>Science proved NFT rutine</Typography>
-            <Typography variant='h6'>Train more, pay less</Typography></Item>
-        </Grid>
+
 
       </Grid>
     </Box>
