@@ -5,17 +5,10 @@ import m1 from "./Screen Shot 2022-09-24 at 0.40.54.png";
 import m2 from "./Screen Shot 2022-09-24 at 0.41.02.png";
 import m3 from "./Screen Shot 2022-09-24 at 0.41.17.png";
 import m4 from "./Screen Shot 2022-09-24 at 0.41.26.png";
-import {
-  Button,
-  TextField,
-  InputLabel,
-  Typography,
-  Backdrop,
-} from "@mui/material";
+import { Button, TextField, InputLabel, Typography } from "@mui/material";
 import orange from "@mui/material/colors/orange";
 import { useEffect, useState } from "react";
 
-import mascot from "./frames/frame_00_delay-0.1s.gif";
 import mascot1 from "./frames/frame_01_delay-0.1s.gif";
 import mascot2 from "./frames/frame_02_delay-0.1s.gif";
 import mascot3 from "./frames/frame_03_delay-0.1s.gif";
@@ -281,11 +274,11 @@ export default function Register({ mobile }: any) {
               scrollPosition < 5 + 40
                 ? mascot10
                 : scrollPosition < 15 + 40
-                ? mascot2
+                ? mascot1
                 : scrollPosition < 30 + 40
-                ? mascot3
+                ? mascot2
                 : scrollPosition < 45 + 40
-                ? mascot4
+                ? mascot3
                 : scrollPosition < 60 + 40
                 ? mascot4
                 : scrollPosition < 75 + 40
