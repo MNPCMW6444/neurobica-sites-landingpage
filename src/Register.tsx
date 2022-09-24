@@ -5,11 +5,30 @@ import m1 from "./Screen Shot 2022-09-24 at 0.40.54.png";
 import m2 from "./Screen Shot 2022-09-24 at 0.41.02.png";
 import m3 from "./Screen Shot 2022-09-24 at 0.41.17.png";
 import m4 from "./Screen Shot 2022-09-24 at 0.41.26.png";
-import { Button, Input, InputLabel, Typography } from "@mui/material";
+import {
+  Button,
+  TextField,
+  InputLabel,
+  Typography,
+  Backdrop,
+} from "@mui/material";
 import orange from "@mui/material/colors/orange";
 import { useEffect, useState } from "react";
 
-import mascot from "./mascot.svg";
+import mascot from "./frames/frame_00_delay-0.1s.gif";
+import mascot1 from "./frames/frame_01_delay-0.1s.gif";
+import mascot2 from "./frames/frame_02_delay-0.1s.gif";
+import mascot3 from "./frames/frame_03_delay-0.1s.gif";
+import mascot4 from "./frames/frame_04_delay-0.1s.gif";
+import mascot5 from "./frames/frame_05_delay-0.3s.gif";
+import mascot6 from "./frames/frame_06_delay-0.1s.gif";
+import mascot7 from "./frames/frame_07_delay-0.1s.gif";
+import mascot8 from "./frames/frame_08_delay-0.1s.gif";
+import mascot9 from "./frames/frame_09_delay-0.1s.gif";
+import mascot10 from "./frames/frame_10_delay-0.1s.gif";
+import amber from "@mui/material/colors/amber";
+
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const veryNice = (wide: boolean) => ({
   fontFamily: "proxima-nova, 'Helvetica Neue', Helvetica, Arial, sans-serif",
@@ -61,8 +80,17 @@ export default function Register({ mobile }: any) {
     window.addEventListener("resize", handleResize);
   });
 
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: orange[900],
+      },
+    },
+  });
+
   return (
     <Grid
+      sx={{ backgroundColor: amber[50] }}
       container
       direction="row"
       justifyContent="flex-start"
@@ -80,7 +108,7 @@ export default function Register({ mobile }: any) {
         height="100vh"
         width={wide ? "75vw" : "100vw"}
         sx={{ marginTop: "60px", padding: "0px 30px 0px 30px" }}
-        rowSpacing={4000 / width - 2}
+        rowSpacing={3000 / width - 2}
       >
         <Grid
           container
@@ -88,7 +116,7 @@ export default function Register({ mobile }: any) {
           direction="column"
           justifyContent="center"
           alignItems="center"
-          rowSpacing={3500 / width - 1}
+          rowSpacing={2000 / width - 1}
         >
           <Grid item sx={veryNice(wide)}>
             Everything you need for
@@ -195,15 +223,12 @@ export default function Register({ mobile }: any) {
           wrap="nowrap"
           direction="row"
           justifyContent="center"
-          alignItems="center"
+          alignItems="strech"
           columnSpacing={2}
         >
           <Grid item>
             <InputLabel
               sx={{
-                fontFamily:
-                  "proxima-nova, 'Helvetica Neue', Helvetica, Arial, sans-serif",
-                letterSpacing: "-0.06rem",
                 fontSize: (wide ? 4 * 0.75 : 4) + "vw",
                 color: orange[900],
               }}
@@ -212,17 +237,30 @@ export default function Register({ mobile }: any) {
             </InputLabel>
           </Grid>
           <Grid item>
-            <Input
-              type="email"
-              placeholder="name@example.com"
-              sx={{ color: orange[900] }}
-            />
+            <ThemeProvider theme={theme}>
+              <TextField
+                type="email"
+                label="Email Address"
+                placeholder="name@example.com"
+                variant="outlined"
+                color="primary"
+                sx={{
+                  input: { color: orange[900] },
+                  width: "40vw",
+                  maxWidth: "350px",
+                }}
+              />
+            </ThemeProvider>
           </Grid>
           <Grid item>
             <Button
               sx={{
+                height: "100%",
+                width: "120%",
+                fontSize: "1.8vw",
                 backgroundColor: orange[50],
-                color: orange[500],
+                borderRadius: "10px",
+                color: orange[900],
                 "&:hover": {
                   backgroundColor: orange[300],
                   color: orange[900],
@@ -233,23 +271,93 @@ export default function Register({ mobile }: any) {
             </Button>
           </Grid>
         </Grid>
+        <br />
       </Grid>
       {wide && (
         <Grid item width="25vw" height="100vh">
           <Box
             component="img"
-            src={mascot}
-            sx={{
-              position: "fixed",
-              left: "50vw",
-              top: "10vw",
-              width: "75%",
-              height: "75%",
-              opacity:
-                (scrollPosition > 100
-                  ? (200 - scrollPosition) / 100
-                  : scrollPosition / 100) + 0.3,
-            }}
+            src={
+              scrollPosition < 5 + 40
+                ? mascot10
+                : scrollPosition < 15 + 40
+                ? mascot2
+                : scrollPosition < 30 + 40
+                ? mascot3
+                : scrollPosition < 45 + 40
+                ? mascot4
+                : scrollPosition < 60 + 40
+                ? mascot4
+                : scrollPosition < 75 + 40
+                ? mascot5
+                : scrollPosition < 90 + 40
+                ? mascot6
+                : scrollPosition < 105 + 40
+                ? mascot7
+                : scrollPosition < 115 + 20
+                ? mascot8
+                : scrollPosition < 127 + 30
+                ? mascot9
+                : mascot10
+            }
+            sx={
+              scrollPosition > 100
+                ? {
+                    position: "relative",
+                    left: -21 + "vw",
+                    top: 8 + "vw",
+                    width:
+                      35 +
+                      (scrollPosition > 100
+                        ? (200 - 100) / 100
+                        : scrollPosition / 100) *
+                        12 +
+                      "vw",
+                    height:
+                      35 +
+                      (scrollPosition > 100
+                        ? (200 - 100) / 100
+                        : scrollPosition / 100) *
+                        12 +
+                      "vw",
+                    opacity: 1,
+                  }
+                : {
+                    position: "fixed",
+                    left:
+                      66 -
+                      (scrollPosition > 100
+                        ? (200 - 100) / 100
+                        : scrollPosition / 100) *
+                        12 +
+                      "vw",
+                    top:
+                      13 -
+                      (scrollPosition > 100
+                        ? (200 - 100) / 100
+                        : scrollPosition / 100) *
+                        12 +
+                      "vw",
+                    width:
+                      35 +
+                      (scrollPosition > 100
+                        ? (200 - 100) / 100
+                        : scrollPosition / 100) *
+                        12 +
+                      "vw",
+                    height:
+                      35 +
+                      (scrollPosition > 100
+                        ? (200 - 100) / 100
+                        : scrollPosition / 100) *
+                        12 +
+                      "vw",
+                    opacity:
+                      (scrollPosition > 100
+                        ? (200 - scrollPosition) / 100
+                        : scrollPosition / 100) + 0.1,
+                  }
+            }
           ></Box>
         </Grid>
       )}

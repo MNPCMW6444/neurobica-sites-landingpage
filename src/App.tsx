@@ -9,7 +9,12 @@ import Mobile from "./Mobile";
 import Nav from "./Nav";
 import Register from "./Register";
 
-const page = { height: "100vh", overflow: "hidden", width: "100vw" };
+const page = {
+  height: "100vh",
+  overflow: "hidden",
+  width: "100vw",
+  paddingTop: "60px",
+};
 
 const allSx = {
   width: "100px",
