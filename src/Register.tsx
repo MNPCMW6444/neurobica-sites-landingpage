@@ -9,7 +9,17 @@ import { Button, Input, InputLabel, Typography } from "@mui/material";
 import orange from "@mui/material/colors/orange";
 import { useEffect, useState } from "react";
 
-import mascot from "./mascot.svg";
+import mascot from "./frames/frame_00_delay-0.1s.gif";
+import mascot1 from "./frames/frame_01_delay-0.1s.gif";
+import mascot2 from "./frames/frame_02_delay-0.1s.gif";
+import mascot3 from "./frames/frame_03_delay-0.1s.gif";
+import mascot4 from "./frames/frame_04_delay-0.1s.gif";
+import mascot5 from "./frames/frame_05_delay-0.3s.gif";
+import mascot6 from "./frames/frame_06_delay-0.1s.gif";
+import mascot7 from "./frames/frame_07_delay-0.1s.gif";
+import mascot8 from "./frames/frame_08_delay-0.1s.gif";
+import mascot9 from "./frames/frame_09_delay-0.1s.gif";
+import mascot10 from "./frames/frame_10_delay-0.1s.gif";
 
 const veryNice = (wide: boolean) => ({
   fontFamily: "proxima-nova, 'Helvetica Neue', Helvetica, Arial, sans-serif",
@@ -80,7 +90,7 @@ export default function Register({ mobile }: any) {
         height="100vh"
         width={wide ? "75vw" : "100vw"}
         sx={{ marginTop: "60px", padding: "0px 30px 0px 30px" }}
-        rowSpacing={4000 / width - 2}
+        rowSpacing={3000 / width - 2}
       >
         <Grid
           container
@@ -88,7 +98,7 @@ export default function Register({ mobile }: any) {
           direction="column"
           justifyContent="center"
           alignItems="center"
-          rowSpacing={3500 / width - 1}
+          rowSpacing={2000 / width - 1}
         >
           <Grid item sx={veryNice(wide)}>
             Everything you need for
@@ -238,17 +248,63 @@ export default function Register({ mobile }: any) {
         <Grid item width="25vw" height="100vh">
           <Box
             component="img"
-            src={mascot}
+            src={
+              scrollPosition < 5 + 40
+                ? mascot10
+                : scrollPosition < 15 + 40
+                ? mascot2
+                : scrollPosition < 30 + 40
+                ? mascot3
+                : scrollPosition < 45 + 40
+                ? mascot4
+                : scrollPosition < 60 + 40
+                ? mascot4
+                : scrollPosition < 75 + 40
+                ? mascot5
+                : scrollPosition < 90 + 40
+                ? mascot6
+                : scrollPosition < 105 + 40
+                ? mascot7
+                : scrollPosition < 115 + 20
+                ? mascot8
+                : scrollPosition < 127 + 30
+                ? mascot9
+                : mascot10
+            }
             sx={{
               position: "fixed",
-              left: "50vw",
-              top: "10vw",
-              width: "75%",
-              height: "75%",
+              left:
+                65 -
+                (scrollPosition > 100
+                  ? (200 - 100) / 100
+                  : scrollPosition / 100) *
+                  12 +
+                "vw",
+              top:
+                20 -
+                (scrollPosition > 100
+                  ? (200 - 100) / 100
+                  : scrollPosition / 100) *
+                  12 +
+                "vw",
+              width:
+                40 +
+                (scrollPosition > 100
+                  ? (200 - 100) / 100
+                  : scrollPosition / 100) *
+                  12 +
+                "vw",
+              height:
+                40 +
+                (scrollPosition > 100
+                  ? (200 - 100) / 100
+                  : scrollPosition / 100) *
+                  12 +
+                "vw",
               opacity:
                 (scrollPosition > 100
                   ? (200 - scrollPosition) / 100
-                  : scrollPosition / 100) + 0.3,
+                  : scrollPosition / 100) + 0.1,
             }}
           ></Box>
         </Grid>
