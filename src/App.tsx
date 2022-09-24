@@ -3,11 +3,13 @@ import Box from "@mui/material/Box";
 import orange from "@mui/material/colors/orange";
 import { useEffect, useRef, useState } from "react";
 import logo from "./logo512.png";
-import Michael from "./Michael";
+import Why from "./Why";
 import Michaelforreal from "./Michaelforreal";
 import Mobile from "./Mobile";
 import Nav from "./Nav";
 import Register from "./Register";
+
+const page = { height: "100vh", overflow: "hidden", width: "100vw" };
 
 const allSx = {
   width: "100px",
@@ -29,6 +31,7 @@ function App() {
       setismobile(window.innerWidth < 600);
     };
     window.addEventListener("resize", handleResize);
+    scrollToHome();
   });
 
   const whyRef = useRef(null);
@@ -89,26 +92,11 @@ function App() {
       )}
       <div ref={homeRef}>
         <Box>
-          <Grid
-            container
-            direction="column"
-            justifyContent="flex-start"
-            alignItems="center"
-            spacing={1}
-            height="100vh"
-            width="100vw"
-            wrap="nowrap"
-          >
-            <Grid item>
-              <Register />
-            </Grid>
-            <Grid item >
-              <div ref={whyRef}>
-                <Michael />
-              </div>
-            </Grid>
-          </Grid>
-        </Box>{" "}
+          <Register />
+          <div ref={whyRef} style={page}>
+            <Why />
+          </div>
+        </Box>
       </div>
     </Box>
   );
