@@ -5,7 +5,13 @@ import m1 from "./Screen Shot 2022-09-24 at 0.40.54.png";
 import m2 from "./Screen Shot 2022-09-24 at 0.41.02.png";
 import m3 from "./Screen Shot 2022-09-24 at 0.41.17.png";
 import m4 from "./Screen Shot 2022-09-24 at 0.41.26.png";
-import { Button, Input, InputLabel, Typography } from "@mui/material";
+import {
+  Button,
+  TextField,
+  InputLabel,
+  Typography,
+  Backdrop,
+} from "@mui/material";
 import orange from "@mui/material/colors/orange";
 import { useEffect, useState } from "react";
 
@@ -20,6 +26,9 @@ import mascot7 from "./frames/frame_07_delay-0.1s.gif";
 import mascot8 from "./frames/frame_08_delay-0.1s.gif";
 import mascot9 from "./frames/frame_09_delay-0.1s.gif";
 import mascot10 from "./frames/frame_10_delay-0.1s.gif";
+import amber from "@mui/material/colors/amber";
+
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const veryNice = (wide: boolean) => ({
   fontFamily: "proxima-nova, 'Helvetica Neue', Helvetica, Arial, sans-serif",
@@ -71,8 +80,17 @@ export default function Register({ mobile }: any) {
     window.addEventListener("resize", handleResize);
   });
 
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: orange[900],
+      },
+    },
+  });
+
   return (
     <Grid
+      sx={{ backgroundColor: amber[50] }}
       container
       direction="row"
       justifyContent="flex-start"
@@ -205,15 +223,12 @@ export default function Register({ mobile }: any) {
           wrap="nowrap"
           direction="row"
           justifyContent="center"
-          alignItems="center"
+          alignItems="strech"
           columnSpacing={2}
         >
           <Grid item>
             <InputLabel
               sx={{
-                fontFamily:
-                  "proxima-nova, 'Helvetica Neue', Helvetica, Arial, sans-serif",
-                letterSpacing: "-0.06rem",
                 fontSize: (wide ? 4 * 0.75 : 4) + "vw",
                 color: orange[900],
               }}
@@ -222,17 +237,30 @@ export default function Register({ mobile }: any) {
             </InputLabel>
           </Grid>
           <Grid item>
-            <Input
-              type="email"
-              placeholder="name@example.com"
-              sx={{ color: orange[900] }}
-            />
+            <ThemeProvider theme={theme}>
+              <TextField
+                type="email"
+                label="Email Address"
+                placeholder="name@example.com"
+                variant="outlined"
+                color="primary"
+                sx={{
+                  input: { color: orange[900] },
+                  width: "40vw",
+                  maxWidth: "350px",
+                }}
+              />
+            </ThemeProvider>
           </Grid>
           <Grid item>
             <Button
               sx={{
+                height: "100%",
+                width: "120%",
+                fontSize: "1.8vw",
                 backgroundColor: orange[50],
-                color: orange[500],
+                borderRadius: "10px",
+                color: orange[900],
                 "&:hover": {
                   backgroundColor: orange[300],
                   color: orange[900],
@@ -243,6 +271,7 @@ export default function Register({ mobile }: any) {
             </Button>
           </Grid>
         </Grid>
+        <br />
       </Grid>
       {wide && (
         <Grid item width="25vw" height="100vh">
@@ -271,41 +300,64 @@ export default function Register({ mobile }: any) {
                 ? mascot9
                 : mascot10
             }
-            sx={{
-              position: "fixed",
-              left:
-                65 -
-                (scrollPosition > 100
-                  ? (200 - 100) / 100
-                  : scrollPosition / 100) *
-                  12 +
-                "vw",
-              top:
-                20 -
-                (scrollPosition > 100
-                  ? (200 - 100) / 100
-                  : scrollPosition / 100) *
-                  12 +
-                "vw",
-              width:
-                40 +
-                (scrollPosition > 100
-                  ? (200 - 100) / 100
-                  : scrollPosition / 100) *
-                  12 +
-                "vw",
-              height:
-                40 +
-                (scrollPosition > 100
-                  ? (200 - 100) / 100
-                  : scrollPosition / 100) *
-                  12 +
-                "vw",
-              opacity:
-                (scrollPosition > 100
-                  ? (200 - scrollPosition) / 100
-                  : scrollPosition / 100) + 0.1,
-            }}
+            sx={
+              scrollPosition > 100
+                ? {
+                    position: "relative",
+                    left: -21 + "vw",
+                    top: 8 + "vw",
+                    width:
+                      35 +
+                      (scrollPosition > 100
+                        ? (200 - 100) / 100
+                        : scrollPosition / 100) *
+                        12 +
+                      "vw",
+                    height:
+                      35 +
+                      (scrollPosition > 100
+                        ? (200 - 100) / 100
+                        : scrollPosition / 100) *
+                        12 +
+                      "vw",
+                    opacity: 1,
+                  }
+                : {
+                    position: "fixed",
+                    left:
+                      66 -
+                      (scrollPosition > 100
+                        ? (200 - 100) / 100
+                        : scrollPosition / 100) *
+                        12 +
+                      "vw",
+                    top:
+                      13 -
+                      (scrollPosition > 100
+                        ? (200 - 100) / 100
+                        : scrollPosition / 100) *
+                        12 +
+                      "vw",
+                    width:
+                      35 +
+                      (scrollPosition > 100
+                        ? (200 - 100) / 100
+                        : scrollPosition / 100) *
+                        12 +
+                      "vw",
+                    height:
+                      35 +
+                      (scrollPosition > 100
+                        ? (200 - 100) / 100
+                        : scrollPosition / 100) *
+                        12 +
+                      "vw",
+                    opacity:
+                      (scrollPosition > 100
+                        ? (200 - scrollPosition) / 100
+                        : scrollPosition / 100) + 0.1,
+                  }
+            }
           ></Box>
         </Grid>
       )}
