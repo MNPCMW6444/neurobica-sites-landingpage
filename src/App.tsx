@@ -102,7 +102,7 @@ function App() {
             <Grid item>
               <Register />
             </Grid>
-            <Grid item>
+            <Grid item >
               <div ref={whyRef}>
                 <Michael />
               </div>
