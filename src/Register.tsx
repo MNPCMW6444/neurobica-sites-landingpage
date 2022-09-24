@@ -42,10 +42,10 @@ export default function Register() {
       direction="column"
       justifyContent="center"
       alignItems="center"
-      height="100vh"
+      height="calc(100vh - 120px)"
       width="100vw"
-      sx={{ marginTop: "60px" }}
-      rowSpacing={6000 / width - 2}
+      sx={{ marginTop: "60px", padding: "0px 30px 0px 30px" }}
+      rowSpacing={4000 / width - 2}
     >
       <Grid
         container
@@ -144,13 +144,18 @@ export default function Register() {
                 "proxima-nova, 'Helvetica Neue', Helvetica, Arial, sans-serif",
               letterSpacing: "-0.06rem",
               fontSize: "4vw",
+              color: orange[900],
             }}
           >
             Join Today:
           </InputLabel>
         </Grid>
         <Grid item>
-          <Input type="email" placeholder="email address" />
+          <Input
+            type="email"
+            placeholder="name@example.com"
+            sx={{ color: orange[900] }}
+          />
         </Grid>
         <Grid item>
           <Button
