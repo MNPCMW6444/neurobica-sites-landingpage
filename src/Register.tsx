@@ -9,33 +9,55 @@ import { Button, Input, InputLabel, Typography } from "@mui/material";
 import orange from "@mui/material/colors/orange";
 import { useEffect, useState } from "react";
 
-const veryNice = {
+import mascot from "./mascot.svg";
+
+const veryNice = (wide: boolean) => ({
   fontFamily: "proxima-nova, 'Helvetica Neue', Helvetica, Arial, sans-serif",
   letterSpacing: "-0.06rem",
   fontWeight: "700",
   lineHeight: "1",
   color: "rgb(40, 40, 40)",
-  fontSize: "8vw",
+  fontSize: (wide ? 8 * 0.75 : 8) + "vw",
   boxsizing: "border-box",
   position: "relative",
   textAlign: "center",
-};
+});
 
-const iconSx = { width: "4vw", height: "4vw" };
-const textSx = { fontSize: "3vw", marginBottom: "0.9vw" };
+const iconSx = (wide: boolean) => ({
+  width: (wide ? 4 * 0.75 : 4) + "vw",
+  height: (wide ? 4 * 0.75 : 4) + "vw",
+});
+
+const textSx = (wide: boolean) => ({
+  fontSize: (wide ? 3 * 0.75 : 3) + "vw",
+  marginBottom: (wide ? 0.9 * 0.75 : 0.9) + "vw",
+});
 
 export default function Register({ mobile }: any) {
   const [width, setwidth] = useState(
-    window.innerWidth < 400 ? 400 : window.innerWidth
+    window.innerWidth < window.innerHeight
+      ? window.innerWidth < 400
+        ? 400
+        : window.innerWidth
+      : window.innerHeight * 0.75
   );
 
   const [wide, setwide] = useState(window.innerWidth > window.innerHeight);
+
+  const [scrollPosition, setScrollPosition] = useState(0);
+
   useEffect(() => {
     const handleResize = () => {
-      setwidth(window.innerWidth < 400 ? 400 : window.innerWidth);
+      window.innerWidth < window.innerHeight
+        ? setwidth(window.innerWidth < 400 ? 400 : window.innerWidth)
+        : setwidth(window.innerHeight * 0.75);
       setwide(window.innerWidth > window.innerHeight);
     };
-
+    const handleScroll = () => {
+      const position = window.pageYOffset;
+      setScrollPosition(position);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleResize);
   });
 
@@ -68,29 +90,41 @@ export default function Register({ mobile }: any) {
           alignItems="center"
           rowSpacing={3500 / width - 1}
         >
-          <Grid item sx={veryNice}>
+          <Grid item sx={veryNice(wide)}>
             Everything you need for
           </Grid>
           <Box
             component="img"
             src={under}
-            sx={{ width: "40%", alignSelf: "flex-start", marginLeft: "8vw" }}
+            sx={{
+              width: "40%",
+              alignSelf: "flex-start",
+              marginLeft: (wide ? 8 * 0.75 : 8) + "vw",
+            }}
           ></Box>
-          <Grid item sx={veryNice}>
+          <Grid item sx={veryNice(wide)}>
             Exercising you Brain
           </Grid>
           <Box
             component="img"
             src={under}
-            sx={{ width: "40%", alignSelf: "flex-start", marginLeft: "10vw" }}
+            sx={{
+              width: "40%",
+              alignSelf: "flex-start",
+              marginLeft: (wide ? 10 * 0.75 : 10) + "vw",
+            }}
           ></Box>
-          <Grid item sx={veryNice}>
+          <Grid item sx={veryNice(wide)}>
             In just One Place
           </Grid>
           <Box
             component="img"
             src={under}
-            sx={{ width: "40%", alignSelf: "flex-end", marginRight: "14vw" }}
+            sx={{
+              width: "40%",
+              alignSelf: "flex-end",
+              marginRight: (wide ? 14 * 0.75 : 14) + "vw",
+            }}
           ></Box>
         </Grid>
         <Grid item>
@@ -102,7 +136,7 @@ export default function Register({ mobile }: any) {
               fontWeight: 700,
               lineHeight: "10vh",
               letterSpacing: "-0.06rem",
-              fontSize: "4vw",
+              fontSize: (wide ? 4 * 0.75 : 4) + "vw",
             }}
           >
             NEUROBICA - All Your Brain Needs!
@@ -118,28 +152,28 @@ export default function Register({ mobile }: any) {
           columnSpacing={2}
         >
           <Grid item>
-            <Box component="img" src={m1} sx={iconSx}></Box>
+            <Box component="img" src={m1} sx={iconSx(wide)}></Box>
           </Grid>
           <Grid item>
-            <Typography sx={textSx}>Memory</Typography>
+            <Typography sx={textSx(wide)}>Memory</Typography>
           </Grid>
           <Grid item>
-            <Box component="img" src={m2} sx={iconSx}></Box>
+            <Box component="img" src={m2} sx={iconSx(wide)}></Box>
           </Grid>
           <Grid item>
-            <Typography sx={textSx}>Focus</Typography>
+            <Typography sx={textSx(wide)}>Focus</Typography>
           </Grid>
           <Grid item>
-            <Box component="img" src={m3} sx={iconSx}></Box>
+            <Box component="img" src={m3} sx={iconSx(wide)}></Box>
           </Grid>
           <Grid item>
-            <Typography sx={textSx}>Concentration</Typography>
+            <Typography sx={textSx(wide)}>Concentration</Typography>
           </Grid>
           <Grid item>
-            <Box component="img" src={m4} sx={iconSx}></Box>
+            <Box component="img" src={m4} sx={iconSx(wide)}></Box>
           </Grid>
           <Grid item>
-            <Typography sx={textSx}>Studying</Typography>
+            <Typography sx={textSx(wide)}>Studying</Typography>
           </Grid>
         </Grid>
         <Grid item>
@@ -148,7 +182,7 @@ export default function Register({ mobile }: any) {
               fontFamily:
                 "proxima-nova, 'Helvetica Neue', Helvetica, Arial, sans-serif",
               letterSpacing: "-0.06rem",
-              fontSize: "4vw",
+              fontSize: (wide ? 4 * 0.75 : 4) + "vw",
             }}
           >
             Ready to become a Super Version of yourself?
@@ -170,7 +204,7 @@ export default function Register({ mobile }: any) {
                 fontFamily:
                   "proxima-nova, 'Helvetica Neue', Helvetica, Arial, sans-serif",
                 letterSpacing: "-0.06rem",
-                fontSize: "4vw",
+                fontSize: (wide ? 4 * 0.75 : 4) + "vw",
                 color: orange[900],
               }}
             >
@@ -201,8 +235,22 @@ export default function Register({ mobile }: any) {
         </Grid>
       </Grid>
       {wide && (
-        <Grid item width="25vw" height="100vh" sx={{ backgroundColor: "red" }}>
-          {" "}
+        <Grid item width="25vw" height="100vh">
+          <Box
+            component="img"
+            src={mascot}
+            sx={{
+              position: "fixed",
+              left: "50vw",
+              top: "10vw",
+              width: "75%",
+              height: "75%",
+              opacity:
+                (scrollPosition > 100
+                  ? (200 - scrollPosition) / 100
+                  : scrollPosition / 100) + 0.3,
+            }}
+          ></Box>
         </Grid>
       )}
     </Grid>
