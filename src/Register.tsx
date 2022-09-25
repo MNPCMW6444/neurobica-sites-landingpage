@@ -54,6 +54,8 @@ export default function Register({ mobile }: any) {
       : window.innerHeight * 0.75
   );
 
+  const [height, setheight] = useState(window.innerHeight);
+
   const [wide, setwide] = useState(window.innerWidth > window.innerHeight);
 
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -101,7 +103,7 @@ export default function Register({ mobile }: any) {
         height="100vh"
         width={wide ? "75vw" : "100vw"}
         sx={{ marginTop: "60px", padding: "0px 30px 0px 30px" }}
-        rowSpacing={3000 / width - 2}
+        rowSpacing={height / width}
       >
         <Grid
           container
@@ -109,7 +111,7 @@ export default function Register({ mobile }: any) {
           direction="column"
           justifyContent="center"
           alignItems="center"
-          rowSpacing={2000 / width - 1}
+          rowSpacing={height / width}
         >
           <Grid item sx={veryNice(wide)}>
             Everything you need for
