@@ -35,7 +35,7 @@ export default function Micael() {
           <Avatar
             alt="Remy Sharp"
             src={yoad}
-            sx={{ width: "56vw", height: "56vw" }}
+            sx={{ width: "15vw", height: "15vw" }}
           />
         </Grid>
         <Grid
