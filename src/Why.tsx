@@ -11,6 +11,8 @@ import TableBody from "@mui/material/TableBody";
 import Avatar from "@mui/material/Avatar";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
+import yoad from "./money-svgrepo-com.svg";
+
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
@@ -21,7 +23,6 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Micael() {
   return (
-
     <Box sx={{ width: "100vw", hight: "100vh" }}>
       <Grid
         container
@@ -31,12 +32,19 @@ export default function Micael() {
         alignItems="center"
       >
         <Grid item xs={12}>
-          <Avatar alt="Remy Sharp" src="src/money-svgrepo-com.svg" sx={{ width: 56, height: 56 }} />
-
-
+          <Avatar
+            alt="Remy Sharp"
+            src={yoad}
+            sx={{ width: "56vw", height: "56vw" }}
+          />
         </Grid>
-        <Grid item xs={10} lg={8} md={8} sx={{ width: "100vw", hight: "100vh" }}>
-
+        <Grid
+          item
+          xs={10}
+          lg={8}
+          md={8}
+          sx={{ width: "100vw", hight: "100vh" }}
+        >
           <Item>
             <Typography sx={{ padding: "2vh" }} variant="h3">
               Save tousands of ${" "}
