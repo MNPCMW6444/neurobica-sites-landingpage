@@ -27,6 +27,8 @@ import Backdrop from "@mui/material/Backdrop";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import IM from "./IM";
+import Axios from "axios";
+import { Store } from "react-notifications-component";
 
 const modalstyle = {
   position: "fixed" as "fixed",
@@ -81,6 +83,10 @@ export default function Register({ mobile }: any) {
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const [open, setOpen] = useState(false);
+
+  const [label, setlabel] = useState("GO");
+
+  const [email, setemail] = useState("");
 
   useEffect(() => {
     const handleResize = () => {
@@ -237,7 +243,7 @@ export default function Register({ mobile }: any) {
             <Box component="img" src={m4} sx={iconSx(wide)}></Box>
           </Grid>
           <Grid item>
-            <Typography sx={textSx(wide)}>Studying</Typography>
+            <Typography sx={textSx(wide)}>Learning</Typography>
           </Grid>
         </Grid>
         <Grid item>
@@ -280,6 +286,8 @@ export default function Register({ mobile }: any) {
                 placeholder="name@example.com"
                 variant="outlined"
                 color="primary"
+                value={email}
+                onChange={(e) => setemail(e.target.value)}
                 sx={{
                   input: { color: orange[900] },
                   width: "40vw",
@@ -290,7 +298,35 @@ export default function Register({ mobile }: any) {
           </Grid>
           <Grid item>
             <Button
-              onClick={() => setOpen(true)}
+              onClick={async () => {
+                try {
+                  await Axios.post(
+                    "http://localhost:6444/" + "user/signupreq",
+                    {
+                      email,
+                    }
+                  );
+                  setlabel("Initiating Registration Form...");
+                } catch (err: any) {
+                  Store.removeAllNotifications();
+                  Store.addNotification({
+                    title: "Error",
+                    message: err.response.data.clientError,
+                    type: "danger",
+                    container: "bottom-center",
+                    animationIn: ["animate__animated", "animate__fadeIn"],
+                    animationOut: ["animate__animated", "animate__fadeOut"],
+                    dismiss: {
+                      duration: 3000,
+                      onScreen: true,
+                    },
+                    insert: "top",
+                  });
+                  setlabel("Error!");
+                  setTimeout(() => setlabel("GO"), 1500);
+                }
+                setOpen(true);
+              }}
               sx={{
                 height: "100%",
                 width: "120%",
@@ -304,7 +340,7 @@ export default function Register({ mobile }: any) {
                 },
               }}
             >
-              GO
+              {label}
             </Button>
           </Grid>
         </Grid>

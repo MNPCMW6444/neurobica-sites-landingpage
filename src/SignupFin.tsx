@@ -17,7 +17,7 @@ export default function SignupFin(props: SignupFinProps) {
   useEffect(() => {
     const signupFin = async () => {
       try {
-        await Axios.post("" + "user/signupfin", {
+        await Axios.post("http://localhost:6444/" + "user/signupfin", {
           email,
           key: secretKey,
           fullname,
