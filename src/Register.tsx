@@ -29,7 +29,7 @@ import Fade from "@mui/material/Fade";
 import IM from "./IM";
 
 const modalstyle = {
-  position: "absolute" as "absolute",
+  position: "fixed" as "fixed",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",

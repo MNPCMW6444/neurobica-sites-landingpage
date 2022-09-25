@@ -87,10 +87,9 @@ export default function IM() {
       direction="column"
       justifyContent="center"
       alignItems="center"
-      rowSpacing={2}
     >
       <Grid item>
-        <NeurobicaLogo height="25vw" width="25vw" />
+        <NeurobicaLogo height="250px" width="250px" />
       </Grid>
       <Grid item>
         <Box className="loginPageSignInSignUp">
