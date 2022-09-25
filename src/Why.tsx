@@ -8,6 +8,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import TableBody from "@mui/material/TableBody";
+import Avatar from "@mui/material/Avatar";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -27,7 +28,8 @@ export default function Micael() {
         justifyContent="center"
         alignItems="flex-start"
       >
-        <Grid item xs={10} lg={8} md={8} sx={{ width: "100vw", hight: "50vh" }}>
+        <Grid item xs={10} lg={8} md={8} sx={{ width: "100vw", hight: "100vh" }}>
+
           <Item>
             <Typography sx={{ padding: "2vh" }} variant="h3">
               Save tousands of ${" "}

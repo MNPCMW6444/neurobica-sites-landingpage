@@ -99,7 +99,7 @@ function App() {
       <div ref={homeRef}>
         <Box>
           <Register />
-          <div ref={whyRef} style={{ ...page, backgroundColor: "#249EA0" }}>
+          <div ref={whyRef} style={{ ...page, backgroundColor: blue[100] }}>
             <Why />
           </div>
         </Box>
