@@ -1,3 +1,5 @@
+import orange from "@mui/material/colors/orange";
+
 export default {
   unselected: {
     border: "unset",
@@ -6,6 +8,6 @@ export default {
   selected: {
     border: "unset",
     textDecoration: "underline",
-    color: "#0059ff",
+    color: orange[900],
   },
 };
