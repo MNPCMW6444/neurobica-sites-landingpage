@@ -23,6 +23,23 @@ import amber from "@mui/material/colors/amber";
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
+import Backdrop from "@mui/material/Backdrop";
+import Modal from "@mui/material/Modal";
+import Fade from "@mui/material/Fade";
+import IM from "./IM";
+
+const modalstyle = {
+  position: "absolute" as "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
+
 const veryNice = (wide: boolean) => ({
   fontFamily: "proxima-nova, 'Helvetica Neue', Helvetica, Arial, sans-serif",
   letterSpacing: "-0.06rem",
@@ -54,9 +71,14 @@ export default function Register({ mobile }: any) {
       : window.innerHeight * 0.75
   );
 
+  const [height, setheight] = useState(window.innerHeight);
+  const [widthreal, setwidthreal] = useState(window.innerWidth);
+
   const [wide, setwide] = useState(window.innerWidth > window.innerHeight);
 
   const [scrollPosition, setScrollPosition] = useState(0);
+
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -64,6 +86,8 @@ export default function Register({ mobile }: any) {
         ? setwidth(window.innerWidth < 400 ? 400 : window.innerWidth)
         : setwidth(window.innerHeight * 0.75);
       setwide(window.innerWidth > window.innerHeight);
+      setheight(window.innerHeight);
+      setwidthreal(window.innerWidth);
     };
     const handleScroll = () => {
       const position = window.pageYOffset;
@@ -91,6 +115,23 @@ export default function Register({ mobile }: any) {
       width="100vw"
       wrap="nowrap"
     >
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        open={open}
+        onClose={() => setOpen(false)}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade in={open}>
+          <Box sx={modalstyle}>
+            <IM />
+          </Box>
+        </Fade>
+      </Modal>
       <Grid
         item
         container
@@ -101,7 +142,7 @@ export default function Register({ mobile }: any) {
         height="100vh"
         width={wide ? "75vw" : "100vw"}
         sx={{ marginTop: "60px", padding: "0px 30px 0px 30px" }}
-        rowSpacing={3000 / width - 2}
+        rowSpacing={widthreal / height < 1.55 ? 3000 / width - 2 : 0}
       >
         <Grid
           container
@@ -109,7 +150,7 @@ export default function Register({ mobile }: any) {
           direction="column"
           justifyContent="center"
           alignItems="center"
-          rowSpacing={2000 / width - 1}
+          rowSpacing={widthreal / height < 1.55 ? 2000 / width - 1 : 0}
         >
           <Grid item sx={veryNice(wide)}>
             Everything you need for
@@ -247,6 +288,7 @@ export default function Register({ mobile }: any) {
           </Grid>
           <Grid item>
             <Button
+              onClick={() => setOpen(true)}
               sx={{
                 height: "100%",
                 width: "120%",
