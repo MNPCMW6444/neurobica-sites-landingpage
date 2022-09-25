@@ -19,7 +19,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Micael() {
   return (
-    <Box sx={{ width: "100vw", hight: "50vh" }}>
+    <Box sx={{ width: "100vw", hight: "100vh" }}>
       <Grid
         container
         rowSpacing={2}

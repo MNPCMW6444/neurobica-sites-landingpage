@@ -8,6 +8,7 @@ import Michaelforreal from "./Michaelforreal";
 import Mobile from "./Mobile";
 import Nav from "./Nav";
 import Register from "./Register";
+import blue from "@mui/material/colors/blue";
 
 const page = {
   height: "100vh",
@@ -98,12 +99,12 @@ function App() {
       <div ref={homeRef}>
         <Box>
           <Register />
-          <div ref={whyRef} style={page}>
+          <div ref={whyRef} style={{ ...page, backgroundColor: "#249EA0" }}>
             <Why />
           </div>
         </Box>
-      </div>
-    </Box>
+      </div >
+    </Box >
   );
 }
 
