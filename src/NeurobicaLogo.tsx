@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box";
-import NeurobicaLogoAsset from "./logo512.png";
+import NeurobicaLogoAsset from "./logo512c.png";
 
 export default function NeurobicaLogo({ height, width }: any) {
   return (
