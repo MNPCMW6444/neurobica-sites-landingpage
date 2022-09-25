@@ -9,6 +9,7 @@ import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import TableBody from "@mui/material/TableBody";
 import Avatar from "@mui/material/Avatar";
+import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -20,14 +21,20 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Micael() {
   return (
+
     <Box sx={{ width: "100vw", hight: "100vh" }}>
       <Grid
         container
         rowSpacing={2}
         columnSpacing={{ xs: 1, sm: 2, md: 3 }}
         justifyContent="center"
-        alignItems="flex-start"
+        alignItems="center"
       >
+        <Grid item xs={12}>
+          <Avatar alt="Remy Sharp" src="src/money-svgrepo-com.svg" sx={{ width: 56, height: 56 }} />
+
+
+        </Grid>
         <Grid item xs={10} lg={8} md={8} sx={{ width: "100vw", hight: "100vh" }}>
 
           <Item>
