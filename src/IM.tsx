@@ -87,6 +87,7 @@ export default function IM() {
       direction="column"
       justifyContent="center"
       alignItems="center"
+      spacing={2}
     >
       <Grid item>
         <NeurobicaLogo height="180px" width="280px" />
@@ -124,265 +125,246 @@ export default function IM() {
             </ToggleButton>
           </ToggleButtonGroup>
         </Box>
-        <Grid
-          container
-          direction="column"
-          justifyContent="felx-start"
-          alignItems="start"
-          rowSpacing={4}
-        >
-          {isSignIn ? (
-            <>
-              <Grid item>
-                <TextField
-                  sx={{
-                    m: 0,
-                    width: "40vh",
-                  }}
-                  error={emailValidation && !!email}
-                  id="sandard-basic"
-                  variant="standard"
-                  type="email"
-                  label={
-                    email.includes("+")
-                      ? "Email Address mustn't include '+'"
-                      : !(
-                          email.includes("@") &&
-                          email.indexOf("@") !== 0 &&
-                          email.indexOf("@") !== email.length - 1
-                        ) && !!email
-                      ? "Email Address must include '@'"
-                      : "Email Address"
-                  }
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <Email />
-                      </InputAdornment>
-                    ),
-                  }}
-                  value={email}
-                  placeholder="Enter Your Email Address"
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                  }}
-                />
-              </Grid>
+      </Grid>
+      {isSignIn ? (
+        <>
+          <Grid item>
+            <TextField
+              sx={{
+                m: 0,
+                width: "40vh",
+              }}
+              error={emailValidation && !!email}
+              id="sandard-basic"
+              variant="standard"
+              type="email"
+              label={
+                email.includes("+")
+                  ? "Email Address mustn't include '+'"
+                  : !(
+                      email.includes("@") &&
+                      email.indexOf("@") !== 0 &&
+                      email.indexOf("@") !== email.length - 1
+                    ) && !!email
+                  ? "Email Address must include '@'"
+                  : "Email Address"
+              }
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Email />
+                  </InputAdornment>
+                ),
+              }}
+              value={email}
+              placeholder="Enter Your Email Address"
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
+          </Grid>
 
-              <Grid item>
-                <TextField
-                  sx={{
-                    m: 0,
-                    width: "40vh",
-                  }}
-                  error={!passwordValidation}
-                  id="tandard-basic"
-                  variant="standard"
-                  type="password"
-                  label={
-                    passwordValidation === false
-                      ? "Password must include 8 character or more and include at least 1 lowercase, uppercase, number and symbol charactors"
-                      : "Password"
-                  }
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <Lock />
-                      </InputAdornment>
-                    ),
-                  }}
-                  value={password}
-                  placeholder="Enter Your Password"
-                  onChange={(e) => {
-                    setPassword(e.target.value);
-                  }}
-                />
-              </Grid>
-            </>
-          ) : (
-            <>
-              <Grid item>
-                <TextField
-                  sx={{
-                    m: 0,
-                    width: "40vh",
-                  }}
-                  error={emailValidation && !!email}
-                  id="sandard-basic"
-                  variant="standard"
-                  type="email"
-                  label={
-                    email.includes("+")
-                      ? "Email Address mustn't include '+'"
-                      : !(
-                          email.includes("@") &&
-                          email.indexOf("@") !== 0 &&
-                          email.indexOf("@") !== email.length - 1
-                        ) && !!email
-                      ? "Email Address must include '@'"
-                      : "Email Address"
-                  }
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <Email />
-                      </InputAdornment>
-                    ),
-                  }}
-                  value={email}
-                  placeholder="Enter Your Email Address"
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                  }}
-                />
-              </Grid>
-              <Grid item>
-                <TextField
-                  sx={{
-                    m: 0,
-                    width: "40vh",
-                  }}
-                  error={false}
-                  type="text"
-                  variant="standard"
-                  label="Full Name"
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <Badge />
-                      </InputAdornment>
-                    ),
-                  }}
-                  value={fullname}
-                  placeholder="Enter Your Full Name"
-                  onChange={(e) => {
-                    setFullName(e.target.value);
-                  }}
-                />
-              </Grid>
-              <Grid item>
-                <TextField
-                  sx={{
-                    m: 0,
-                    width: "40vh",
-                  }}
-                  error={!passwordValidation}
-                  type="password"
-                  variant="standard"
-                  label="key"
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <Lock />
-                      </InputAdornment>
-                    ),
-                  }}
-                  value={key}
-                  placeholder="Enter Your Key (check you email inbox)"
-                  onChange={(e) => setKey(e.target.value)}
-                />{" "}
-                <TextField
-                  sx={{
-                    m: 0,
-                    width: "40vh",
-                  }}
-                  error={false}
-                  type="password"
-                  variant="standard"
-                  label={
-                    passwordValidation === false
-                      ? "Password must include 8 character or more and include at least 1 lowercase, uppercase, number and symbol charactors"
-                      : "Password"
-                  }
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <Lock />
-                      </InputAdornment>
-                    ),
-                  }}
-                  value={password}
-                  placeholder="Enter Your Password"
-                  onChange={(e) => {
-                    setPassword(e.target.value);
-                  }}
-                />
-              </Grid>
-              <Grid item>
-                <TextField
-                  sx={{
-                    m: 0,
-                    width: "40vh",
-                  }}
-                  error={password !== passwordagain}
-                  type="password"
-                  variant="standard"
-                  label="Confirm Password"
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <Lock />
-                      </InputAdornment>
-                    ),
-                  }}
-                  value={passwordagain}
-                  placeholder="Confirm Your Password"
-                  onChange={(e) => {
-                    setPasswordagain(e.target.value);
-                  }}
-                />
+          <Grid item>
+            <TextField
+              sx={{
+                m: 0,
+                width: "40vh",
+              }}
+              error={!passwordValidation}
+              id="tandard-basic"
+              variant="standard"
+              type="password"
+              label={
+                passwordValidation === false
+                  ? "Password must include 8 character or more and include at least 1 lowercase, uppercase, number and symbol charactors"
+                  : "Password"
+              }
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Lock />
+                  </InputAdornment>
+                ),
+              }}
+              value={password}
+              placeholder="Enter Your Password"
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
+          </Grid>
+        </>
+      ) : (
+        <>
+          <Grid item>
+            <TextField
+              sx={{
+                m: 0,
+                width: "40vh",
+              }}
+              error={emailValidation && !!email}
+              id="sandard-basic"
+              variant="standard"
+              type="email"
+              label={
+                email.includes("+")
+                  ? "Email Address mustn't include '+'"
+                  : !(
+                      email.includes("@") &&
+                      email.indexOf("@") !== 0 &&
+                      email.indexOf("@") !== email.length - 1
+                    ) && !!email
+                  ? "Email Address must include '@'"
+                  : "Email Address"
+              }
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Email />
+                  </InputAdornment>
+                ),
+              }}
+              value={email}
+              placeholder="Enter Your Email Address"
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
+          </Grid>
+          <Grid item>
+            <TextField
+              sx={{
+                m: 0,
+                width: "40vh",
+              }}
+              error={false}
+              type="text"
+              variant="standard"
+              label="Full Name"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Badge />
+                  </InputAdornment>
+                ),
+              }}
+              value={fullname}
+              placeholder="Enter Your Full Name"
+              onChange={(e) => {
+                setFullName(e.target.value);
+              }}
+            />
+          </Grid>
+          <Grid item>
+            <TextField
+              sx={{
+                m: 0,
+                width: "40vh",
+              }}
+              error={!passwordValidation}
+              type="password"
+              variant="standard"
+              label="key"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Lock />
+                  </InputAdornment>
+                ),
+              }}
+              value={key}
+              placeholder="Enter Your Key (check you email inbox)"
+              onChange={(e) => setKey(e.target.value)}
+            />{" "}
+          </Grid>
+          <Grid item>
+            {" "}
+            <TextField
+              sx={{
+                m: 0,
+                width: "40vh",
+              }}
+              error={false}
+              type="password"
+              variant="standard"
+              label={
+                passwordValidation === false
+                  ? "Password must include 8 character or more and include at least 1 lowercase, uppercase, number and symbol charactors"
+                  : "Password"
+              }
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Lock />
+                  </InputAdornment>
+                ),
+              }}
+              value={password}
+              placeholder="Enter Your Password"
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
+          </Grid>
+          <Grid item>
+            <TextField
+              sx={{
+                m: 0,
+                width: "40vh",
+              }}
+              error={password !== passwordagain}
+              type="password"
+              variant="standard"
+              label="Confirm Password"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Lock />
+                  </InputAdornment>
+                ),
+              }}
+              value={passwordagain}
+              placeholder="Confirm Your Password"
+              onChange={(e) => {
+                setPasswordagain(e.target.value);
+              }}
+            />
 
-                <Grid container>
-                  <Grid item>
-                    {" "}
-                    <FormControlLabel
-                      label={
-                        <Box>
-                          <span>I accept the </span>
-                          {/*  <Link to={"/termsvf"}>
+            <Grid container>
+              <Grid item>
+                {" "}
+                <FormControlLabel
+                  label={
+                    <Box>
+                      <span>I accept the </span>
+                      {/*  <Link to={"/termsvf"}>
                           terms of use and privacy policy
                         </Link> */}
-                          <Box>terms of use and privacy policy</Box>
-                        </Box>
-                      }
+                      <Box>terms of use and privacy policy</Box>
+                    </Box>
+                  }
+                  sx={{
+                    color: "GrayText",
+                    width: "35vh",
+                  }}
+                  control={
+                    <Checkbox
                       sx={{
-                        color: "GrayText",
-                        width: "35vh",
+                        fontSize: "28",
                       }}
-                      control={
-                        <Checkbox
-                          sx={{
-                            fontSize: "28",
-                          }}
-                          checked={state.checkedB}
-                          onChange={handleChange}
-                          name="checkedB"
-                          color="default"
-                          size="small"
-                        />
-                      }
+                      checked={state.checkedB}
+                      onChange={handleChange}
+                      name="checkedB"
+                      color="default"
+                      size="small"
                     />
-                  </Grid>
-                </Grid>
+                  }
+                />
               </Grid>
-            </>
-          )}
-        </Grid>
-      </Grid>
-      <Grid item xs={4} sx={{ padding: "0vh" }}>
-        <Grid container>
-          <Grid item alignSelf="center">
-            <Box className="text">
-              <a
-                href="src/components/ForgotPassword/ForgotPassword"
-                style={{ color: "#FF8B17" }}
-              >
-                Trouble Logging In?
-              </a>
-            </Box>
+            </Grid>
           </Grid>
-        </Grid>
-      </Grid>
+        </>
+      )}
       {/*  <Grid item xs={4}>
         <GoogleReCaptchaProvider reCaptchaKey="6LcrTYUhAAAAALcocJuPUztaWEIAsY_DdAuRxx8b">
           <GoogleReCaptcha
@@ -392,9 +374,9 @@ export default function IM() {
           />
         </GoogleReCaptchaProvider>
       </Grid> */}
-      <Grid item xs={4}>
+      <Grid item>
         <Button
-          disabled={!true || emailValidation}
+          disabled={emailValidation}
           color="inherit"
           variant="outlined"
           sx={{
@@ -403,34 +385,17 @@ export default function IM() {
             height: "6vh",
             borderRadius: "30px",
           }}
-          onClick={() =>
-            isSignIn
-              ? setLabel("Signing in...")
-              : true
-              ? setLabel("Signing up...")
-              : setLabel("Continueing...")
-          }
-        >
-          {label === "Continiue to Home Page" ? (
-            /*  <Link to="../">By clicking in this link</Link> */ <Box>
-              By clicking in this link
-            </Box>
-          ) : (
-            label
-          )}
-        </Button>
+          onClick={() => setLabel(isSignIn ? "Logging In..." : "Registring...")}
+        />
+      </Grid>
 
-        {label === "Signing in..." && (
+      {label === "Logging In..." && (
+        <Grid item>
           <Signin email={email} password={password} setLabel={setLabel} />
-        )}
-        {label === "Continueing..." && (
-          <SignupReq
-            setLabel={setLabel}
-            settrue={setIsAdvanceed}
-            email={email}
-          />
-        )}
-        {label === "Signing up..." && (
+        </Grid>
+      )}
+      {label === "Registring..." && (
+        <Grid item>
           <SignupFin
             setLabel={setLabel}
             email={email}
@@ -439,8 +404,8 @@ export default function IM() {
             password={password}
             passwordagain={passwordagain}
           />
-        )}
-      </Grid>
+        </Grid>
+      )}
     </Grid>
   );
 }

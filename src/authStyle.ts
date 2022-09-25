@@ -2,12 +2,18 @@ import orange from "@mui/material/colors/orange";
 
 export default {
   unselected: {
-    border: "unset",
-    backgroundColor: "unset",
+    border: orange[900],
+    backgroundColor: orange[100],
+    borderRadius: "10px",
+    color: orange[900],
+    "&:hover": {
+      backgroundColor: orange[400],
+    },
   },
   selected: {
-    border: "unset",
-    textDecoration: "underline",
-    color: orange[900],
+    border: orange[900],
+    backgroundColor: orange[900],
+    color: orange[100],
+    borderRadius: "10px",
   },
 };
