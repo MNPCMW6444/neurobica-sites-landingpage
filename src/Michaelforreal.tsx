@@ -11,8 +11,10 @@ import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 import Button from "@mui/material/Button";
 import { Fragment, useState } from "react";
+import orange from "@mui/material/colors/orange";
+import Axios from "axios";
 
-export default function Michaelforreal({ home, user }: any) {
+export default function Michaelforreal({ setuser, home, user }: any) {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: any) => {
@@ -34,7 +36,9 @@ export default function Michaelforreal({ home, user }: any) {
               aria-haspopup="true"
               aria-expanded={open ? "true" : undefined}
             >
-              <Avatar sx={{ width: 32, height: 32 }}>
+              <Avatar
+                sx={{ width: 32, height: 32, backgroundColor: orange[500] }}
+              >
                 {user.fullname.toUpperCase()[0]}
               </Avatar>
             </IconButton>
@@ -97,7 +101,12 @@ export default function Michaelforreal({ home, user }: any) {
           </ListItemIcon>
           Settings
         </MenuItem>
-        <MenuItem>
+        <MenuItem
+          onClick={async () => {
+            await Axios.get("http://localhost:6444/user/signout");
+            setuser(null);
+          }}
+        >
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>

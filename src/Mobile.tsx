@@ -31,7 +31,7 @@ const logoSx = {
   zIndex: 104,
 };
 
-export default function Mobile({ actions, user, width }: any) {
+export default function Mobile({ setuser, actions, user, width }: any) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
@@ -110,7 +110,11 @@ export default function Mobile({ actions, user, width }: any) {
                 </Button>
               </Grid>
               <Grid item>
-                <Michaelforreal home={actions.home} />
+                <Michaelforreal
+                  setuser={setuser}
+                  home={actions.home}
+                  user={user}
+                />
               </Grid>
             </Grid>
           </Toolbar>

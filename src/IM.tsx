@@ -22,7 +22,7 @@ import Badge from "@mui/icons-material/Badge";
 import Lock from "@mui/icons-material/Lock";
 import SignupFin from "./SignupFin";
 
-export default function IM({ email, e }: any) {
+export default function IM({ email, e, l }: any) {
   const [isSignIn, setIsSignIn] = useState(e || false);
   const [key, setKey] = useState("");
   const [fullname, setFullName] = useState("");
@@ -46,7 +46,7 @@ export default function IM({ email, e }: any) {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
 
-  const [state2, setState2] = useState<{
+  /*  const [state2, setState2] = useState<{
     checkedA: boolean;
     checkedB: boolean;
     checkedF: boolean;
@@ -60,7 +60,7 @@ export default function IM({ email, e }: any) {
 
   const handleChange2 = (event: React.ChangeEvent<HTMLInputElement>) => {
     setState2({ ...state, [event.target.name]: event.target.checked });
-  };
+  }; */
 
   const emailValidation =
     email.includes("+") ||
@@ -348,7 +348,7 @@ export default function IM({ email, e }: any) {
 
       {label === "Logging In..." && (
         <Grid item>
-          <Signin email={email} password={password} setLabel={setLabel} />
+          <Signin email={email} password={password} setLabel={setLabel} l={l} />
         </Grid>
       )}
       {label === "Registring..." && (
@@ -360,6 +360,7 @@ export default function IM({ email, e }: any) {
             fullname={fullname}
             password={password}
             passwordagain={passwordagain}
+            l={l}
           />
         </Grid>
       )}

@@ -6,18 +6,20 @@ interface SigninProps {
   setLabel: Function;
   email: string;
   password: string;
+  l: any;
 }
 
 export default function Signin(props: SigninProps) {
-  const { email, password, setLabel } = props;
+  const { email, password, setLabel, l } = props;
   useEffect(() => {
     const signIn = async () => {
       try {
-        await Axios.post("http://localhost:6444/" + "user/signin", {
+        await Axios.post("http://localhost:6444/user/signin", {
           email,
           password,
         });
         setLabel("Success!");
+        l();
       } catch (err: any) {
         Store.removeAllNotifications();
         Store.addNotification({
@@ -38,6 +40,6 @@ export default function Signin(props: SigninProps) {
       }
     };
     signIn();
-  }, [email, password, setLabel]);
+  }, [email, password, setLabel, l]);
   return null;
 }

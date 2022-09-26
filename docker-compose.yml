@@ -1,0 +1,45 @@
+# Version of Docker-compose
+version: "3.8"
+services:
+  # Service name
+  node:
+    # ADD THE CONFIGURATION FROM THIS POINT to build the MongoDB service
+    environment:
+      - PORT=6444
+      # For security, specify a username and password as environmental variables
+      # Username for the mongo database
+      - MONGO_INITDB_ROOT_USERNAME=mneurobicapcmw
+      # Password for the mongo database
+      - MONGO_INITDB_ROOT_PASSWORD=234fkl;34mfl323lkjkl234mf
+    # Enables the mongo service to start before the node service
+    depends_on:
+      - mongo
+    # ADD THE CONFIGURATION FROM THIS POINT to create a volume named nodeVolume
+    volumes:
+      # Syntax <nameOfVolume>:<directorInDocker>
+      - serverVolume:/server
+    # Creating a custom image
+    build:
+      # Location to the Dockerfile
+      context: ./server/
+      # Name of the Dockerfile
+      dockerfile: Dockerfile
+    ports:
+      # External port:Internal port
+      - 6444:6444
+  mongo:
+    # Official mongo image from docker.hub
+    image: mongo
+    environment:
+      # Username for the mongo database
+      - MONGO_INITDB_ROOT_USERNAME=mneurobicapcmw
+      # Password for the mongo database
+      - MONGO_INITDB_ROOT_PASSWORD=234fkl;34mfl323lkjkl234mf
+    volumes:
+      # <nameOfVolume>:<directorInDocker>
+      - mongoDB:/data/db
+# Making the node service volume accessible to other services.
+volumes:
+  # Declaring the node service volume.
+  serverVolume:
+  mongoDB:

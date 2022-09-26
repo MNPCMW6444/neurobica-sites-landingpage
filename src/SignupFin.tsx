@@ -9,15 +9,16 @@ interface SignupFinProps {
   fullname: string;
   password: string;
   passwordagain: string;
+  l: any;
 }
 
 export default function SignupFin(props: SignupFinProps) {
-  const { setLabel, email, secretKey, fullname, password, passwordagain } =
+  const { setLabel, email, secretKey, fullname, password, passwordagain, l } =
     props;
   useEffect(() => {
     const signupFin = async () => {
       try {
-        await Axios.post("http://localhost:6444/" + "user/signupfin", {
+        await Axios.post("http://localhost:6444/user/signupfin", {
           email,
           key: secretKey,
           fullname,
@@ -25,6 +26,7 @@ export default function SignupFin(props: SignupFinProps) {
           passwordagain,
         });
         setLabel("Success!");
+        l();
         setTimeout(() => setLabel("Continiue to Home Page"), 1500);
       } catch (err: any) {
         Store.removeAllNotifications();
@@ -46,6 +48,6 @@ export default function SignupFin(props: SignupFinProps) {
       }
     };
     signupFin();
-  }, [email, fullname, secretKey, password, passwordagain, setLabel]);
+  }, [email, fullname, secretKey, password, passwordagain, setLabel, l]);
   return null;
 }
