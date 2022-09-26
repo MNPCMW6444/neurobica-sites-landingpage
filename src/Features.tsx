@@ -26,7 +26,7 @@ export default function RowAndColumnSpacing() {
                 direction="column"
             >
                 <Grid item xs={12} md={12} lg={12}>
-                    <Typography align="center" sx={{ padding: "2vh", maxWidth: "70vW" }} variant="h3">
+                    <Typography align="center" sx={{ padding: "2vh", maxWidth: "70vW" }} variant="h4">
                         If we didn't change your mind - you can!
                     </Typography>
                 </Grid>
@@ -38,20 +38,20 @@ export default function RowAndColumnSpacing() {
             </Grid>
 
             <Grid container justifyContent="center"
-                height="80vh"
+                height="60vh"
                 alignItems="center"
-                direction="row" sx={{ padding: "5vh" }} rowSpacing={1} columnSpacing={{ xs: 3, sm: 2, md: 3 }}>
-                <Grid item xs={6} width="35vh" height="30vh">
-                    <Item sx={{ minHeight: "28vh", maxWidth: "50vw" }} >Attention and focus neurofeedback training</Item>
+                direction="row" sx={{ padding: "5vh" }} rowSpacing={{ xs: 1, sm: 2, md: 2 }} columnSpacing={{ xs: 3, sm: 2, md: 2 }}>
+                <Grid item xs={6} width="35vh" height="30vh" md={3}>
+                    <Item sx={{ minHeight: "25vh", maxWidth: "50vw" }} >Attention and focus neurofeedback training program</Item>
                 </Grid>
-                <Grid item xs={6} width="35vh" height="30vh">
-                    <Item sx={{ minHeight: "28vh", maxWidth: "50vw" }}>Memory neurofeedback training</Item>
+                <Grid item xs={6} width="35vh" height="30vh" md={3}>
+                    <Item sx={{ minHeight: "25vh", maxWidth: "50vw" }}>Memory neurofeedback training program</Item>
                 </Grid>
-                <Grid item width="35vh" height="30vh" xs={6}>
-                    <Item sx={{ minHeight: "28vh", maxWidth: "50vw" }} >Multyplayer</Item>
+                <Grid item width="35vh" height="30vh" xs={6} md={3}>
+                    <Item sx={{ minHeight: "25vh", maxWidth: "50vw" }} >The first and only online multyplayer neurofeedback training platform</Item>
                 </Grid>
-                <Grid item width="35vh" height="30vh" xs={6}>
-                    <Item sx={{ minHeight: "28vh", maxWidth: "50vw" }}>Progress test</Item>
+                <Grid item width="35vh" height="30vh" xs={6} md={3}>
+                    <Item sx={{ minHeight: "25vh", maxWidth: "50vw" }}>Science proved brain prformence assasment to check your progress</Item>
                 </Grid>
             </Grid>
 
