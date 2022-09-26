@@ -19,15 +19,14 @@ export default function Pricing() {
             direction="row"
             sx={{ padding: "3vh" }} rowSpacing={1} columnSpacing={{ xs: 3, sm: 2, md: 3 }}>
             <Grid item xs={12} width="20vh" height="30vh">
-                <Typography sx={{ padding: "2vh", textAlign: "center" }} variant="h6">
-                    Save tousands of $ with neurobica's neurofeedback platforn where you
-                    can get much more and pay much less!
+                <Typography sx={{ padding: "1vh", textAlign: "center" }} variant="h4">
+                    Join Neurobica and boost your brain to the next level!
                 </Typography>            </Grid>
-            <Grid item xs={6} width="20vh" height="30vh">
-                <Item sx={{ fontSize: "30px", minHeight: "70vh", maxWidth: "40vw" }} >Basic</Item>
+            <Grid item xs={6} width="20vh" height="50vh">
+                <Item sx={{ fontSize: "30px", minHeight: "55vh", maxWidth: "40vw" }} >Basic</Item>
             </Grid>
-            <Grid item xs={6} width="20vh" height="30vh">
-                <Item sx={{ fontSize: "30px", minHeight: "70vh", maxWidth: "40vw" }}>Premium</Item>
+            <Grid item xs={6} width="20vh" height="50vh">
+                <Item sx={{ fontSize: "30px", minHeight: "55vh", maxWidth: "40vw" }}>Premium</Item>
             </Grid>
 
         </Grid>
