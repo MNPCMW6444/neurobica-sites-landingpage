@@ -40,9 +40,8 @@ export default function Micael() {
           />
         </Grid>
         <Grid item xs={12} width="70%">
-          <Typography sx={{ padding: "2vh", textAlign: "center" }} variant="h6">
-            Save tousands of $ with neurobica's neurofeedback platforn where you
-            can get much more and pay much less!
+          <Typography sx={{ padding: "2vh", textAlign: "center" }} variant="h5">
+            You get much more for less with Neurobica!
           </Typography>
         </Grid>
         <Grid
@@ -59,35 +58,33 @@ export default function Micael() {
             <TableHead>
               <TableRow>
                 <TableCell></TableCell>
-                <TableCell align="center">Neurobica</TableCell>
+                <TableCell sx={{ fontSize: "25px" }} align="center">Neurobica</TableCell>
                 <TableCell align="center">Others</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               <TableRow>
-                <TableCell align="center">Price</TableCell>
+                <TableCell sx={{ fontSize: "25px" }} align="center">Price</TableCell>
                 <TableCell align="center">
-                  14.99$ a mounth/99.99$ a year
+                  Only 14.99$ a month or 99.99$ a year!
                 </TableCell>
                 <TableCell align="center">80$ - 200$ per session</TableCell>
               </TableRow>
               <TableRow>
-                <TableCell align="center">Value</TableCell>
+                <TableCell sx={{ fontSize: "25px" }} align="center">Value</TableCell>
                 <TableCell align="center">
-                  Fully coustomized, automated and holistic training platform
-                  for all your brain needs where you become your own brain
-                  master!
+                  Fully customizable, dynamic training program
+                  and a walkthrough that guides you towards becoming your own personal trainer!
                 </TableCell>
                 <TableCell align="center">
-                  Speciphic, monotonic and depends on your thraphist/trainer
-                  abillities
+                  Automated and linear training programs that generally work
                 </TableCell>
               </TableRow>
               <TableRow></TableRow>
               <TableRow>
-                <TableCell align="center">Comfort</TableCell>
+                <TableCell sx={{ fontSize: "25px" }} align="center">Comfort</TableCell>
                 <TableCell align="center">
-                  Can be done anywhere, at any time and requires no effort
+                  Can be done anywhere, at any time, only requires your brain and phone!
                 </TableCell>
                 <TableCell align="center">
                   Can only be done in a clinic or by personally meeting with a
