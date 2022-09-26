@@ -38,8 +38,23 @@ services:
     volumes:
       # <nameOfVolume>:<directorInDocker>
       - mongoDB:/data/db
-# Making the node service volume accessible to other services.
+  # Add the react service
+  react:
+    # Location to the dockerfile
+    context: .
+    # Name of the dockerfile
+    dockerfile: dockerfile
+  # Making the node service volume accessible to other services.
 volumes:
   # Declaring the node service volume.
   serverVolume:
   mongoDB:
+ports:
+  # External port:Internal port
+  - 3000:3000
+depends_on:
+  # Starts up the node service before starting up the react service
+  - node
+environment:
+  # Enabling hot reload
+  - CHOKIDAR_USEPOLLING=true
