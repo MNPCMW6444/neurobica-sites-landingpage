@@ -40,7 +40,7 @@ export default function Michaelforreal({ home }: any) {
             </IconButton>
           </Tooltip>
         ) : (
-          <Button onClick={home}>SIGNUP</Button>
+          <Button onClick={home}>Register/Login</Button>
         )}
       </Box>
       <Menu

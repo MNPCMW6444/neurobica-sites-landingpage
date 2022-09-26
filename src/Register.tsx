@@ -89,6 +89,8 @@ export default function Register({ mobile }: any) {
 
   const [email, setemail] = useState("");
 
+  const [e, sete] = useState(false);
+
   useEffect(() => {
     const handleResize = () => {
       window.innerWidth < window.innerHeight
@@ -137,7 +139,7 @@ export default function Register({ mobile }: any) {
       >
         <Fade in={open}>
           <Box sx={modalstyle}>
-            <IM email={email} />
+            <IM email={email} e={e} />
           </Box>
         </Fade>
       </Modal>
@@ -307,8 +309,8 @@ export default function Register({ mobile }: any) {
           <Grid item>
             <Button
               onClick={async () => {
-                setOpen(true);
                 let res = { data: { result: "X" } };
+                setlabel("Initiating Authentication Form...");
                 try {
                   res = await Axios.post(
                     "http://localhost:6444/" + "user/signupreq",
@@ -316,28 +318,36 @@ export default function Register({ mobile }: any) {
                       email,
                     }
                   );
-                  setlabel("Initiating Authentication Form...");
-                  debugger;
                   if (res.data.result[0] !== "e") throw new Error("KAKI");
+                  sete(false);
                   setOpen(true);
                   setlabel("GO");
                 } catch (err: any) {
-                  Store.removeAllNotifications();
-                  Store.addNotification({
-                    title: "Error",
-                    message: err.response.data.clientError,
-                    type: "danger",
-                    container: "bottom-center",
-                    animationIn: ["animate__animated", "animate__fadeIn"],
-                    animationOut: ["animate__animated", "animate__fadeOut"],
-                    dismiss: {
-                      duration: 3000,
-                      onScreen: true,
-                    },
-                    insert: "top",
-                  });
-                  setlabel("Error!");
-                  setTimeout(() => setlabel("GO"), 1500);
+                  if (
+                    err.response.data.clientError ===
+                    "An account with this email already exists"
+                  ) {
+                    sete(true);
+                    setOpen(true);
+                    setlabel("GO");
+                  } else {
+                    Store.removeAllNotifications();
+                    Store.addNotification({
+                      title: "Error",
+                      message: err.response.data.clientError,
+                      type: "danger",
+                      container: "bottom-center",
+                      animationIn: ["animate__animated", "animate__fadeIn"],
+                      animationOut: ["animate__animated", "animate__fadeOut"],
+                      dismiss: {
+                        duration: 3000,
+                        onScreen: true,
+                      },
+                      insert: "top",
+                    });
+                    setlabel("Error!");
+                    setTimeout(() => setlabel("GO"), 1500);
+                  }
                 }
               }}
               sx={{

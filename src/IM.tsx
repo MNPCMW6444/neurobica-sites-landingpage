@@ -22,8 +22,8 @@ import Badge from "@mui/icons-material/Badge";
 import Lock from "@mui/icons-material/Lock";
 import SignupFin from "./SignupFin";
 
-export default function IM({ email }: any) {
-  const [isSignIn, setIsSignIn] = useState(false);
+export default function IM({ email, e }: any) {
+  const [isSignIn, setIsSignIn] = useState(e || false);
   const [key, setKey] = useState("");
   const [fullname, setFullName] = useState("");
   const [password, setPassword] = useState("");
