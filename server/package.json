@@ -1,7 +1,7 @@
 {
-  "name": "neurobica-app-server",
+  "name": "neurobica-landingpage-server",
   "version": "1.0.0",
-  "description": "Neurobica App Main Server",
+  "description": "Neurobica landingpage Main Server",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
