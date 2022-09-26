@@ -122,43 +122,41 @@ export default function IM({ email }: any) {
           </ToggleButtonGroup>
         </Box>
       </Grid>
-
+      <Grid item>
+        <TextField
+          sx={{
+            m: 0,
+            width: "40vh",
+          }}
+          error={emailValidation && !!email}
+          id="sandard-basic"
+          variant="standard"
+          type="email"
+          label={
+            email.includes("+")
+              ? "Email Address mustn't include '+'"
+              : !(
+                  email.includes("@") &&
+                  email.indexOf("@") !== 0 &&
+                  email.indexOf("@") !== email.length - 1
+                ) && !!email
+              ? "Email Address must include '@'"
+              : "Email Address"
+          }
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <Email />
+              </InputAdornment>
+            ),
+          }}
+          value={email}
+          placeholder="Enter Your Email Address"
+          disabled
+        />
+      </Grid>
       {isSignIn ? (
         <>
-          <Grid item>
-            <TextField
-              sx={{
-                m: 0,
-                width: "40vh",
-              }}
-              error={emailValidation && !!email}
-              id="sandard-basic"
-              variant="standard"
-              type="email"
-              label={
-                email.includes("+")
-                  ? "Email Address mustn't include '+'"
-                  : !(
-                      email.includes("@") &&
-                      email.indexOf("@") !== 0 &&
-                      email.indexOf("@") !== email.length - 1
-                    ) && !!email
-                  ? "Email Address must include '@'"
-                  : "Email Address"
-              }
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <Email />
-                  </InputAdornment>
-                ),
-              }}
-              value={email}
-              placeholder="Enter Your Email Address"
-              disabled
-            />
-          </Grid>
-
           <Grid item>
             <TextField
               sx={{
@@ -191,41 +189,6 @@ export default function IM({ email }: any) {
         </>
       ) : (
         <>
-          <Grid item>
-            <TextField
-              sx={{
-                m: 0,
-                width: "40vh",
-              }}
-              error={emailValidation && !!email}
-              id="sandard-basic"
-              variant="standard"
-              type="email"
-              label={
-                email.includes("+")
-                  ? "Email Address mustn't include '+'"
-                  : !(
-                      email.includes("@") &&
-                      email.indexOf("@") !== 0 &&
-                      email.indexOf("@") !== email.length - 1
-                    ) && !!email
-                  ? "Email Address must include '@'"
-                  : "Email Address"
-              }
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <Email />
-                  </InputAdornment>
-                ),
-              }}
-              value={email}
-              placeholder="Enter Your Email Address"
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-            />
-          </Grid>
           <Grid item>
             <TextField
               sx={{

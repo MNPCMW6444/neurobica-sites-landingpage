@@ -316,9 +316,11 @@ export default function Register({ mobile }: any) {
                       email,
                     }
                   );
-                  setlabel("Initiating Registration Form...");
+                  setlabel("Initiating Authentication Form...");
+                  debugger;
                   if (res.data.result[0] !== "e") throw new Error("KAKI");
                   setOpen(true);
+                  setlabel("GO");
                 } catch (err: any) {
                   Store.removeAllNotifications();
                   Store.addNotification({

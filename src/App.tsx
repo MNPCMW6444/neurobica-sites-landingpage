@@ -11,7 +11,10 @@ import Register from "./Register";
 import blue from "@mui/material/colors/blue";
 import Features from "./Features";
 import green from "@mui/material/colors/green";
-import Pricing from "./Pricing"
+import Pricing from "./Pricing";
+import Axios from "axios";
+
+Axios.defaults.withCredentials = true;
 
 const page = {
   height: "100vh",
@@ -105,23 +108,25 @@ function App() {
           <div ref={whyRef} style={{ ...page, backgroundColor: blue[100] }}>
             <Why />
           </div>
-
         </Box>
         <Box>
-
-          <div ref={featuresRef} style={{ ...page, backgroundColor: green[100] }}>
+          <div
+            ref={featuresRef}
+            style={{ ...page, backgroundColor: green[100] }}
+          >
             <Features />
           </div>
         </Box>
         <Box>
-          <div ref={pricingRef} style={{ ...page, backgroundColor: orange[100] }}>
+          <div
+            ref={pricingRef}
+            style={{ ...page, backgroundColor: orange[100] }}
+          >
             <Pricing />
-
           </div>
         </Box>
-
-      </div >
-    </Box >
+      </div>
+    </Box>
   );
 }
 
