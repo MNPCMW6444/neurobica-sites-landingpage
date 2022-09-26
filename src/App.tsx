@@ -9,6 +9,9 @@ import Mobile from "./Mobile";
 import Nav from "./Nav";
 import Register from "./Register";
 import blue from "@mui/material/colors/blue";
+import Features from "./Features";
+import green from "@mui/material/colors/green";
+import Pricing from "./Pricing"
 
 const page = {
   height: "100vh",
@@ -102,7 +105,21 @@ function App() {
           <div ref={whyRef} style={{ ...page, backgroundColor: blue[100] }}>
             <Why />
           </div>
+
         </Box>
+        <Box>
+
+          <div ref={featuresRef} style={{ ...page, backgroundColor: green[100] }}>
+            <Features />
+          </div>
+        </Box>
+        <Box>
+          <div ref={pricingRef} style={{ ...page, backgroundColor: orange[100] }}>
+            <Pricing />
+
+          </div>
+        </Box>
+
       </div >
     </Box >
   );
