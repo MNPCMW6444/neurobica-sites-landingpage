@@ -12,7 +12,7 @@ import Logout from "@mui/icons-material/Logout";
 import Button from "@mui/material/Button";
 import { Fragment, useState } from "react";
 
-export default function Michaelforreal({ home }: any) {
+export default function Michaelforreal({ home, user }: any) {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: any) => {
@@ -24,7 +24,7 @@ export default function Michaelforreal({ home }: any) {
   return (
     <Fragment>
       <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
-        {"" ? (
+        {user ? (
           <Tooltip title="Account settings">
             <IconButton
               onClick={handleClick}
@@ -35,12 +35,12 @@ export default function Michaelforreal({ home }: any) {
               aria-expanded={open ? "true" : undefined}
             >
               <Avatar sx={{ width: 32, height: 32 }}>
-                {"user.fullname".toUpperCase()[0]}
+                {user.fullname.toUpperCase()[0]}
               </Avatar>
             </IconButton>
           </Tooltip>
         ) : (
-          <Button onClick={home}>SIGNUP</Button>
+          <Button onClick={home}>Register/Login</Button>
         )}
       </Box>
       <Menu

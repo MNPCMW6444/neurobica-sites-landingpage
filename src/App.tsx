@@ -11,7 +11,10 @@ import Register from "./Register";
 import blue from "@mui/material/colors/blue";
 import Features from "./Features";
 import green from "@mui/material/colors/green";
-import Pricing from "./Pricing"
+import Pricing from "./Pricing";
+import Axios from "axios";
+
+Axios.defaults.withCredentials = true;
 
 const page = {
   height: "100vh",
@@ -35,13 +38,24 @@ const logoSx = {
 
 function App() {
   const [ismobile, setismobile] = useState(window.innerWidth < 600);
+  const [user, setuser] = useState(null);
+  const [width, setwidth] = useState(window.innerWidth);
   useEffect(() => {
     const handleResize = () => {
       setismobile(window.innerWidth < 600);
+      setwidth(window.innerWidth);
     };
     window.addEventListener("resize", handleResize);
     scrollToHome();
-  });
+
+    const l = async () => {
+      try {
+        const res = await Axios.get("http://localhost:6444/" + "user/signedin");
+        setuser(res.data);
+      } catch (e) {}
+    };
+    l();
+  }, []);
 
   const whyRef = useRef(null);
   const scrollToWhy = () =>
@@ -75,7 +89,7 @@ function App() {
   return (
     <Box sx={allSx}>
       {ismobile ? (
-        <Mobile actions={actionsM} />
+        <Mobile actions={actionsM} user={user} width={width} />
       ) : (
         <AppBar
           position="fixed"
@@ -93,7 +107,7 @@ function App() {
                 <Nav dir="row" actions={actions} />
               </Grid>
               <Grid item>
-                <Michaelforreal home={scrollToHome} />
+                <Michaelforreal home={scrollToHome} user={user} />
               </Grid>
             </Grid>
           </Toolbar>
@@ -105,23 +119,25 @@ function App() {
           <div ref={whyRef} style={{ ...page, backgroundColor: blue[100] }}>
             <Why />
           </div>
-
         </Box>
         <Box>
-
-          <div ref={featuresRef} style={{ ...page, backgroundColor: green[100] }}>
+          <div
+            ref={featuresRef}
+            style={{ ...page, backgroundColor: green[100] }}
+          >
             <Features />
           </div>
         </Box>
         <Box>
-          <div ref={pricingRef} style={{ ...page, backgroundColor: orange[100] }}>
+          <div
+            ref={pricingRef}
+            style={{ ...page, backgroundColor: orange[100] }}
+          >
             <Pricing />
-
           </div>
         </Box>
-
-      </div >
-    </Box >
+      </div>
+    </Box>
   );
 }
 

@@ -32,7 +32,7 @@ export default function Nav({ dir, actions }: NavProps) {
             onClick={actions.home}
             sx={{ ...menuButton, color: blue[700] }}
           >
-            Sign Up
+            Register/Login
           </Button>
         </Grid>
       )}
