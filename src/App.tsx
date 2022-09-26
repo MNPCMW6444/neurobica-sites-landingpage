@@ -1,7 +1,7 @@
 import { AppBar, Grid, Toolbar } from "@mui/material";
 import Box from "@mui/material/Box";
 import orange from "@mui/material/colors/orange";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import logo from "./logo512.png";
 import Why from "./Why";
 import Michaelforreal from "./Michaelforreal";
@@ -37,12 +37,12 @@ const logoSx = {
 };
 
 function App() {
-  const l = async () => {
+  const l = useCallback(async () => {
     try {
       const res = await Axios.get("http://localhost:6444/user/signedin");
       setuser(res.data);
     } catch (e) {}
-  };
+  }, []);
 
   const [ismobile, setismobile] = useState(window.innerWidth < 600);
   const [user, setuser] = useState(null);
@@ -56,7 +56,7 @@ function App() {
     scrollToHome();
 
     l();
-  }, []);
+  }, [l]);
 
   const whyRef = useRef(null);
   const scrollToWhy = () =>

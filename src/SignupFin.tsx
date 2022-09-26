@@ -48,6 +48,6 @@ export default function SignupFin(props: SignupFinProps) {
       }
     };
     signupFin();
-  }, [email, fullname, secretKey, password, passwordagain, setLabel]);
+  }, [email, fullname, secretKey, password, passwordagain, setLabel, l]);
   return null;
 }

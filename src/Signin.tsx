@@ -40,6 +40,6 @@ export default function Signin(props: SigninProps) {
       }
     };
     signIn();
-  }, [email, password, setLabel]);
+  }, [email, password, setLabel, l]);
   return null;
 }
