@@ -16,15 +16,6 @@ import Divider from "@mui/material/Divider";
 
 const drawerWidth = 150;
 
-interface Props {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window?: () => Window;
-  actions: any;
-}
-
 const logoSx2 = {
   marginLeft: "10px",
   height: "130px",
@@ -40,8 +31,7 @@ const logoSx = {
   zIndex: 104,
 };
 
-export default function Mobile(props: Props) {
-  const { window } = props;
+export default function Mobile({ actions, user, width }: any) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
@@ -53,12 +43,12 @@ export default function Mobile(props: Props) {
       <Box component="img" src={logo} sx={logoSx2}></Box>
       <Divider />
       <Box sx={{ paddingTop: "17px" }}></Box>
-      <Nav dir="column" actions={props.actions} />
+      <Nav dir="column" actions={actions} />
     </Box>
   );
 
   const container =
-    window !== undefined ? () => window().document.body : undefined;
+    window !== undefined ? () => window.document.body : undefined;
 
   return (
     <>
@@ -75,7 +65,13 @@ export default function Mobile(props: Props) {
           }}
         >
           <Toolbar sx={{ margin: "5px" }}>
-            <Grid container justifyContent="space-between" alignItems="center">
+            <Grid
+              container
+              flexDirection="row"
+              justifyContent="space-between"
+              alignItems="center"
+              wrap="nowrap"
+            >
               <Grid item>
                 <IconButton
                   color="inherit"
@@ -92,7 +88,14 @@ export default function Mobile(props: Props) {
                   disableRipple
                   sx={{
                     color: orange[300],
-                    fontSize: "5vw",
+                    fontSize:
+                      width < 330
+                        ? "2vw"
+                        : width < 370
+                        ? "3vw"
+                        : width < 430
+                        ? "4vw"
+                        : "5vw",
                     "&:hover": {
                       backgroundColor: orange[100],
                       cursor: "unset",
@@ -107,7 +110,7 @@ export default function Mobile(props: Props) {
                 </Button>
               </Grid>
               <Grid item>
-                <Michaelforreal home={props.actions.home} />
+                <Michaelforreal home={actions.home} />
               </Grid>
             </Grid>
           </Toolbar>

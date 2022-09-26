@@ -38,13 +38,24 @@ const logoSx = {
 
 function App() {
   const [ismobile, setismobile] = useState(window.innerWidth < 600);
+  const [user, setuser] = useState(null);
+  const [width, setwidth] = useState(window.innerWidth);
   useEffect(() => {
     const handleResize = () => {
       setismobile(window.innerWidth < 600);
+      setwidth(window.innerWidth);
     };
     window.addEventListener("resize", handleResize);
     scrollToHome();
-  });
+
+    const l = async () => {
+      try {
+        const res = await Axios.get("http://localhost:6444/" + "user/signedin");
+        setuser(res.data);
+      } catch (e) {}
+    };
+    l();
+  }, []);
 
   const whyRef = useRef(null);
   const scrollToWhy = () =>
@@ -78,7 +89,7 @@ function App() {
   return (
     <Box sx={allSx}>
       {ismobile ? (
-        <Mobile actions={actionsM} />
+        <Mobile actions={actionsM} user={user} width={width} />
       ) : (
         <AppBar
           position="fixed"
@@ -96,7 +107,7 @@ function App() {
                 <Nav dir="row" actions={actions} />
               </Grid>
               <Grid item>
-                <Michaelforreal home={scrollToHome} />
+                <Michaelforreal home={scrollToHome} user={user} />
               </Grid>
             </Grid>
           </Toolbar>
