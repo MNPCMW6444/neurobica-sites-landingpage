@@ -1,6 +1,6 @@
-import { styled } from "@mui/material/styles";
+//import { styled } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
+//import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Table from "@mui/material/Table";
@@ -9,16 +9,16 @@ import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import TableBody from "@mui/material/TableBody";
 import Avatar from "@mui/material/Avatar";
-import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
+//import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import yoad from "./money-svgrepo-com.svg";
-import vi from "/.sign-check-svgrepo-com.svg"
-const Item = styled(Paper)(({ theme }) => ({
+//import vi from "/.sign-check-svgrepo-com.svg"
+/* const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
   padding: theme.spacing(1),
   textAlign: "center",
   color: theme.palette.text.secondary,
-}));
+})); */
 
 export default function Micael() {
   return (
@@ -38,16 +38,12 @@ export default function Micael() {
             src={yoad}
             sx={{ width: "15vw", height: "15vw" }}
           />
-
-
         </Grid>
         <Grid item xs={12} width="70%">
           <Typography sx={{ padding: "2vh", textAlign: "center" }} variant="h6">
-            Save tousands of $ with neurobica's neurofeedback platforn where you can get much more and pay much less!
+            Save tousands of $ with neurobica's neurofeedback platforn where you
+            can get much more and pay much less!
           </Typography>
-
-
-
         </Grid>
         <Grid
           item
@@ -56,7 +52,6 @@ export default function Micael() {
           md={8}
           sx={{ width: "100vw", hight: "100vh" }}
         >
-
           <Table
             aria-label="simple table"
             sx={{ alignItems: "center", justifyContent: "center" }}
@@ -71,7 +66,9 @@ export default function Micael() {
             <TableBody>
               <TableRow>
                 <TableCell align="center">Price</TableCell>
-                <TableCell align="center">14.99$ a mounth/99.99$ a year</TableCell>
+                <TableCell align="center">
+                  14.99$ a mounth/99.99$ a year
+                </TableCell>
                 <TableCell align="center">80$ - 200$ per session</TableCell>
               </TableRow>
               <TableRow>
@@ -100,8 +97,6 @@ export default function Micael() {
             </TableBody>
           </Table>
         </Grid>
-
-
       </Grid>
     </Box>
   );
