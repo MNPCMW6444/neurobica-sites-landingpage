@@ -18,21 +18,17 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Button from "@mui/material/Button";
 import Signin from "./Signin";
-import SignupReq from "./SignupReq";
 import Badge from "@mui/icons-material/Badge";
 import Lock from "@mui/icons-material/Lock";
 import SignupFin from "./SignupFin";
 
-export default function IM() {
+export default function IM({ email }: any) {
   const [isSignIn, setIsSignIn] = useState(false);
-  const [email, setEmail] = useState("");
   const [key, setKey] = useState("");
   const [fullname, setFullName] = useState("");
   const [password, setPassword] = useState("");
   const [passwordagain, setPasswordagain] = useState("");
-  const [label, setLabel] = useState<string>(
-    isSignIn ? "Sign In" : "Continiue"
-  );
+  const [label, setLabel] = useState<string>(isSignIn ? "Login" : "register");
 
   const [state, setState] = useState<{
     checkedA: boolean;
@@ -87,7 +83,7 @@ export default function IM() {
       direction="column"
       justifyContent="center"
       alignItems="center"
-      spacing={2}
+      spacing={3}
     >
       <Grid item>
         <NeurobicaLogo height="180px" width="280px" />
@@ -126,6 +122,7 @@ export default function IM() {
           </ToggleButtonGroup>
         </Box>
       </Grid>
+
       {isSignIn ? (
         <>
           <Grid item>
@@ -158,9 +155,7 @@ export default function IM() {
               }}
               value={email}
               placeholder="Enter Your Email Address"
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
+              disabled
             />
           </Grid>
 
@@ -329,42 +324,39 @@ export default function IM() {
                 setPasswordagain(e.target.value);
               }}
             />
-
-            <Grid container>
-              <Grid item>
-                {" "}
-                <FormControlLabel
-                  label={
-                    <Box>
-                      <span>I accept the </span>
-                      {/*  <Link to={"/termsvf"}>
+          </Grid>
+          <Grid item>
+            <FormControlLabel
+              label={
+                <Box>
+                  <span>I accept the </span>
+                  {/*  <Link to={"/termsvf"}>
                           terms of use and privacy policy
                         </Link> */}
-                      <Box>terms of use and privacy policy</Box>
-                    </Box>
-                  }
+                  <Box>terms of use and privacy policy</Box>
+                </Box>
+              }
+              sx={{
+                color: "GrayText",
+                width: "35vh",
+              }}
+              control={
+                <Checkbox
                   sx={{
-                    color: "GrayText",
-                    width: "35vh",
+                    fontSize: "28",
                   }}
-                  control={
-                    <Checkbox
-                      sx={{
-                        fontSize: "28",
-                      }}
-                      checked={state.checkedB}
-                      onChange={handleChange}
-                      name="checkedB"
-                      color="default"
-                      size="small"
-                    />
-                  }
+                  checked={state.checkedB}
+                  onChange={handleChange}
+                  name="checkedB"
+                  color="default"
+                  size="small"
                 />
-              </Grid>
-            </Grid>
+              }
+            />
           </Grid>
         </>
       )}
+      <Grid />
       {/*  <Grid item xs={4}>
         <GoogleReCaptchaProvider reCaptchaKey="6LcrTYUhAAAAALcocJuPUztaWEIAsY_DdAuRxx8b">
           <GoogleReCaptcha
@@ -386,7 +378,9 @@ export default function IM() {
             borderRadius: "30px",
           }}
           onClick={() => setLabel(isSignIn ? "Logging In..." : "Registring...")}
-        />
+        >
+          {label}
+        </Button>
       </Grid>
 
       {label === "Logging In..." && (

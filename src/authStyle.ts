@@ -15,5 +15,13 @@ export default {
     backgroundColor: orange[900],
     color: orange[100],
     borderRadius: "10px",
+
+    "&:hover": {
+      border: orange[900],
+      backgroundColor: orange[900],
+      color: orange[100],
+      borderRadius: "10px",
+      cursor: "default",
+    },
   },
 };
