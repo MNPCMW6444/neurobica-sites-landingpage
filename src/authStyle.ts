@@ -1,6 +1,5 @@
 import orange from "@mui/material/colors/orange";
-
-export default {
+const s = {
   unselected: {
     border: orange[900],
     backgroundColor: orange[100],
@@ -25,3 +24,4 @@ export default {
     },
   },
 };
+export default s;
