@@ -9,10 +9,11 @@ interface SignupFinProps {
   fullname: string;
   password: string;
   passwordagain: string;
+  l: any;
 }
 
 export default function SignupFin(props: SignupFinProps) {
-  const { setLabel, email, secretKey, fullname, password, passwordagain } =
+  const { setLabel, email, secretKey, fullname, password, passwordagain, l } =
     props;
   useEffect(() => {
     const signupFin = async () => {
@@ -25,6 +26,7 @@ export default function SignupFin(props: SignupFinProps) {
           passwordagain,
         });
         setLabel("Success!");
+        l();
         setTimeout(() => setLabel("Continiue to Home Page"), 1500);
       } catch (err: any) {
         Store.removeAllNotifications();

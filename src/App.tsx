@@ -37,6 +37,13 @@ const logoSx = {
 };
 
 function App() {
+  const l = async () => {
+    try {
+      const res = await Axios.get("http://localhost:6444/user/signedin");
+      setuser(res.data);
+    } catch (e) {}
+  };
+
   const [ismobile, setismobile] = useState(window.innerWidth < 600);
   const [user, setuser] = useState(null);
   const [width, setwidth] = useState(window.innerWidth);
@@ -48,12 +55,6 @@ function App() {
     window.addEventListener("resize", handleResize);
     scrollToHome();
 
-    const l = async () => {
-      try {
-        const res = await Axios.get("http://localhost:6444/user/signedin");
-        setuser(res.data);
-      } catch (e) {}
-    };
     l();
   }, []);
 
@@ -89,7 +90,12 @@ function App() {
   return (
     <Box sx={allSx}>
       {ismobile ? (
-        <Mobile actions={actionsM} user={user} width={width} />
+        <Mobile
+          setuser={setuser}
+          actions={actionsM}
+          user={user}
+          width={width}
+        />
       ) : (
         <AppBar
           position="fixed"
@@ -107,7 +113,11 @@ function App() {
                 <Nav dir="row" actions={actions} />
               </Grid>
               <Grid item>
-                <Michaelforreal home={scrollToHome} user={user} />
+                <Michaelforreal
+                  setuser={setuser}
+                  home={scrollToHome}
+                  user={user}
+                />
               </Grid>
             </Grid>
           </Toolbar>
@@ -115,7 +125,7 @@ function App() {
       )}
       <div ref={homeRef}>
         <Box>
-          <Register />
+          <Register l={l} />
           <div ref={whyRef} style={{ ...page, backgroundColor: blue[100] }}>
             <Why />
           </div>

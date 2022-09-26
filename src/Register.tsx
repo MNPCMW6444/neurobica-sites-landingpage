@@ -67,7 +67,7 @@ const textSx = (wide: boolean) => ({
   marginBottom: (wide ? 0.9 * 0.75 : 0.9) + "vw",
 });
 
-export default function Register({ mobile }: any) {
+export default function Register({ l }: any) {
   const [width, setwidth] = useState(
     window.innerWidth < window.innerHeight
       ? window.innerWidth < 400
@@ -139,7 +139,7 @@ export default function Register({ mobile }: any) {
       >
         <Fade in={open}>
           <Box sx={modalstyle}>
-            <IM email={email} e={e} />
+            <IM email={email} e={e} l={l} />
           </Box>
         </Fade>
       </Modal>
