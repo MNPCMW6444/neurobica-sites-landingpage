@@ -313,7 +313,7 @@ export default function Register({ mobile }: any) {
                 setlabel("Initiating Authentication Form...");
                 try {
                   res = await Axios.post(
-                    "http://localhost:6444/" + "user/signupreq",
+                    "http://localhost:6444/user/signupreq",
                     {
                       email,
                     }

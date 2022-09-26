@@ -11,6 +11,7 @@ import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 import Button from "@mui/material/Button";
 import { Fragment, useState } from "react";
+import orange from "@mui/material/colors/orange";
 
 export default function Michaelforreal({ home, user }: any) {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -34,7 +35,9 @@ export default function Michaelforreal({ home, user }: any) {
               aria-haspopup="true"
               aria-expanded={open ? "true" : undefined}
             >
-              <Avatar sx={{ width: 32, height: 32 }}>
+              <Avatar
+                sx={{ width: 32, height: 32, backgroundColor: orange[500] }}
+              >
                 {user.fullname.toUpperCase()[0]}
               </Avatar>
             </IconButton>

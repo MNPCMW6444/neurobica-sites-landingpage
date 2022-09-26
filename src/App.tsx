@@ -50,7 +50,7 @@ function App() {
 
     const l = async () => {
       try {
-        const res = await Axios.get("http://localhost:6444/" + "user/signedin");
+        const res = await Axios.get("http://localhost:6444/user/signedin");
         setuser(res.data);
       } catch (e) {}
     };

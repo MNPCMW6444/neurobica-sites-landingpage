@@ -46,7 +46,7 @@ export default function IM({ email, e }: any) {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
 
-  const [state2, setState2] = useState<{
+  /*  const [state2, setState2] = useState<{
     checkedA: boolean;
     checkedB: boolean;
     checkedF: boolean;
@@ -60,7 +60,7 @@ export default function IM({ email, e }: any) {
 
   const handleChange2 = (event: React.ChangeEvent<HTMLInputElement>) => {
     setState2({ ...state, [event.target.name]: event.target.checked });
-  };
+  }; */
 
   const emailValidation =
     email.includes("+") ||
