@@ -5,7 +5,7 @@ services:
   node:
     # ADD THE CONFIGURATION FROM THIS POINT to build the MongoDB service
     environment:
-      - PORT=8666
+      - PORT=6444
       # For security, specify a username and password as environmental variables
       # Username for the mongo database
       - MONGO_INITDB_ROOT_USERNAME=mneurobicapcmw
