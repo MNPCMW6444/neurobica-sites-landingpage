@@ -10,9 +10,8 @@ import TableCell from "@mui/material/TableCell";
 import TableBody from "@mui/material/TableBody";
 import Avatar from "@mui/material/Avatar";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
-
 import yoad from "./money-svgrepo-com.svg";
-
+import vi from "/.sign-check-svgrepo-com.svg"
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
@@ -66,34 +65,34 @@ export default function Micael() {
               <TableRow>
                 <TableCell></TableCell>
                 <TableCell align="center">Neurobica</TableCell>
-                <TableCell align="center">Other Solutions</TableCell>
+                <TableCell align="center">Others</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               <TableRow>
-                <TableCell>Price</TableCell>
-                <TableCell>9.99$ a mounth/99.99$ a year</TableCell>
-                <TableCell>80$ - 200$ per session</TableCell>
+                <TableCell align="center">Price</TableCell>
+                <TableCell align="center">14.99$ a mounth/99.99$ a year</TableCell>
+                <TableCell align="center">80$ - 200$ per session</TableCell>
               </TableRow>
               <TableRow>
-                <TableCell>Value</TableCell>
-                <TableCell>
+                <TableCell align="center">Value</TableCell>
+                <TableCell align="center">
                   Fully coustomized, automated and holistic training platform
                   for all your brain needs where you become your own brain
                   master!
                 </TableCell>
-                <TableCell>
+                <TableCell align="center">
                   Speciphic, monotonic and depends on your thraphist/trainer
                   abillities
                 </TableCell>
               </TableRow>
               <TableRow></TableRow>
               <TableRow>
-                <TableCell>Comfort</TableCell>
-                <TableCell>
+                <TableCell align="center">Comfort</TableCell>
+                <TableCell align="center">
                   Can be done anywhere, at any time and requires no effort
                 </TableCell>
-                <TableCell>
+                <TableCell align="center">
                   Can only be done in a clinic or by personally meeting with a
                   thraphist/trainer
                 </TableCell>
@@ -101,17 +100,8 @@ export default function Micael() {
             </TableBody>
           </Table>
         </Grid>
-        <Grid item xs={12} md={12} lg={12} height="100vhs">
-          <Item>
-            <Typography sx={{ padding: "2vh" }} variant="h3">
-              No gains no pay!
-            </Typography>
-            <Typography variant="h6">
-              If we didn't change your mind - you can! Offering 100% money back
-              guarantee for 30 days!
-            </Typography>
-          </Item>
-        </Grid>
+
+
       </Grid>
     </Box>
   );
