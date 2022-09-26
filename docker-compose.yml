@@ -42,3 +42,4 @@ services:
 volumes:
   # Declaring the node service volume.
   serverVolume:
+  mongoDB:
