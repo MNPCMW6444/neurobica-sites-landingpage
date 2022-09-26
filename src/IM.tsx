@@ -22,9 +22,8 @@ import Badge from "@mui/icons-material/Badge";
 import Lock from "@mui/icons-material/Lock";
 import SignupFin from "./SignupFin";
 
-export default function IM() {
+export default function IM({ email }: any) {
   const [isSignIn, setIsSignIn] = useState(false);
-  const [email, setEmail] = useState("");
   const [key, setKey] = useState("");
   const [fullname, setFullName] = useState("");
   const [password, setPassword] = useState("");
@@ -156,9 +155,7 @@ export default function IM() {
               }}
               value={email}
               placeholder="Enter Your Email Address"
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
+              disabled
             />
           </Grid>
 

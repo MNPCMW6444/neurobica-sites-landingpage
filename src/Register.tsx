@@ -5,6 +5,7 @@ import m1 from "./Screen Shot 2022-09-24 at 0.40.54.png";
 import m2 from "./Screen Shot 2022-09-24 at 0.41.02.png";
 import m3 from "./Screen Shot 2022-09-24 at 0.41.17.png";
 import m4 from "./Screen Shot 2022-09-24 at 0.41.26.png";
+import m5 from "./Untitled-2.png";
 import { Button, TextField, InputLabel, Typography } from "@mui/material";
 import orange from "@mui/material/colors/orange";
 import { useEffect, useState } from "react";
@@ -62,7 +63,7 @@ const iconSx = (wide: boolean) => ({
 });
 
 const textSx = (wide: boolean) => ({
-  fontSize: (wide ? 3 * 0.75 : 3) + "vw",
+  fontSize: (wide ? 2.2 * 0.75 : 2.2) + "vw",
   marginBottom: (wide ? 0.9 * 0.75 : 0.9) + "vw",
 });
 
@@ -136,7 +137,7 @@ export default function Register({ mobile }: any) {
       >
         <Fade in={open}>
           <Box sx={modalstyle}>
-            <IM />
+            <IM email={email} />
           </Box>
         </Fade>
       </Modal>
@@ -231,19 +232,26 @@ export default function Register({ mobile }: any) {
             <Box component="img" src={m2} sx={iconSx(wide)}></Box>
           </Grid>
           <Grid item>
-            <Typography sx={textSx(wide)}>Focus</Typography>
+            <Typography sx={textSx(wide)}>Concentration</Typography>
           </Grid>
           <Grid item>
             <Box component="img" src={m3} sx={iconSx(wide)}></Box>
           </Grid>
           <Grid item>
-            <Typography sx={textSx(wide)}>Concentration</Typography>
+            <Typography sx={textSx(wide)}>Creativity</Typography>
           </Grid>
           <Grid item>
             <Box component="img" src={m4} sx={iconSx(wide)}></Box>
           </Grid>
           <Grid item>
             <Typography sx={textSx(wide)}>Learning</Typography>
+          </Grid>
+
+          <Grid item>
+            <Box component="img" src={m5} sx={iconSx(wide)}></Box>
+          </Grid>
+          <Grid item>
+            <Typography sx={textSx(wide)}>Anxiety</Typography>
           </Grid>
         </Grid>
         <Grid item>
@@ -299,14 +307,18 @@ export default function Register({ mobile }: any) {
           <Grid item>
             <Button
               onClick={async () => {
+                setOpen(true);
+                let res = { data: { result: "X" } };
                 try {
-                  await Axios.post(
+                  res = await Axios.post(
                     "http://localhost:6444/" + "user/signupreq",
                     {
                       email,
                     }
                   );
                   setlabel("Initiating Registration Form...");
+                  if (res.data.result[0] !== "e") throw new Error("KAKI");
+                  setOpen(true);
                 } catch (err: any) {
                   Store.removeAllNotifications();
                   Store.addNotification({
@@ -325,12 +337,11 @@ export default function Register({ mobile }: any) {
                   setlabel("Error!");
                   setTimeout(() => setlabel("GO"), 1500);
                 }
-                setOpen(true);
               }}
               sx={{
                 height: "100%",
                 width: "120%",
-                fontSize: "1.8vw",
+                fontSize: label === "GO" ? "30px" : "1.8vw",
                 backgroundColor: orange[50],
                 borderRadius: "10px",
                 color: orange[900],

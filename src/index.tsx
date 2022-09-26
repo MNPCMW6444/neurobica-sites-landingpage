@@ -4,12 +4,14 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 import "./index.css";
+import { ReactNotifications } from "react-notifications-component";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
+    <ReactNotifications />
     <App />
   </React.StrictMode>
 );
