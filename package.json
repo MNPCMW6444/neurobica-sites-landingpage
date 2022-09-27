@@ -7,6 +7,7 @@
     "@emotion/styled": "^11.10.4",
     "@mui/icons-material": "^5.10.6",
     "@mui/material": "^5.10.6",
+    "@testing-library/react": "^13.4.0",
     "axios": "^0.27.2",
     "check-password-strength": "^2.0.7",
     "react": "^18.2.0",
@@ -43,5 +44,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@types/jest": "^29.0.3",
+    "@types/react-dom": "^18.0.6"
   }
 }
