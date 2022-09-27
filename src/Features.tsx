@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import { Avatar } from '@mui/material';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -34,24 +35,33 @@ export default function RowAndColumnSpacing() {
                     <Typography align="center" variant="h5" >
                         100% money back guarantee for 30 days!
                     </Typography>
+                    <br></br>
                 </Grid>
             </Grid>
 
             <Grid container justifyContent="center"
                 height="60vh"
+                width="100vw"
                 alignItems="center"
                 direction="row" sx={{ padding: "5vh" }} rowSpacing={{ xs: 1, sm: 2, md: 2 }} columnSpacing={{ xs: 3, sm: 2, md: 2 }}>
                 <Grid item xs={6} width="35vh" height="30vh" md={3}>
-                    <Item sx={{ minHeight: "25vh", maxWidth: "50vw" }} >Attention and focus neurofeedback training program</Item>
+                    <Avatar sx={{ width: 75, height: 75 }}></Avatar>
+                    <Typography align='center'> Attention and focus neurofeedback training</Typography>
                 </Grid>
                 <Grid item xs={6} width="35vh" height="30vh" md={3}>
-                    <Item sx={{ minHeight: "25vh", maxWidth: "50vw" }}>Memory neurofeedback training program</Item>
+                    <Avatar
+                        sx={{ width: 75, height: 75 }}></Avatar>
+                    <Typography align='center'> Memory neurofeedback training</Typography>
                 </Grid>
                 <Grid item width="35vh" height="30vh" xs={6} md={3}>
-                    <Item sx={{ minHeight: "25vh", maxWidth: "50vw" }} >The first and only online multyplayer neurofeedback training platform</Item>
+                    <Avatar
+                        sx={{ width: 75, height: 75 }}></Avatar>
+                    <Typography align='center'>The first and only online multyplayer neurofeedback training platform</Typography>
                 </Grid>
                 <Grid item width="35vh" height="30vh" xs={6} md={3}>
-                    <Item sx={{ minHeight: "25vh", maxWidth: "50vw" }}>Science proved brain prformence assasment to check your progress</Item>
+                    <Avatar
+                        sx={{ width: 75, height: 75 }}></Avatar>
+                    <Typography align='center'>  Science proved brain prformence assasment to check your progress</Typography>
                 </Grid>
             </Grid>
 
