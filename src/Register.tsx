@@ -6,7 +6,7 @@ import m2 from "./Screen Shot 2022-09-24 at 0.41.02.png";
 import m3 from "./Screen Shot 2022-09-24 at 0.41.17.png";
 import m4 from "./Screen Shot 2022-09-24 at 0.41.26.png";
 import m5 from "./Untitled-2.png";
-import { Button, TextField, InputLabel, Typography } from "@mui/material";
+import { Button, TextField, InputLabel, Typography, Link } from "@mui/material";
 import orange from "@mui/material/colors/orange";
 import { useEffect, useState } from "react";
 
@@ -68,7 +68,7 @@ const textSx = (wide: boolean) => ({
   marginBottom: (wide ? 0.9 * 0.75 : 0.9) + "vw",
 });
 
-export default function Register({ l }: any) {
+export default function Register({ l, user }: any) {
   const [width, setwidth] = useState(
     window.innerWidth < window.innerHeight
       ? window.innerWidth < 400
@@ -297,93 +297,115 @@ export default function Register({ l }: any) {
               Join Today:
             </InputLabel>
           </Grid>
-          <Grid item>
-            <ThemeProvider theme={theme}>
-              <TextField
-                type="email"
-                error={emailValidation && !!email}
-                label={
-                  email.includes("+")
-                    ? "Email Address mustn't include '+'"
-                    : !(
-                        email.includes("@") &&
-                        email.indexOf("@") !== 0 &&
-                        email.indexOf("@") !== email.length - 1
-                      ) && !!email
-                    ? "Email Address must include '@'"
-                    : "Email Address"
-                }
-                placeholder="name@example.com"
-                variant="outlined"
-                color="primary"
-                value={email}
-                onChange={(e) => setemail(e.target.value)}
-                sx={{
-                  input: { color: orange[900] },
-                  width: "40vw",
-                  maxWidth: "350px",
-                }}
-              />
-            </ThemeProvider>
-          </Grid>
-          <Grid item>
-            <Button
-              disabled={emailValidation}
-              onClick={async () => {
-                let res = { data: { result: "X" } };
-                setlabel("Initiating Authentication Form...");
-                try {
-                  res = await Axios.post(domain + "user/signupreq", {
-                    email,
-                  });
-                  if (res.data.result[0] !== "e") throw new Error("KAKI");
-                  sete(false);
-                  setOpen(true);
-                  setlabel("GO");
-                } catch (err: any) {
-                  if (
-                    err.response.data.clientError ===
-                    "An account with this email already exists"
-                  ) {
-                    sete(true);
-                    setOpen(true);
-                    setlabel("GO");
-                  } else {
-                    Store.removeAllNotifications();
-                    Store.addNotification({
-                      title: "Error",
-                      message: err.response.data.clientError,
-                      type: "danger",
-                      container: "bottom-center",
-                      animationIn: ["animate__animated", "animate__fadeIn"],
-                      animationOut: ["animate__animated", "animate__fadeOut"],
-                      dismiss: {
-                        duration: 3000,
-                        onScreen: true,
-                      },
-                      insert: "top",
-                    });
-                    setlabel("Error!");
-                    setTimeout(() => setlabel("GO"), 1500);
-                  }
-                }
-              }}
-              sx={{
-                height: "100%",
-                width: "120%",
-                fontSize: label === "GO" ? "30px" : "1.8vw",
-                backgroundColor: orange[50],
-                borderRadius: "10px",
-                color: orange[900],
-                "&:hover": {
-                  backgroundColor: orange[300],
-                  color: orange[900],
-                },
-              }}
-            >
-              {label}
-            </Button>
-          </Grid>
+          {user ? (
+            <>
+              {" "}
+              <Grid item>
+                <ThemeProvider theme={theme}>
+                  <TextField
+                    type="email"
+                    error={emailValidation && !!email}
+                    label={
+                      email.includes("+")
+                        ? "Email Address mustn't include '+'"
+                        : !(
+                            email.includes("@") &&
+                            email.indexOf("@") !== 0 &&
+                            email.indexOf("@") !== email.length - 1
+                          ) && !!email
+                        ? "Email Address must include '@'"
+                        : "Email Address"
+                    }
+                    placeholder="name@example.com"
+                    variant="outlined"
+                    color="primary"
+                    value={email}
+                    onChange={(e) => setemail(e.target.value)}
+                    sx={{
+                      input: { color: orange[900] },
+                      width: "40vw",
+                      maxWidth: "350px",
+                    }}
+                  />
+                </ThemeProvider>
+              </Grid>
+              <Grid item>
+                <Button
+                  disabled={emailValidation}
+                  onClick={async () => {
+                    let res = { data: { result: "X" } };
+                    setlabel("Initiating Authentication Form...");
+                    try {
+                      res = await Axios.post(domain + "user/signupreq", {
+                        email,
+                      });
+                      if (res.data.result[0] !== "e") throw new Error("KAKI");
+                      sete(false);
+                      setOpen(true);
+                      setlabel("GO");
+                    } catch (err: any) {
+                      if (
+                        err.response.data.clientError ===
+                        "An account with this email already exists"
+                      ) {
+                        sete(true);
+                        setOpen(true);
+                        setlabel("GO");
+                      } else {
+                        Store.removeAllNotifications();
+                        Store.addNotification({
+                          title: "Error",
+                          message: err.response.data.clientError,
+                          type: "danger",
+                          container: "bottom-center",
+                          animationIn: ["animate__animated", "animate__fadeIn"],
+                          animationOut: [
+                            "animate__animated",
+                            "animate__fadeOut",
+                          ],
+                          dismiss: {
+                            duration: 3000,
+                            onScreen: true,
+                          },
+                          insert: "top",
+                        });
+                        setlabel("Error!");
+                        setTimeout(() => setlabel("GO"), 1500);
+                      }
+                    }
+                  }}
+                  sx={{
+                    height: "100%",
+                    width: "120%",
+                    fontSize: label === "GO" ? "30px" : "1.8vw",
+                    backgroundColor: orange[50],
+                    borderRadius: "10px",
+                    color: orange[900],
+                    "&:hover": {
+                      backgroundColor: orange[300],
+                      color: orange[900],
+                    },
+                  }}
+                >
+                  {label}
+                </Button>
+              </Grid>
+            </>
+          ) : (
+            <>
+              {" "}
+              <Grid item>
+                <Link href="https://buy.stripe.com/6oE01EfnjcZVgGQfYY">
+                  Pre-Order Standard Package
+                </Link>
+              </Grid>
+              <Grid item>
+                <Link href="https://buy.stripe.com/6oE01EfnjcZVgGQfYY">
+                  Pre-Order Premium Package
+                </Link>
+              </Grid>
+            </>
+          )}
         </Grid>
         <br />
       </Grid>

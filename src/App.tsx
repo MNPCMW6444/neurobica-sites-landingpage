@@ -126,7 +126,7 @@ function App() {
       )}
       <div ref={homeRef}>
         <Box>
-          <Register l={l} />
+          <Register l={l} user={user} />
           <div ref={whyRef} style={{ ...page, backgroundColor: blue[100] }}>
             <Why />
           </div>
