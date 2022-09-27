@@ -53,7 +53,7 @@ export default function RowAndColumnSpacing() {
                     </Grid>
                     <Grid item>
 
-                        <Typography sx={{ fontSize: "2.5vh" }} align='center'> Attention and focus neurofeedback training</Typography>
+                        <Typography sx={{ fontSize: "2vh" }} align='center'> Attention, focus and memory performance enhancement neurofeedback training</Typography>
                     </Grid>
 
                 </Grid>
@@ -65,7 +65,7 @@ export default function RowAndColumnSpacing() {
                     </Grid>
                     <Grid item >
 
-                        <Typography sx={{ fontSize: "2.5vh" }} align='center'> Memory neurofeedback training</Typography>
+                        <Typography sx={{ fontSize: "2vh" }} align='center'> Anxiety and stress relief, mindfulness neurofeedback training</Typography>
                     </Grid>
                 </Grid>
 
@@ -76,7 +76,7 @@ export default function RowAndColumnSpacing() {
                     </Grid>
                     <Grid item>
 
-                        <Typography sx={{ fontSize: "2.5vh" }} align='center'>The first and only online multyplayer neurofeedback training platform</Typography>
+                        <Typography sx={{ fontSize: "2vh" }} align='center'>The first and only online multyplayer neurofeedback training platform</Typography>
                     </Grid>
                 </Grid>
 
@@ -87,7 +87,7 @@ export default function RowAndColumnSpacing() {
                     </Grid>
                     <Grid item>
 
-                        <Typography sx={{ fontSize: "2.5vh" }} align='center'>  Science proved brain prformence assasment to check your progress</Typography>
+                        <Typography sx={{ fontSize: "2vh" }} align='center'>  Science proved brain prformence assasment to check your progress</Typography>
                     </Grid>
                 </Grid>
 
