@@ -62,14 +62,6 @@ export default function IM({ email, e, l }: any) {
     setState2({ ...state, [event.target.name]: event.target.checked });
   }; */
 
-  const emailValidation =
-    email.includes("+") ||
-    !(
-      email.includes("@") &&
-      email.indexOf("@") !== 0 &&
-      email.indexOf("@") !== email.length - 1
-    );
-
   console.log(email.indexOf("@"));
   console.log(email.indexOf("@"));
 
@@ -128,21 +120,9 @@ export default function IM({ email, e, l }: any) {
             m: 0,
             width: "40vh",
           }}
-          error={emailValidation && !!email}
           id="sandard-basic"
           variant="standard"
           type="email"
-          label={
-            email.includes("+")
-              ? "Email Address mustn't include '+'"
-              : !(
-                  email.includes("@") &&
-                  email.indexOf("@") !== 0 &&
-                  email.indexOf("@") !== email.length - 1
-                ) && !!email
-              ? "Email Address must include '@'"
-              : "Email Address"
-          }
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -331,8 +311,8 @@ export default function IM({ email, e, l }: any) {
       </Grid> */}
       <Grid item>
         <Button
-          disabled={emailValidation}
-          color="inherit"
+          /*           disabled={"allvalidations"}
+           */ color="inherit"
           variant="outlined"
           sx={{
             color: "#FF8B17",

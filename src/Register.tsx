@@ -116,6 +116,14 @@ export default function Register({ l }: any) {
     },
   });
 
+  const emailValidation =
+    email.includes("+") ||
+    !(
+      email.includes("@") &&
+      email.indexOf("@") !== 0 &&
+      email.indexOf("@") !== email.length - 1
+    );
+
   return (
     <Grid
       sx={{ backgroundColor: amber[50] }}
@@ -292,7 +300,18 @@ export default function Register({ l }: any) {
             <ThemeProvider theme={theme}>
               <TextField
                 type="email"
-                label="Email Address"
+                error={emailValidation && !!email}
+                label={
+                  email.includes("+")
+                    ? "Email Address mustn't include '+'"
+                    : !(
+                        email.includes("@") &&
+                        email.indexOf("@") !== 0 &&
+                        email.indexOf("@") !== email.length - 1
+                      ) && !!email
+                    ? "Email Address must include '@'"
+                    : "Email Address"
+                }
                 placeholder="name@example.com"
                 variant="outlined"
                 color="primary"
@@ -308,6 +327,7 @@ export default function Register({ l }: any) {
           </Grid>
           <Grid item>
             <Button
+              disabled={emailValidation}
               onClick={async () => {
                 let res = { data: { result: "X" } };
                 setlabel("Initiating Authentication Form...");
