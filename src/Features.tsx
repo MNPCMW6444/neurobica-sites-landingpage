@@ -47,7 +47,7 @@ export default function RowAndColumnSpacing() {
                 width="100vw"
                 alignItems="center"
                 direction="row" sx={{ padding: "5vh" }} rowSpacing={{ xs: 1, sm: 2, md: 2 }} columnSpacing={{ xs: 3, sm: 2, md: 2 }}>
-                <Grid item container xs={6} width="35vh" height="30vh" md={3} sx={{ maxWidth: "40vw" }} alignItems="center" justifyContent="center" direction="column">
+                <Grid item container xs={6} width="35vh" height="30vh" md={6} sx={{ maxWidth: "40vw" }} alignItems="center" justifyContent="center" direction="column">
                     <Grid item>
                         <Avatar alt="attention" src={attention} sx={{ width: "10vh", height: "10vh" }}></Avatar>
                     </Grid>
@@ -57,7 +57,7 @@ export default function RowAndColumnSpacing() {
                     </Grid>
 
                 </Grid>
-                <Grid item container xs={6} width="35vh" height="30vh" md={3} alignItems="center" justifyContent="center" sx={{ maxWidth: "40vw" }} direction="column" >
+                <Grid item container xs={6} width="35vh" height="30vh" md={6} alignItems="center" justifyContent="center" sx={{ maxWidth: "40vw" }} direction="column" >
                     <Grid item>
                         <Avatar alt="memory"
                             src={memory}
@@ -69,7 +69,7 @@ export default function RowAndColumnSpacing() {
                     </Grid>
                 </Grid>
 
-                <Grid item container width="35vh" height="30vh" xs={6} md={3} justifyContent="center" alignItems="center" direction="column">
+                <Grid item container width="35vh" height="30vh" xs={6} md={6} justifyContent="center" alignItems="center" direction="column">
                     <Grid item>
                         <Avatar src={multiplayer}
                             sx={{ width: "10vh", height: "10vh" }}></Avatar>
@@ -80,7 +80,7 @@ export default function RowAndColumnSpacing() {
                     </Grid>
                 </Grid>
 
-                <Grid item container width="35vh" height="30vh" xs={6} md={3} alignItems="center" justifyContent="center" direction="column">
+                <Grid item container width="35vh" height="30vh" xs={6} md={6} alignItems="center" justifyContent="center" direction="column">
                     <Grid item>
                         <Avatar src={performance} alt="performance"
                             sx={{ width: "10vh", height: "10vh" }}></Avatar>
