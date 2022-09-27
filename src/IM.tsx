@@ -21,6 +21,7 @@ import Signin from "./Signin";
 import Badge from "@mui/icons-material/Badge";
 import Lock from "@mui/icons-material/Lock";
 import SignupFin from "./SignupFin";
+import { Link } from "@mui/material";
 
 export default function IM({ email, e, l, closemodal }: any) {
   const [isSignIn, setIsSignIn] = useState(e || false);
@@ -268,11 +269,10 @@ export default function IM({ email, e, l, closemodal }: any) {
             <FormControlLabel
               label={
                 <Box>
-                  <span>I accept the </span>
-                  {/*  <Link to={"/termsvf"}>
-                          terms of use and privacy policy
-                        </Link> */}
-                  <Box>terms of use and privacy policy</Box>
+                  I accept the{" "}
+                  <Link href={"/termsandpolicy.html"}>
+                    terms of use and privacy policy
+                  </Link>
                 </Box>
               }
               sx={{
