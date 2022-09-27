@@ -2,9 +2,9 @@
   "AWSEBDockerrunVersion": 2,
   "containerDefinitions": [
     {
-      "name": "nginx",
-      "image": "lukondefmwila/dkr-multicontainer-app-nginx",
-      "hostname": "nginx",
+      "name": "nginxmichaelproxy",
+      "image": "lukondefmwila/dkr-multicontainer-app-nginxmichaelproxy",
+      "hostname": "nginxmichaelproxy",
       "essential": true,
       "portMappings": [
         {
