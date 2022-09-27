@@ -2,13 +2,11 @@ FROM node:16
 
 WORKDIR /serverlp
 
-COPY package*.json ./
+COPY package*.json .
 
 RUN npm install
 
 COPY . .
-
-ENV PORT=6444
 
 EXPOSE 6444
 

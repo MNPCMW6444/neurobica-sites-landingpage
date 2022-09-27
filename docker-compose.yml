@@ -1,60 +1,44 @@
-# Version of Docker-compose
 version: "3.8"
 services:
-  # Service name
-  node:
-    # ADD THE CONFIGURATION FROM THIS POINT to build the MongoDB service
-    environment:
-      - PORT=6444
-      # For security, specify a username and password as environmental variables
-      # Username for the mongo database
-      - MONGO_INITDB_ROOT_USERNAME=mneurobicapcmw
-      # Password for the mongo database
-      - MONGO_INITDB_ROOT_PASSWORD=234fkl;34mfl323lkjkl234mf
-    # Enables the mongo service to start before the node service
+  nginx:
     depends_on:
-      - mongo
-    # ADD THE CONFIGURATION FROM THIS POINT to create a volume named nodeVolume
-    volumes:
-      # Syntax <nameOfVolume>:<directorInDocker>
-      - serverVolume:/server
-    # Creating a custom image
+      - client
+      - server
+    restart: always # because it is routing traffic to our entire app
     build:
-      # Location to the Dockerfile
-      context: ./server/
-      # Name of the Dockerfile
       dockerfile: Dockerfile
+      context: ./nginx
     ports:
-      # External port:Internal port
-      - 6444:6444
-  mongo:
-    # Official mongo image from docker.hub
-    image: mongo
-    environment:
-      # Username for the mongo database
-      - MONGO_INITDB_ROOT_USERNAME=mneurobicapcmw
-      # Password for the mongo database
-      - MONGO_INITDB_ROOT_PASSWORD=234fkl;34mfl323lkjkl234mf
+      - "80:80"
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    #ports:
+    #  - '3000:3000'
     volumes:
-      # <nameOfVolume>:<directorInDocker>
-      - mongoDB:/data/db
-  # Add the react service
-  react:
-    # Location to the dockerfile
-    context: .
-    # Name of the dockerfile
-    dockerfile: dockerfile
-  # Making the node service volume accessible to other services.
-volumes:
-  # Declaring the node service volume.
-  serverVolume:
-  mongoDB:
-ports:
-  # External port:Internal port
-  - 3000:3000
-depends_on:
-  # Starts up the node service before starting up the react service
-  - node
-environment:
-  # Enabling hot reload
-  - CHOKIDAR_USEPOLLING=true
+      - /app/node_modules # Inside the container, don't try to override this folder, just leave as is
+    restart: on-failure
+    container_name: client
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    #ports:
+    #  - '3001:3001'
+    restart: on-failure
+    container_name: server
+    volumes:
+      - /app/node_modules # Inside the container, don't try to override this folder, just leave as is
+    env_file:
+      - ./server/.env
+  mongo:
+    image: "mongo"
+    container_name: "mongo-db"
+    ports:
+      - "27017-27019:27017-27019"
+    volumes:
+      - ./db/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ./db/mongo-volume:/data/db
+    env_file:
+      - ./env/mongo.env
