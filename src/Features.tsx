@@ -53,7 +53,7 @@ export default function RowAndColumnSpacing() {
                     </Grid>
                     <Grid item>
 
-                        <Typography sx={{ fontSize: "2vw" }} align='center'> Attention, focus and memory performance enhancement neurofeedback training</Typography>
+                        <Typography sx={{ fontSize: "2vw" }} align='center'>performance enhancement neurofeedback training for Attention, focus and memory! </Typography>
                     </Grid>
 
                 </Grid>
@@ -65,7 +65,7 @@ export default function RowAndColumnSpacing() {
                     </Grid>
                     <Grid item >
 
-                        <Typography sx={{ fontSize: "2vw" }} align='center'> Anxiety and stress relief, mindfulness neurofeedback training</Typography>
+                        <Typography sx={{ fontSize: "2vw" }} align='center'>Wellbeing neurofeedback training for Anxiety and stress relief and mindfulness! </Typography>
                     </Grid>
                 </Grid>
 
