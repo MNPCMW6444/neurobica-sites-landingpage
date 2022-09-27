@@ -297,7 +297,7 @@ export default function Register({ l, user }: any) {
               Join Today:
             </InputLabel>
           </Grid>
-          {user ? (
+          {user === null ? (
             <>
               {" "}
               <Grid item>
