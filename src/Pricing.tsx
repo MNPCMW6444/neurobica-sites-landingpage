@@ -43,7 +43,7 @@ export default function Pricing() {
                 <Typography sx={{ padding: "1vh", textAlign: "center" }} variant="h4">
                     Join Neurobica and boost your brain to the next level!
                 </Typography>            </Grid>
-            <Grid item xs={6} height="50vh">
+            <Grid item xs={6} sm={6} lg={4} md={6} height="50vh">
                 <Item elevation={2} sx={{ fontSize: "30px", minHeight: "55vh", maxWidth: "55vh" }} >
                     <Grid item >
                         <Typography sx={{ paddingBottom: "5px" }} variant="h4" >Standard</Typography>
