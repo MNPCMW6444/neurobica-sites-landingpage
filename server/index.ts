@@ -64,7 +64,7 @@ app.use(
     origin:
       process.env.NODE_ENV === "development"
         ? ["http://localhost:3000"]
-        : ["http://join.neurobica.online"],
+        : ["https://join.neurobica.online"],
     credentials: true,
   })
 );
