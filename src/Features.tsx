@@ -24,18 +24,18 @@ export default function RowAndColumnSpacing() {
                 container
                 width="100vw"
                 rowSpacing={2}
-                columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+                columnSpacing={{ xs: 1, sm: 2, md: 3, lg: 5 }}
                 justifyContent="center"
                 alignItems="center"
                 direction="column"
             >
                 <Grid item xs={12} md={12} lg={12}>
-                    <Typography align="center" sx={{ padding: "2vh", maxWidth: "70vW", fontSize: "7vw" }} variant="h4">
+                    <Typography align="center" sx={{ padding: "2vw", maxWidth: "70vW", fontSize: "2rem" }} variant="h4">
                         If we didn't change your mind - you can!
                     </Typography>
                 </Grid>
                 <Grid item xs={12} md={12} lg={12} height="100vhs">
-                    <Typography sx={{ fontSize: "3vw" }} align="center" variant="h5" >
+                    <Typography sx={{ fontSize: "1.5rem" }} align="center" variant="h5" >
                         100% money back guarantee for 30 days!
                     </Typography>
                     <br></br>
@@ -47,17 +47,17 @@ export default function RowAndColumnSpacing() {
                 width="100vw"
                 alignItems="center"
                 direction="row" sx={{ padding: "5vh" }} rowSpacing={{ xs: 1, sm: 2, md: 2 }} columnSpacing={{ xs: 3, sm: 2, md: 2 }}>
-                <Grid item container xs={6} width="35vh" height="30vh" md={3} sx={{ maxWidth: "40vw" }} alignItems="center" justifyContent="center" direction="column">
+                <Grid item container xs={6} width="35vh" height="30vh" md={6} sx={{ maxWidth: "40vw" }} alignItems="center" justifyContent="center" direction="column">
                     <Grid item>
                         <Avatar alt="attention" src={attention} sx={{ width: "10vh", height: "10vh" }}></Avatar>
                     </Grid>
                     <Grid item>
 
-                        <Typography sx={{ fontSize: "2vh" }} align='center'> Attention, focus and memory performance enhancement neurofeedback training</Typography>
+                        <Typography sx={{ fontSize: "2vw" }} align='center'>performance enhancement neurofeedback training for Attention, focus and memory! </Typography>
                     </Grid>
 
                 </Grid>
-                <Grid item container xs={6} width="35vh" height="30vh" md={3} alignItems="center" justifyContent="center" sx={{ maxWidth: "40vw" }} direction="column" >
+                <Grid item container xs={6} width="35vh" height="30vh" md={6} alignItems="center" justifyContent="center" sx={{ maxWidth: "40vw" }} direction="column" >
                     <Grid item>
                         <Avatar alt="memory"
                             src={memory}
@@ -65,29 +65,29 @@ export default function RowAndColumnSpacing() {
                     </Grid>
                     <Grid item >
 
-                        <Typography sx={{ fontSize: "2vh" }} align='center'> Anxiety and stress relief, mindfulness neurofeedback training</Typography>
+                        <Typography sx={{ fontSize: "2vw" }} align='center'>Wellbeing neurofeedback training for Anxiety and stress relief and mindfulness! </Typography>
                     </Grid>
                 </Grid>
 
-                <Grid item container width="35vh" height="30vh" xs={6} md={3} justifyContent="center" alignItems="center" direction="column">
+                <Grid item container width="35vh" height="30vh" xs={6} md={6} justifyContent="center" alignItems="center" direction="column">
                     <Grid item>
                         <Avatar src={multiplayer}
                             sx={{ width: "10vh", height: "10vh" }}></Avatar>
                     </Grid>
                     <Grid item>
 
-                        <Typography sx={{ fontSize: "2vh" }} align='center'>The first and only online multyplayer neurofeedback training platform</Typography>
+                        <Typography sx={{ fontSize: "2vw" }} align='center'>The first and only online multyplayer neurofeedback training platform</Typography>
                     </Grid>
                 </Grid>
 
-                <Grid item container width="35vh" height="30vh" xs={6} md={3} alignItems="center" justifyContent="center" direction="column">
+                <Grid item container width="35vh" height="30vh" xs={6} md={6} alignItems="center" justifyContent="center" direction="column">
                     <Grid item>
                         <Avatar src={performance} alt="performance"
                             sx={{ width: "10vh", height: "10vh" }}></Avatar>
                     </Grid>
-                    <Grid item>
+                    <Grid item >
 
-                        <Typography sx={{ fontSize: "2vh" }} align='center'>  Science proved brain prformence assasment to check your progress</Typography>
+                        <Typography sx={{ fontSize: "2vw" }} align='center'>  Science proved brain prformence assasment to check your progress</Typography>
                     </Grid>
                 </Grid>
 
