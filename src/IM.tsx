@@ -143,15 +143,9 @@ export default function IM({ email, e, l }: any) {
                 m: 0,
                 width: "40vh",
               }}
-              error={!passwordValidation}
               id="tandard-basic"
               variant="standard"
               type="password"
-              label={
-                passwordValidation === false
-                  ? "Password must include 8 character or more and include at least 1 lowercase, uppercase, number and symbol charactors"
-                  : "Password"
-              }
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
@@ -199,7 +193,6 @@ export default function IM({ email, e, l }: any) {
                 m: 0,
                 width: "40vh",
               }}
-              error={!passwordValidation}
               type="password"
               variant="standard"
               label="key"
@@ -222,12 +215,12 @@ export default function IM({ email, e, l }: any) {
                 m: 0,
                 width: "40vh",
               }}
-              error={false}
+              error={!passwordValidation && !!password}
               type="password"
               variant="standard"
               label={
-                passwordValidation === false
-                  ? "Password must include 8 character or more and include at least 1 lowercase, uppercase, number and symbol charactors"
+                !passwordValidation && !!password
+                  ? "Password is to weak"
                   : "Password"
               }
               InputProps={{
@@ -243,6 +236,37 @@ export default function IM({ email, e, l }: any) {
                 setPassword(e.target.value);
               }}
             />
+            <Grid container direction="row" width="100%" height="5px">
+              <Grid
+                item
+                width="25%"
+                sx={{ backgroundColor: !!password ? "red" : "white" }}
+              ></Grid>
+              <Grid
+                item
+                width="25%"
+                sx={{
+                  backgroundColor:
+                    passwordStrength(password).id > 0 ? "orange" : "white",
+                }}
+              ></Grid>
+              <Grid
+                item
+                width="25%"
+                sx={{
+                  backgroundColor:
+                    passwordStrength(password).id > 1 ? "yellow" : "white",
+                }}
+              ></Grid>
+              <Grid
+                item
+                width="25%"
+                sx={{
+                  backgroundColor:
+                    passwordStrength(password).id > 2 ? "green" : "white",
+                }}
+              ></Grid>
+            </Grid>
           </Grid>
           <Grid item>
             <TextField
@@ -250,10 +274,16 @@ export default function IM({ email, e, l }: any) {
                 m: 0,
                 width: "40vh",
               }}
-              error={password !== passwordagain}
+              error={
+                password !== passwordagain && !!password && !!passwordagain
+              }
               type="password"
               variant="standard"
-              label="Confirm Password"
+              label={
+                password !== passwordagain && !!password && !!passwordagain
+                  ? "Passwords doesn't match"
+                  : "Retype Password"
+              }
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
