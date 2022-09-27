@@ -1,5 +1,9 @@
 {
   "AWSEBDockerrunVersion": 3,
+  "Authentication": {
+    "bucket": "<AWS_S3_BUCKET_NAME>",
+    "key": "config.json"
+  },
   "containerDefinitions": [
     {
       "name": "nginxmichaelproxy",
