@@ -30,40 +30,7 @@ export default function IM({ email, e, l }: any) {
   const [passwordagain, setPasswordagain] = useState("");
   const [label, setLabel] = useState<string>(isSignIn ? "Login" : "register");
 
-  const [state, setState] = useState<{
-    checkedA: boolean;
-    checkedB: boolean;
-    checkedF: boolean;
-    checkedG: boolean;
-  }>({
-    checkedA: false,
-    checkedB: false,
-    checkedF: false,
-    checkedG: false,
-  });
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-  };
-
-  /*  const [state2, setState2] = useState<{
-    checkedA: boolean;
-    checkedB: boolean;
-    checkedF: boolean;
-    checkedG: boolean;
-  }>({
-    checkedA: true,
-    checkedB: true,
-    checkedF: true,
-    checkedG: true,
-  });
-
-  const handleChange2 = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setState2({ ...state, [event.target.name]: event.target.checked });
-  }; */
-
-  console.log(email.indexOf("@"));
-  console.log(email.indexOf("@"));
+  const [accept, setaccept] = useState<boolean>(false);
 
   const passwordValidation =
     passwordStrength(password).value === "Strong" ||
@@ -169,10 +136,9 @@ export default function IM({ email, e, l }: any) {
                 m: 0,
                 width: "40vh",
               }}
-              error={false}
               type="text"
               variant="standard"
-              label="Full Name"
+              label="Full Name (Optional)"
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
@@ -318,8 +284,8 @@ export default function IM({ email, e, l }: any) {
                   sx={{
                     fontSize: "28",
                   }}
-                  checked={state.checkedB}
-                  onChange={handleChange}
+                  checked={accept}
+                  onChange={(e) => setaccept(!accept)}
                   name="checkedB"
                   color="default"
                   size="small"
@@ -341,8 +307,16 @@ export default function IM({ email, e, l }: any) {
       </Grid> */}
       <Grid item>
         <Button
-          /*           disabled={"allvalidations"}
-           */ color="inherit"
+          disabled={
+            (!passwordValidation && !!password) ||
+            (password !== passwordagain && !!password && !!passwordagain) ||
+            !email ||
+            !key ||
+            !password ||
+            !passwordagain ||
+            !accept
+          }
+          color="inherit"
           variant="outlined"
           sx={{
             color: "#FF8B17",
