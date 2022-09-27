@@ -1,37 +1,7 @@
 {
-  "AWSEBDockerrunVersion": 3,
+  "AWSEBDockerrunVersion": "3",
   "Authentication": {
     "bucket": "elasticbeanstalk-us-east-1-999752080148",
     "key": "config.json"
-  },
-  "containerDefinitions": [
-    {
-      "name": "nginxmichaelproxy",
-      "image": "lukondefmwila/dkr-multicontainer-app-nginxmichaelproxy",
-      "hostname": "nginxmichaelproxy",
-      "essential": true,
-      "portMappings": [
-        {
-          "hostPort": 80,
-          "containerPort": 80
-        }
-      ],
-      "links": ["client", "server"],
-      "memory": 100
-    },
-    {
-      "name": "client",
-      "image": "lukondefmwila/dkr-multicontainer-app-client",
-      "hostname": "client",
-      "essential": true,
-      "memory": 300
-    },
-    {
-      "name": "server",
-      "image": "lukondefmwila/dkr-multicontainer-app-server",
-      "hostname": "server",
-      "essential": true,
-      "memory": 300
-    }
-  ]
+  }
 }
