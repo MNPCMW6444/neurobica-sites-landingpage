@@ -1,6 +1,7 @@
 import Axios from "axios";
 import { useEffect } from "react";
 import { Store } from "react-notifications-component";
+import domain from "./domian";
 
 interface SigninProps {
   setLabel: Function;
@@ -14,7 +15,7 @@ export default function Signin(props: SigninProps) {
   useEffect(() => {
     const signIn = async () => {
       try {
-        await Axios.post("/server/user/signin", {
+        await Axios.post(domain + "user/signin", {
           email,
           password,
         });

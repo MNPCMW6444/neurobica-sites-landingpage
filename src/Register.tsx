@@ -30,6 +30,7 @@ import Fade from "@mui/material/Fade";
 import IM from "./IM";
 import Axios from "axios";
 import { Store } from "react-notifications-component";
+import domain from "./domian";
 
 const modalstyle = {
   position: "fixed" as "fixed",
@@ -332,7 +333,7 @@ export default function Register({ l }: any) {
                 let res = { data: { result: "X" } };
                 setlabel("Initiating Authentication Form...");
                 try {
-                  res = await Axios.post("/server/user/signupreq", {
+                  res = await Axios.post(domain + "user/signupreq", {
                     email,
                   });
                   if (res.data.result[0] !== "e") throw new Error("KAKI");

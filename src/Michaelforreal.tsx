@@ -13,6 +13,7 @@ import Button from "@mui/material/Button";
 import { Fragment, useState } from "react";
 import orange from "@mui/material/colors/orange";
 import Axios from "axios";
+import domain from "./domian";
 
 export default function Michaelforreal({ setuser, home, user }: any) {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -89,7 +90,7 @@ export default function Michaelforreal({ setuser, home, user }: any) {
 
         <MenuItem
           onClick={async () => {
-            await Axios.get("/server/user/signout");
+            await Axios.get(domain + "user/signout");
             setuser(null);
           }}
         >
