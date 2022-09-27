@@ -4,6 +4,8 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import background from "src/silver-background-for-christmas-1024x725.jpeg"
 import DoneIcon from '@mui/icons-material/DoneAll';
+import DoneIcon2 from '@mui/icons-material/Done';
+
 const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(2),
@@ -36,34 +38,42 @@ export default function Pricing() {
             width="100vw"
             alignItems="center"
             direction="row"
-            sx={{ padding: "3vh" }} rowSpacing={1} columnSpacing={{ xs: 3, sm: 2, md: 3 }}>
-            <Grid item xs={12} width="20vh" height="30vh">
+            sx={{ padding: "3vh" }} rowSpacing={0} columnSpacing={{ xs: 3, sm: 3, md: 3 }}>
+            <Grid item xs={12} width="20vh" height="15vh">
                 <Typography sx={{ padding: "1vh", textAlign: "center" }} variant="h4">
                     Join Neurobica and boost your brain to the next level!
                 </Typography>            </Grid>
             <Grid item xs={6} height="50vh">
-                <Item sx={{
-                    fontSize: "30px", minHeight: "55vh", maxWidth: "55vh"
-                }} >
-                    <Grid item>
+                <Item elevation={2} sx={{ fontSize: "30px", minHeight: "55vh", maxWidth: "55vh" }} >
+                    <Grid item >
                         <Typography sx={{ paddingBottom: "5px" }} variant="h4" >Standard</Typography>
                         <Grid container
                             width="100vw"
                             direction="row"
-                            sx={{ padding: "1vh" }} rowSpacing={5} columnSpacing={{ xs: 14, sm: 2, md: 3 }}>
-
-                            <Grid item md={12} xs={12}>
-                                <Typography variant="h4" color="black">13.99$ </Typography>
+                            rowSpacing={0} columnSpacing={{ xs: 1, sm: 1, md: 1 }}>
+                            <Grid item md={12} xs={12} spacing={{ xs: 2, md: 4, lg: 5 }}>
+                                <Typography variant="h4" color="black">12.99$ </Typography>
                                 <Typography color="black">/mounth </Typography>
+                                <Button variant="contained" sx={{ color: "black", backgroundColor: "#FFD700" }}>Select</Button>
                             </Grid>
 
-                        </Grid>
-                    </Grid>
+                            <Grid item md={12} xs={12}>
+                                <DoneIcon2 sx={{ color: "green" }} />
 
+                                <Typography sx={{ fontSize: "13px" }}>One training domain</Typography>
+                                <DoneIcon2 sx={{ color: "green" }} />
+                                <Typography sx={{ fontSize: "13px" }}>Multyplayer</Typography>
+
+
+
+                            </Grid>
+                        </Grid>
+
+                    </Grid>
                 </Item>
             </Grid>
-            <Grid item xs={6} height="50vh">
-                <Item2 elevation={20} sx={{ fontSize: "30px", minHeight: "55vh", maxWidth: "55vh" }} >
+            <Grid item xs={6} height="52vh">
+                <Item2 elevation={20} sx={{ fontSize: "30px", minHeight: "57vh", maxWidth: "60vh" }} >
                     <Grid item >
                         <Typography sx={{ paddingBottom: "5px" }} variant="h4" >Premium</Typography>
                         <Grid container
@@ -79,14 +89,15 @@ export default function Pricing() {
                             <Grid item md={12} xs={12}>
                                 <DoneIcon sx={{ color: "green" }} />
 
-                                <Typography sx={{ fontSize: "10px" }}>All training domains</Typography>
+                                <Typography sx={{ fontSize: "13px" }}>All training domains</Typography>
                                 <DoneIcon sx={{ color: "green" }} />
-                                <Typography sx={{ fontSize: "10px" }}>Access to cumulative workouts</Typography>
+                                <Typography sx={{ fontSize: "13px" }}>Access to cumulative workouts</Typography>
                                 <DoneIcon sx={{ color: "green" }} />
-                                <Typography sx={{ fontSize: "10px" }}>Customizable themes, avatars and icons in multiplayer
+                                <Typography sx={{ fontSize: "13px" }}>Multyplayer</Typography>
+                                <DoneIcon sx={{ color: "green" }} />
+                                <Typography sx={{ fontSize: "13px" }}>Brain performance assasment tests for progress tracking
                                 </Typography >
-                                <DoneIcon sx={{ color: "green" }} />
-                                <Typography sx={{ fontSize: "10px" }}>All training domains</Typography>
+
 
                             </Grid>
                         </Grid>
