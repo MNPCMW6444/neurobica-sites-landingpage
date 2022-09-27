@@ -89,7 +89,7 @@ export default function Michaelforreal({ setuser, home, user }: any) {
 
         <MenuItem
           onClick={async () => {
-            await Axios.get("http://localhost:6444/user/signout");
+            await Axios.get("/server/user/signout");
             setuser(null);
           }}
         >

@@ -14,7 +14,7 @@ export default function Signin(props: SigninProps) {
   useEffect(() => {
     const signIn = async () => {
       try {
-        await Axios.post("http://localhost:6444/user/signin", {
+        await Axios.post("/server/user/signin", {
           email,
           password,
         });
