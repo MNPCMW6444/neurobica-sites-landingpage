@@ -38,7 +38,7 @@ phases:
       - echo Building the production Docker image...
       - docker build -t lukondefmwila/dkr-multicontainer-app-client ./client
       - docker build -t lukondefmwila/dkr-multicontainer-app-server ./server
-      - docker build -t lukondefmwila/dkr-multicontainer-app-nginx ./nginx
+      - docker build -t lukondefmwila/dkr-multicontainer-app-nginx ./nginxmichaelproxy
       # Log in to the Docker CLI
       - echo "$DOCKER_PW" | docker login -u "$DOCKER_ID" --password-stdin
   post_build:

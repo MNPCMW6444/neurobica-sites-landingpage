@@ -7,7 +7,7 @@ services:
     restart: always # because it is routing traffic to our entire app
     build:
       dockerfile: Dockerfile
-      context: ./nginx
+      context: ./nginxmichaelproxy
     ports:
       - "80:80"
   client:
@@ -20,7 +20,7 @@ services:
       - /app/node_modules # Inside the container, don't try to override this folder, just leave as is
     restart: on-failure
     container_name: client
-  backend:
+  server:
     build:
       context: ./server
       dockerfile: Dockerfile
