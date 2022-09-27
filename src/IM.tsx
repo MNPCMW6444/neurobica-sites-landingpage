@@ -22,7 +22,7 @@ import Badge from "@mui/icons-material/Badge";
 import Lock from "@mui/icons-material/Lock";
 import SignupFin from "./SignupFin";
 
-export default function IM({ email, e, l }: any) {
+export default function IM({ email, e, l, closemodal }: any) {
   const [isSignIn, setIsSignIn] = useState(e || false);
   const [key, setKey] = useState("");
   const [fullname, setFullName] = useState("");
@@ -333,7 +333,13 @@ export default function IM({ email, e, l }: any) {
 
       {label === "Logging In..." && (
         <Grid item>
-          <Signin email={email} password={password} setLabel={setLabel} l={l} />
+          <Signin
+            email={email}
+            password={password}
+            setLabel={setLabel}
+            l={l}
+            closemodal={closemodal}
+          />
         </Grid>
       )}
       {label === "Registring..." && (
@@ -346,6 +352,7 @@ export default function IM({ email, e, l }: any) {
             password={password}
             passwordagain={passwordagain}
             l={l}
+            closemodal={closemodal}
           />
         </Grid>
       )}

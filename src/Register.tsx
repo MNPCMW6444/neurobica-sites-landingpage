@@ -92,6 +92,11 @@ export default function Register({ l, user }: any) {
 
   const [e, sete] = useState(false);
 
+  const tsx = {
+    fontSize: (wide ? 4 * 0.75 : 4) + "vw",
+    color: orange[900],
+  };
+
   useEffect(() => {
     const handleResize = () => {
       window.innerWidth < window.innerHeight
@@ -148,7 +153,7 @@ export default function Register({ l, user }: any) {
       >
         <Fade in={open}>
           <Box sx={modalstyle}>
-            <IM email={email} e={e} l={l} />
+            <IM email={email} e={e} l={l} closemodal={() => setOpen(false)} />
           </Box>
         </Fade>
       </Modal>
@@ -288,13 +293,8 @@ export default function Register({ l, user }: any) {
           columnSpacing={2}
         >
           <Grid item>
-            <InputLabel
-              sx={{
-                fontSize: (wide ? 4 * 0.75 : 4) + "vw",
-                color: orange[900],
-              }}
-            >
-              Join Today:
+            <InputLabel sx={tsx}>
+              {user === null ? "Join" : "Pre-Order"} Today:
             </InputLabel>
           </Grid>
           {user === null ? (
@@ -395,13 +395,13 @@ export default function Register({ l, user }: any) {
             <>
               {" "}
               <Grid item>
-                <Link href="https://buy.stripe.com/6oE01EfnjcZVgGQfYY">
-                  Pre-Order Standard Package
+                <Link href="https://buy.stripe.com/6oE01EfnjcZVgGQfYY" sx={tsx}>
+                  Standard
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="https://buy.stripe.com/6oE01EfnjcZVgGQfYY">
-                  Pre-Order Premium Package
+                <Link href="https://buy.stripe.com/bIY6q22Ax3plgGQfYZ" sx={tsx}>
+                  Premium
                 </Link>
               </Grid>
             </>

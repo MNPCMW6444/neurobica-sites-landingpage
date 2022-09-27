@@ -8,10 +8,11 @@ interface SigninProps {
   email: string;
   password: string;
   l: any;
+  closemodal: any;
 }
 
 export default function Signin(props: SigninProps) {
-  const { email, password, setLabel, l } = props;
+  const { email, password, setLabel, l, closemodal } = props;
   useEffect(() => {
     const signIn = async () => {
       try {
@@ -20,6 +21,8 @@ export default function Signin(props: SigninProps) {
           password,
         });
         setLabel("Success!");
+        closemodal();
+
         l();
       } catch (err: any) {
         Store.removeAllNotifications();
