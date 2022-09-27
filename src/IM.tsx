@@ -30,48 +30,7 @@ export default function IM({ email, e, l }: any) {
   const [passwordagain, setPasswordagain] = useState("");
   const [label, setLabel] = useState<string>(isSignIn ? "Login" : "register");
 
-  const [state, setState] = useState<{
-    checkedA: boolean;
-    checkedB: boolean;
-    checkedF: boolean;
-    checkedG: boolean;
-  }>({
-    checkedA: false,
-    checkedB: false,
-    checkedF: false,
-    checkedG: false,
-  });
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-  };
-
-  /*  const [state2, setState2] = useState<{
-    checkedA: boolean;
-    checkedB: boolean;
-    checkedF: boolean;
-    checkedG: boolean;
-  }>({
-    checkedA: true,
-    checkedB: true,
-    checkedF: true,
-    checkedG: true,
-  });
-
-  const handleChange2 = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setState2({ ...state, [event.target.name]: event.target.checked });
-  }; */
-
-  const emailValidation =
-    email.includes("+") ||
-    !(
-      email.includes("@") &&
-      email.indexOf("@") !== 0 &&
-      email.indexOf("@") !== email.length - 1
-    );
-
-  console.log(email.indexOf("@"));
-  console.log(email.indexOf("@"));
+  const [accept, setaccept] = useState<boolean>(false);
 
   const passwordValidation =
     passwordStrength(password).value === "Strong" ||
@@ -128,21 +87,9 @@ export default function IM({ email, e, l }: any) {
             m: 0,
             width: "40vh",
           }}
-          error={emailValidation && !!email}
           id="sandard-basic"
           variant="standard"
           type="email"
-          label={
-            email.includes("+")
-              ? "Email Address mustn't include '+'"
-              : !(
-                  email.includes("@") &&
-                  email.indexOf("@") !== 0 &&
-                  email.indexOf("@") !== email.length - 1
-                ) && !!email
-              ? "Email Address must include '@'"
-              : "Email Address"
-          }
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -163,15 +110,9 @@ export default function IM({ email, e, l }: any) {
                 m: 0,
                 width: "40vh",
               }}
-              error={!passwordValidation}
               id="tandard-basic"
               variant="standard"
               type="password"
-              label={
-                passwordValidation === false
-                  ? "Password must include 8 character or more and include at least 1 lowercase, uppercase, number and symbol charactors"
-                  : "Password"
-              }
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
@@ -195,10 +136,9 @@ export default function IM({ email, e, l }: any) {
                 m: 0,
                 width: "40vh",
               }}
-              error={false}
               type="text"
               variant="standard"
-              label="Full Name"
+              label="Full Name (Optional)"
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
@@ -219,7 +159,6 @@ export default function IM({ email, e, l }: any) {
                 m: 0,
                 width: "40vh",
               }}
-              error={!passwordValidation}
               type="password"
               variant="standard"
               label="key"
@@ -242,12 +181,12 @@ export default function IM({ email, e, l }: any) {
                 m: 0,
                 width: "40vh",
               }}
-              error={false}
+              error={!passwordValidation && !!password}
               type="password"
               variant="standard"
               label={
-                passwordValidation === false
-                  ? "Password must include 8 character or more and include at least 1 lowercase, uppercase, number and symbol charactors"
+                !passwordValidation && !!password
+                  ? "Password is to weak"
                   : "Password"
               }
               InputProps={{
@@ -263,6 +202,37 @@ export default function IM({ email, e, l }: any) {
                 setPassword(e.target.value);
               }}
             />
+            <Grid container direction="row" width="100%" height="5px">
+              <Grid
+                item
+                width="25%"
+                sx={{ backgroundColor: !!password ? "red" : "white" }}
+              ></Grid>
+              <Grid
+                item
+                width="25%"
+                sx={{
+                  backgroundColor:
+                    passwordStrength(password).id > 0 ? "orange" : "white",
+                }}
+              ></Grid>
+              <Grid
+                item
+                width="25%"
+                sx={{
+                  backgroundColor:
+                    passwordStrength(password).id > 1 ? "yellow" : "white",
+                }}
+              ></Grid>
+              <Grid
+                item
+                width="25%"
+                sx={{
+                  backgroundColor:
+                    passwordStrength(password).id > 2 ? "green" : "white",
+                }}
+              ></Grid>
+            </Grid>
           </Grid>
           <Grid item>
             <TextField
@@ -270,10 +240,16 @@ export default function IM({ email, e, l }: any) {
                 m: 0,
                 width: "40vh",
               }}
-              error={password !== passwordagain}
+              error={
+                password !== passwordagain && !!password && !!passwordagain
+              }
               type="password"
               variant="standard"
-              label="Confirm Password"
+              label={
+                password !== passwordagain && !!password && !!passwordagain
+                  ? "Passwords doesn't match"
+                  : "Retype Password"
+              }
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
@@ -308,8 +284,8 @@ export default function IM({ email, e, l }: any) {
                   sx={{
                     fontSize: "28",
                   }}
-                  checked={state.checkedB}
-                  onChange={handleChange}
+                  checked={accept}
+                  onChange={(e) => setaccept(!accept)}
                   name="checkedB"
                   color="default"
                   size="small"
@@ -331,7 +307,16 @@ export default function IM({ email, e, l }: any) {
       </Grid> */}
       <Grid item>
         <Button
-          disabled={emailValidation}
+          disabled={
+            ((!passwordValidation && !!password) ||
+              (password !== passwordagain && !!password && !!passwordagain) ||
+              !email ||
+              !key ||
+              !password ||
+              !passwordagain ||
+              !accept) &&
+            !isSignIn
+          }
           color="inherit"
           variant="outlined"
           sx={{
