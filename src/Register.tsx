@@ -332,12 +332,9 @@ export default function Register({ l }: any) {
                 let res = { data: { result: "X" } };
                 setlabel("Initiating Authentication Form...");
                 try {
-                  res = await Axios.post(
-                    "http://localhost:6444/user/signupreq",
-                    {
-                      email,
-                    }
-                  );
+                  res = await Axios.post("/server/user/signupreq", {
+                    email,
+                  });
                   if (res.data.result[0] !== "e") throw new Error("KAKI");
                   sete(false);
                   setOpen(true);

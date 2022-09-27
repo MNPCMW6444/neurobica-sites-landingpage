@@ -9,7 +9,7 @@ import userRouter from "./routers/userRouter";
 import cookieParser from "cookie-parser";
 
 const app = express();
-const port = process.env.PORT || 6444;
+const port = process.env.PORT || 3001;
 
 dotenv.config();
 
@@ -64,7 +64,7 @@ app.use(
     origin:
       process.env.NODE_ENV === "development"
         ? ["http://localhost:6556"]
-        : ["https://app.neurobica.online"],
+        : ["http://join.neurobica.online"],
     credentials: true,
   })
 );
