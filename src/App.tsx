@@ -41,7 +41,7 @@ function App() {
     try {
       const res = await Axios.get("http://localhost:6444/user/signedin");
       setuser(res.data);
-    } catch (e) {}
+    } catch (e) { }
   }, []);
 
   const [ismobile, setismobile] = useState(window.innerWidth < 600);
