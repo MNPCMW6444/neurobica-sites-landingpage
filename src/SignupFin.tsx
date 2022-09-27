@@ -1,6 +1,7 @@
 import Axios from "axios";
 import { useEffect } from "react";
 import { Store } from "react-notifications-component";
+import domain from "./domian";
 
 interface SignupFinProps {
   setLabel: Function;
@@ -10,15 +11,24 @@ interface SignupFinProps {
   password: string;
   passwordagain: string;
   l: any;
+  closemodal: any;
 }
 
 export default function SignupFin(props: SignupFinProps) {
-  const { setLabel, email, secretKey, fullname, password, passwordagain, l } =
-    props;
+  const {
+    setLabel,
+    email,
+    secretKey,
+    fullname,
+    password,
+    passwordagain,
+    l,
+    closemodal,
+  } = props;
   useEffect(() => {
     const signupFin = async () => {
       try {
-        await Axios.post("/server/user/signupfin", {
+        await Axios.post(domain + "user/signupfin", {
           email,
           key: secretKey,
           fullname,
@@ -26,6 +36,7 @@ export default function SignupFin(props: SignupFinProps) {
           passwordagain,
         });
         setLabel("Success!");
+        closemodal();
         l();
         setTimeout(() => setLabel("Continiue to Home Page"), 1500);
       } catch (err: any) {

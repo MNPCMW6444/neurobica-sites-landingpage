@@ -13,6 +13,7 @@ import Features from "./Features";
 import green from "@mui/material/colors/green";
 import Pricing from "./Pricing";
 import Axios from "axios";
+import domain from "./domian";
 
 Axios.defaults.withCredentials = true;
 
@@ -39,7 +40,7 @@ const logoSx = {
 function App() {
   const l = useCallback(async () => {
     try {
-      const res = await Axios.get("/server/user/signedin");
+      const res = await Axios.get(domain + "user/signedin");
       setuser(res.data);
     } catch (e) {}
   }, []);
@@ -125,7 +126,7 @@ function App() {
       )}
       <div ref={homeRef}>
         <Box>
-          <Register l={l} />
+          <Register l={l} user={user} />
           <div ref={whyRef} style={{ ...page, backgroundColor: blue[100] }}>
             <Why />
           </div>

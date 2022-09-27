@@ -20,8 +20,7 @@
     "preinstallall": "cd server && npm install",
     "installall": "npm install",
     "prestart2": "npm run installall",
-    "start2": "cd server && npm start & PORT=6556 react-scripts start",
-    "start": "PORT=6556 react-scripts start",
+    "start": "cd server && npm start & react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
