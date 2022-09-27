@@ -14,7 +14,7 @@ const Item = styled(Paper)(({ theme }) => ({
     borderRadius: "30px",
     border: "solid",
     borderWidth: "3px",
-    borderColor: "#C0C0C0	",
+    borderColor: "#C0C0C0",
     backgroundColor: blue[50]
 }));
 const Item2 = styled(Paper)(({ theme }) => ({
@@ -56,7 +56,7 @@ export default function Pricing() {
                             <Grid item md={12} xs={12} spacing={{ xs: 2, md: 4, lg: 5 }}>
                                 <Typography variant="h4" color="black">12.99$ </Typography>
                                 <Typography color="black">/mounth </Typography>
-                                <Button variant="contained" sx={{ color: "black", backgroundColor: "#FFD700" }}>Select</Button>
+                                <Button variant="contained" sx={{ color: "white", backgroundColor: "#C0C0C0" }}>Select</Button>
                             </Grid>
 
                             <Grid item md={12} xs={12}>
