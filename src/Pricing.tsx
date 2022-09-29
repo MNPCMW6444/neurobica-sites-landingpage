@@ -64,7 +64,7 @@ export default function Pricing() {
 
                                 <Typography sx={{ fontSize: "13px" }}>One training domain</Typography>
                                 <DoneIcon2 sx={{ color: "green" }} />
-                                <Typography sx={{ fontSize: "13px" }}>Multyplayer</Typography>
+                                <Typography sx={{ fontSize: "13px" }}>Multiplayer</Typography>
 
 
 
@@ -95,7 +95,7 @@ export default function Pricing() {
                                 <DoneIcon sx={{ color: "green" }} />
                                 <Typography sx={{ fontSize: "13px" }}>Access to cumulative workouts</Typography>
                                 <DoneIcon sx={{ color: "green" }} />
-                                <Typography sx={{ fontSize: "13px" }}>Multyplayer</Typography>
+                                <Typography sx={{ fontSize: "13px" }}>Muliyplayer</Typography>
                                 <DoneIcon sx={{ color: "green" }} />
                                 <Typography sx={{ fontSize: "13px" }}>Brain performance assasment tests for progress tracking
                                 </Typography >

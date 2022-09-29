@@ -53,7 +53,7 @@ export default function RowAndColumnSpacing() {
                     </Grid>
                     <Grid item>
 
-                        <Typography sx={{ fontSize: "2vw" }} align='center'>performance enhancement neurofeedback training for Attention, focus and memory! </Typography>
+                        <Typography sx={{ fontSize: "2vw" }} align='center'>Performance enhancement neurofeedback training for Attention, focus and memory! </Typography>
                     </Grid>
 
                 </Grid>

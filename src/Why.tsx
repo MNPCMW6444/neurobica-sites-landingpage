@@ -88,7 +88,7 @@ export default function Micael() {
                 </TableCell>
                 <TableCell align="center">
                   Can only be done in a clinic or by personally meeting with a
-                  thraphist/trainer
+                  theraphist/trainer
                 </TableCell>
               </TableRow>
             </TableBody>
