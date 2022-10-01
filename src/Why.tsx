@@ -11,6 +11,7 @@ import TableBody from "@mui/material/TableBody";
 import Avatar from "@mui/material/Avatar";
 //import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import yoad from "./money-svgrepo-com.svg";
+import useMediaQuery from "@mui/material/useMediaQuery";
 //import vi from "/.sign-check-svgrepo-com.svg"
 /* const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -21,8 +22,12 @@ import yoad from "./money-svgrepo-com.svg";
 })); */
 
 export default function Micael() {
+
+  const matches = useMediaQuery('(min-width:600px)');
+
+
   return (
-    <Box sx={{ width: "100vw", hight: "100vh" }}>
+    <Box sx={{ width: "100vw", hight: "100vh", backgroundColor: matches ? "green" : "red" }}>
       <Grid
         container
         width="100vw"

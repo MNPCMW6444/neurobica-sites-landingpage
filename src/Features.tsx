@@ -30,12 +30,12 @@ export default function RowAndColumnSpacing() {
                 direction="column"
             >
                 <Grid item xs={12} md={12} lg={12}>
-                    <Typography align="center" sx={{ padding: "2vw", maxWidth: "70vW", fontSize: "2rem" }} variant="h4">
+                    <Typography align="center" sx={{ padding: "1em", maxWidth: "70vW", fontSize: "2em" }} variant="h4">
                         If we didn't change your mind - you can!
                     </Typography>
                 </Grid>
                 <Grid item xs={12} md={12} lg={12} height="100vhs">
-                    <Typography sx={{ fontSize: "1.5rem" }} align="center" variant="h5" >
+                    <Typography sx={{ fontSize: "1.5em" }} align="center" variant="h5" >
                         100% money back guarantee for 30 days!
                     </Typography>
                     <br></br>
@@ -53,7 +53,7 @@ export default function RowAndColumnSpacing() {
                     </Grid>
                     <Grid item>
 
-                        <Typography sx={{ fontSize: "2vw" }} align='center'>Performance enhancement neurofeedback training for Attention, focus and memory! </Typography>
+                        <Typography sx={{ fontSize: "1em" }} align='center'>Performance enhancement neurofeedback training for Attention, focus and memory! </Typography>
                     </Grid>
 
                 </Grid>
@@ -65,7 +65,7 @@ export default function RowAndColumnSpacing() {
                     </Grid>
                     <Grid item >
 
-                        <Typography sx={{ fontSize: "2vw" }} align='center'>Wellbeing neurofeedback training for Anxiety and stress relief and mindfulness! </Typography>
+                        <Typography sx={{ fontSize: "1em" }} align='center'>Wellbeing neurofeedback training for Anxiety and stress relief and mindfulness! </Typography>
                     </Grid>
                 </Grid>
 
@@ -76,7 +76,7 @@ export default function RowAndColumnSpacing() {
                     </Grid>
                     <Grid item>
 
-                        <Typography sx={{ fontSize: "2vw" }} align='center'>The first and only online multyplayer neurofeedback training platform</Typography>
+                        <Typography sx={{ fontSize: "1em" }} align='center'>The first and only online multyplayer neurofeedback training platform</Typography>
                     </Grid>
                 </Grid>
 
@@ -87,7 +87,7 @@ export default function RowAndColumnSpacing() {
                     </Grid>
                     <Grid item >
 
-                        <Typography sx={{ fontSize: "2vw" }} align='center'>  Science proved brain prformence assasment to check your progress</Typography>
+                        <Typography sx={{ fontSize: "1em" }} align='center'>  Science proved brain prformence assasment to check your progress</Typography>
                     </Grid>
                 </Grid>
 
