@@ -9,7 +9,7 @@ services:
       dockerfile: Dockerfile.dev
       context: ./nginxmichaelproxy
     ports:
-      - "80:6444"
+      - "6444:6444"
   frontend:
     build:
       context: .
