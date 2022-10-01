@@ -20,8 +20,7 @@
     "preinstallall": "cd server && npm install",
     "installall": "npm install",
     "prestart": "npm run installall",
-    "start": "docker-compose up -d",
-    "yoad": "react-scripts start",
+    "start": "docker-compose -f dev.yml up -d",
     "build": "react-scripts build"
   },
   "browserslist": {
