@@ -9,13 +9,13 @@ services:
       dockerfile: Dockerfile.dev
       context: ./nginxmichaelproxy
     ports:
-      - "6444:6444"
+      - "4446:6444"
   frontend:
     build:
       context: .
       dockerfile: Dockerfile.dev
     volumes:
-      - ./:/react-docker:delegated
+      - ./:/react-d6ocker:delegated
       - /node_modules
     ports:
       - 3000:3000
