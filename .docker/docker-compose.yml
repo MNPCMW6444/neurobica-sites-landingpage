@@ -6,14 +6,14 @@ services:
       - server
     restart: always # because it is routing traffic to our entire app
     build:
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
       context: ./nginxmichaelproxy
     ports:
-      - "80:6444"
+      - "6444:6444"
   frontend:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     volumes:
       - ./:/react-docker:delegated
       - /node_modules
